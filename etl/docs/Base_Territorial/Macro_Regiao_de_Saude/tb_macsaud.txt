@@ -1,0 +1,139 @@
+0000IGNOR Município ignorado ou exterior            MUNICIPIO IGNORADO OU EXTERIOR            Ignorado/Exterior       8
+1100IGNOR Município ignorado - RO                   MUNICIPIO IGNORADO - RO                   Ignorado - RO           8
+1190OUTROSRegião não definida - RO                  REGIAO NAO DEFINIDA - RO                  Região não definida - RO5
+1200IGNOR Município ignorado - AC                   MUNICIPIO IGNORADO - AC                   Ignorado - AC           8
+1290OUTROSRegião não definida - AC                  REGIAO NAO DEFINIDA - AC                  Região não definida - AC5
+1300IGNOR Município ignorado - AM                   MUNICIPIO IGNORADO - AM                   Ignorado - AM           8
+1301ATIVO Manaus                                    MANAUS                                    Manaus                  1
+1400IGNOR Município ignorado - RR                   MUNICIPIO IGNORADO - RR                   Ignorado - RR           8
+1490OUTROSRegião não definida - RR                  REGIAO NAO DEFINIDA - RR                  Região não definida - RR5
+1500IGNOR Município ignorado - PA                   MUNICIPIO IGNORADO - PA                   Ignorado - PA           8
+1502ATIVO Norte                                     NORTE                                     Norte                   1
+1503ATIVO Norte-Leste                               NORTE-LESTE                               Norte-Leste             1
+1504ATIVO Nordeste                                  NORDESTE                                  Nordeste                1
+1505ATIVO Centro-Oeste                              CENTRO-OESTE                              Centro-Oeste            1
+1506ATIVO Oeste                                     OESTE                                     Oeste                   1
+1507ATIVO Sudeste                                   SUDESTE                                   Sudeste                 1
+1508ATIVO Sul                                       SUL                                       Sul                     1
+1590OUTROSRegião não definida - PA                  REGIAO NAO DEFINIDA - PA                  Região não definida - PA5
+1600IGNOR Município ignorado - AP                   MUNICIPIO IGNORADO - AP                   Ignorado - AP           8
+1690OUTROSRegião não definida - AP                  REGIAO NAO DEFINIDA - AP                  Região não definida - AP5
+1700IGNOR Município ignorado - TO                   MUNICIPIO IGNORADO - TO                   Ignorado - TO           8
+1790OUTROSRegião não definida - TO                  REGIAO NAO DEFINIDA - TO                  Região não definida - TO5
+2100IGNOR Município ignorado - MA                   MUNICIPIO IGNORADO - MA                   Ignorado - MA           8
+2101ATIVO São Luís                                  SAO LUIS                                  São Luís                1
+2102ATIVO Caxias                                    CAXIAS                                    Caxias                  1
+2103ATIVO Pinheiro                                  PINHEIRO                                  Pinheiro                1
+2104ATIVO Imperatriz                                IMPERATRIZ                                Imperatriz              1
+2105ATIVO Presidente Dutra                          PRESIDENTE DUTRA                          Presidente Dutra        1
+2106ATIVO Coroatá                                   COROATA                                   Coroatá                 1
+2107ATIVO Santa Inês                                SANTA INES                                Santa Inês              1
+2108ATIVO Balsas                                    BALSAS                                    Balsas                  1
+2200IGNOR Município ignorado - PI                   MUNICIPIO IGNORADO - PI                   Ignorado - PI           8
+2201ATIVO Parnaíba                                  PARNAIBA                                  Parnaíba                1
+2202ATIVO Teresina                                  TERESINA                                  Teresina                1
+2203ATIVO Floriano                                  FLORIANO                                  Floriano                1
+2204ATIVO Picos                                     PICOS                                     Picos                   1
+2205ATIVO São Raimundo Nonato                       SAO RAIMUNDO NONATO                       São Raimundo Nonato     1
+2206ATIVO Bom Jesus                                 BOM JESUS                                 Bom Jesus               1
+2300IGNOR Município ignorado - CE                   MUNICIPIO IGNORADO - CE                   Ignorado - CE           8
+2301ATIVO Fortaleza                                 FORTALEZA                                 Fortaleza               1
+2302ATIVO Sobral                                    SOBRAL                                    Sobral                  1
+2303ATIVO Cariri                                    CARIRI                                    Cariri                  1
+2304ATIVO Sertão Central                            SERTAO CENTRAL                            Sertão Central          1
+2305ATIVO Litoral Leste/Jaguaribe                   LITORAL LESTE/JAGUARIBE                   Litoral Leste/Jaguaribe 1
+2400IGNOR Município ignorado - RN                   MUNICIPIO IGNORADO - RN                   Ignorado - RN           8
+2490OUTROSRegião não definida - RN                  REGIAO NAO DEFINIDA - RN                  Região não definida - RN5
+2500IGNOR Município ignorado - PB                   MUNICIPIO IGNORADO - PB                   Ignorado - PB           8
+2590OUTROSRegião não definida - PB                  REGIAO NAO DEFINIDA - PB                  Região não definida - PB5
+2600IGNOR Município ignorado - PE                   MUNICIPIO IGNORADO - PE                   Ignorado - PE           8
+2601ATIVO Metropolitana                             METROPOLITANA                             Metropolitana           1
+2602ATIVO Agreste                                   AGRESTE                                   Agreste                 1
+2603ATIVO Sertão Pernambucano                       SERTAO PERNAMBUCANO                       Sertão Pernambucano     1
+2604ATIVO Vale do São Francisco e Araripe           VALE DO SAO FRANCISCO E ARARIPE           Vale S.Francisco/Araripe1
+2700IGNOR Município ignorado - AL                   MUNICIPIO IGNORADO - AL                   Ignorado - AL           8
+2701ATIVO 1ª Macrorregião                           1A MACRORREGIAO                           1ª Macrorregião         1
+2702ATIVO 2ª Macrorregião                           2A MACRORREGIAO                           2ª Macrorregião         1
+2800IGNOR Município ignorado - SE                   MUNICIPIO IGNORADO - SE                   Ignorado - SE           8
+2890OUTROSRegião não definida - SE                  REGIAO NAO DEFINIDA - SE                  Região não definida - SE5
+2900IGNOR Município ignorado - BA                   MUNICIPIO IGNORADO - BA                   Ignorado - BA           8
+2901ATIVO Centro-Leste                              CENTRO-LESTE                              Centro-Leste            1
+2902ATIVO Centro-Norte                              CENTRO-NORTE                              Centro-Norte            1
+2903ATIVO Extremo Sul                               EXTREMO SUL                               Extremo Sul             1
+2904ATIVO Leste                                     LESTE                                     Leste                   1
+2905ATIVO Nordeste                                  NORDESTE                                  Nordeste                1
+2906ATIVO Norte                                     NORTE                                     Norte                   1
+2907ATIVO Oeste                                     OESTE                                     Oeste                   1
+2908ATIVO Sudoeste                                  SUDOESTE                                  Sudoeste                1
+2909ATIVO Sul                                       SUL                                       Sul                     1
+3100IGNOR Município ignorado - MG                   MUNICIPIO IGNORADO - MG                   Ignorado - MG           8
+3101ATIVO Sul                                       SUL                                       Sul                     1
+3102ATIVO Centro Sul                                CENTRO SUL                                Centro Sul              1
+3103ATIVO Centro                                    CENTRO                                    Centro                  1
+3104ATIVO Jequitinhonha                             JEQUITINHONHA                             Jequitinhonha           1
+3105ATIVO Oeste                                     OESTE                                     Oeste                   1
+3106ATIVO Leste                                     LESTE                                     Leste                   1
+3107ATIVO Sudeste                                   SUDESTE                                   Sudeste                 1
+3108ATIVO Norte                                     NORTE                                     Norte                   1
+3109ATIVO Noroeste                                  NOROESTE                                  Noroeste                1
+3110ATIVO Leste do Sul                              LESTE DO SUL                              Leste do Sul            1
+3111ATIVO Nordeste                                  NORDESTE                                  Nordeste                1
+3112ATIVO Triângulo do Sul                          TRIANGULO DO SUL                          Triângulo do Sul        1
+3113ATIVO Triângulo do Norte                        TRIANGULO DO NORTE                        Triângulo do Norte      1
+3200IGNOR Município ignorado - ES                   MUNICIPIO IGNORADO - ES                   Ignorado - ES           8
+3290OUTROSRegião não definida - ES                  REGIAO NAO DEFINIDA - ES                  Região não definida - ES5
+3300IGNOR Município ignorado - RJ                   MUNICIPIO IGNORADO - RJ                   Ignorado - RJ           8
+3390OUTROSRegião não definida - RJ                  REGIAO NAO DEFINIDA - RJ                  Região não definida - RJ5
+3500IGNOR Município ignorado - SP                   MUNICIPIO IGNORADO - SP                   Ignorado - SP           8
+3501ATIVO RRAS 01                                   RRAS 01                                   RRAS 01                 1
+3502ATIVO RRAS 02                                   RRAS 02                                   RRAS 02                 1
+3503ATIVO RRAS 03                                   RRAS 03                                   RRAS 03                 1
+3504ATIVO RRAS 04                                   RRAS 04                                   RRAS 04                 1
+3505ATIVO RRAS 05                                   RRAS 05                                   RRAS 05                 1
+3506ATIVO RRAS 06                                   RRAS 06                                   RRAS 06                 1
+3507ATIVO RRAS 07                                   RRAS 07                                   RRAS 07                 1
+3508ATIVO RRAS 08                                   RRAS 08                                   RRAS 08                 1
+3509ATIVO RRAS 09                                   RRAS 09                                   RRAS 09                 1
+3510ATIVO RRAS 10                                   RRAS 10                                   RRAS 10                 1
+3511ATIVO RRAS 11                                   RRAS 11                                   RRAS 11                 1
+3512ATIVO RRAS 12                                   RRAS 12                                   RRAS 12                 1
+3513ATIVO RRAS 13                                   RRAS 13                                   RRAS 13                 1
+3514ATIVO RRAS 14                                   RRAS 14                                   RRAS 14                 1
+3515ATIVO RRAS 15                                   RRAS 15                                   RRAS 15                 1
+3516ATIVO RRAS 16                                   RRAS 16                                   RRAS 16                 1
+3517ATIVO RRAS 17                                   RRAS 17                                   RRAS 17                 1
+4100IGNOR Município ignorado - PR                   MUNICIPIO IGNORADO - PR                   Ignorado - PR           8
+4101ATIVO Leste                                     LESTE                                     Leste                   1
+4102ATIVO Norte                                     NORTE                                     Norte                   1
+4103ATIVO Oeste                                     OESTE                                     Oeste                   1
+4104ATIVO Noroeste                                  NOROESTE                                  Noroeste                1
+4200IGNOR Município ignorado - SC                   MUNICÍPIO IGNORADO - SC                   Ignorado - SC           8
+4201ATIVO Grande Oeste                              GRANDE OESTE                              Grande Oeste            1
+4202ATIVO Meio Oeste                                MEIO OESTE                                Meio Oeste              1
+4203ATIVO Vale do Itajaí                            VALE DO ITAJAI                            Vale do Itajaí          1
+4204ATIVO Foz do Rio Itajaí                         FOZ DO RIO ITAJAI                         Foz do Rio Itajaí       1
+4205ATIVO Grande Florianópolis                      GRANDE FLORIANOPOLIS                      Grande Florianópolis    1
+4206ATIVO Sul                                       SUL                                       Sul                     1
+4207ATIVO Nordeste                                  NORDESTE                                  Nordeste                1
+4208ATIVO Planalto Norte                            PLANALTO NORTE                            Planalto Norte          1
+4209ATIVO Serra Catarinense                         SERRA CATARINENSE                         Serra Catarinense       1
+4300IGNOR Município ignorado - RS                   MUNICIPIO IGNORADO - RS                   Ignorado - RS           8
+4301ATIVO Centro-Oeste                              CENTRO-OESTE                              Centro-Oeste            1
+4302ATIVO Metropolitana                             METROPOLITANA                             Metropolitana           1
+4303ATIVO Missioneira                               MISSIONEIRA                               Missioneira             1
+4304ATIVO Norte                                     NORTE                                     Norte                   1
+4305ATIVO Serra                                     SERRA                                     Serra                   1
+4306ATIVO Sul                                       SUL                                       Sul                     1
+4307ATIVO Vales                                     VALES                                     Vales                   1
+5000IGNOR Município ignorado - MS                   MUNICIPIO IGNORADO - MS                   Ignorado - MS           8
+5090OUTROSRegião não definida - MS                  REGIAO NAO DEFINIDA - MS                  Região não definida - MS5
+5100IGNOR Município ignorado - MT                   MUNICIPIO IGNORADO - MT                   Ignorado - MT           8
+5190OUTROSRegião não definida - MT                  REGIAO NAO DEFINIDA - MT                  Região não definida - MT5
+5200IGNOR Município ignorado - GO                   MUNICIPIO IGNORADO - GO                   Ignorado - GO           8
+5201ATIVO Centro Oeste                              CENTRO OESTE                              Centro Oeste            1
+5202ATIVO Nordeste                                  NORDESTE                                  Nordeste                1
+5203ATIVO Centro Norte                              CENTRO NORTE                              Centro Norte            1
+5204ATIVO Sudoeste                                  SUDOESTE                                  Sudoeste                1
+5205ATIVO Centro Sudeste                            CENTRO SUDESTE                            Centro Sudeste          1
+5298TRANSFMunicípios transferidos para Tocantins    MUNICIPIOS TRANSFERIDOS PARA TOCANTINS    Transf p/Tocantins      7
+5301ATIVO Brasília                                  BRASILIA                                  Brasília                1

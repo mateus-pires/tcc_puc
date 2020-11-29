@@ -1,0 +1,466 @@
+00000IGNOR Município ignorado ou exterior            MUNICIPIO IGNORADO OU EXTERIOR            Ignorado/Exterior       8
+11000IGNOR Município ignorado - RO                   MUNICIPIO IGNORADO - RO                   Ignorado - RO           8
+11001ATIVO Vale do Jamari                            VALE DO JAMARI                            Vale do Jamari          1
+11002ATIVO Café                                      CAFE                                      Café                    1
+11003ATIVO Central                                   CENTRAL                                   Central                 1
+11004ATIVO Madeira-Mamoré                            MADEIRA-MAMORE                            Madeira-Mamoré          1
+11005ATIVO Zona da Mata                              ZONA DA MATA                              Zona da Mata            1
+11006ATIVO Cone Sul                                  CONE SUL                                  Cone Sul                1
+11007ATIVO Vale do Guaporé                           VALE DO GUAPORE                           Vale do Guaporé         1
+12000IGNOR Município ignorado - AC                   MUNICIPIO IGNORADO - AC                   Ignorado - AC           8
+12001ATIVO Alto Acre                                 ALTO ACRE                                 Alto Acre               1
+12002ATIVO Baixo Acre e Purus                        BAIXO ACRE E PURUS                        Baixo Acre e Purus      1
+12003ATIVO Juruá e Tarauacá/Envira                   JURUA E TARAUACA/ENVIRA                   Juruá e Tarauacá/Envira 1
+13000IGNOR Município ignorado - AM                   MUNICIPIO IGNORADO - AM                   Ignorado - AM           8
+13001ATIVO Manaus, Entorno e Alto Rio Negro          MANAUS ENTORNO E ALTO RIO NEGRO           Manaus e Alto Rio Negro 1
+13002ATIVO Rio Negro e Solimões                      RIO NEGRO E SOLIMOES                      Rio Negro e Solimões    1
+13003ATIVO Rio Madeira                               RIO MADEIRA                               Rio Madeira             1
+13004ATIVO Médio Amazonas                            MEDIO AMAZONAS                            Médio Amazonas          1
+13005ATIVO Baixo Amazonas                            BAIXO AMAZONAS                            Baixo Amazonas          1
+13006ATIVO Regional Purus                            REGIONAL PURUS                            Regional Purus          1
+13007ATIVO Regional Juruá                            REGIONAL JURUA                            Regional Juruá          1
+13008ATIVO Triângulo                                 TRIANGULO                                 Triângulo               1
+13009ATIVO Alto Solimões                             ALTO SOLIMOES                             Alto Solimões           1
+14000IGNOR Município ignorado - RR                   MUNICIPIO IGNORADO - RR                   Ignorado - RR           8
+14001ATIVO Centro Norte                              CENTRO NORTE                              Centro Norte            1
+14002ATIVO Sul                                       SUL                                       Sul                     1
+15000IGNOR Município ignorado - PA                   MUNICIPIO IGNORADO - PA                   Município ignorado - PA 8
+15001ATIVO Araguaia                                  ARAGUAIA                                  Araguaia                1
+15002ATIVO Baixo Amazonas                            BAIXO AMAZONAS                            Baixo Amazonas          1
+15003ATIVO Carajás                                   CARAJAS                                   Carajás                 1
+15004ATIVO Lago de Tucuruí                           LAGO DE TUCURUI                           Lago de Tucuruí         1
+15006ATIVO Metropolitana I                           METROPOLITANA I                           Metropolitana I         1
+15007ATIVO Metropolitana II                          METROPOLITANA II                          Metropolitana II        1
+15008ATIVO Metropolitana III                         METROPOLITANA III                         Metropolitana III       1
+15009ATIVO Rio Caetés                                RIO CAETES                                Rio Caetés              1
+15010ATIVO Tapajós                                   TAPAJOS                                   Tapajós                 1
+15011ATIVO Tocantins                                 TOCANTINS                                 Tocantins               1
+15012ATIVO Xingu                                     XINGU                                     Xingu                   1
+15013ATIVO Marajó I                                  MARAJO I                                  Marajó I                1
+15014ATIVO Marajó II                                 MARAJO II                                 Marajó II               1
+16000IGNOR Município ignorado - AP                   MUNICIPIO IGNORADO - AP                   Ignorado - AP           8
+16001ATIVO Área Central                              AREA CENTRAL                              Área Central            1
+16002ATIVO Área Norte                                AREA NORTE                                Área Norte              1
+16003ATIVO Área Sudoeste                             AREA SUDOESTE                             Área Sudoeste           1
+17000IGNOR Município ignorado - TO                   MUNICIPIO IGNORADO - TO                   Ignorado - TO           8
+17001ATIVO Médio Norte Araguaia                      MEDIO NORTE ARAGUAIA                      Médio Norte Araguaia    1
+17002ATIVO Bico do Papagaio                          BICO DO PAPAGAIO                          Bico do Papagaio        1
+17003ATIVO Sudeste                                   SUDESTE                                   Sudeste                 1
+17004ATIVO Cerrado Tocantins Araguaia                CERRADO TOCANTINS ARAGUAIA                Cerrado Tocant Araguaia 1
+17005ATIVO Ilha do Bananal                           ILHA DO BANANAL                           Ilha do Bananal         1
+17006ATIVO Capim Dourado                             CAPIM DOURADO                             Capim Dourado           1
+17007ATIVO Cantão                                    CANTAO                                    Cantão                  1
+17008ATIVO Amor Perfeito                             AMOR PERFEITO                             Amor Perfeito           1
+21000IGNOR Município ignorado - MA                   MUNICIPIO IGNORADO - MA                   Ignorado - MA           8
+21001ATIVO Açailândia                                ACAILANDIA                                Açailândia              1
+21002ATIVO Bacabal                                   BACABAL                                   Bacabal                 1
+21003ATIVO Balsas                                    BALSAS                                    Balsas                  1
+21004ATIVO Barra do Corda                            BARRA DO CORDA                            Barra do Corda          1
+21005ATIVO Caxias                                    CAXIAS                                    Caxias                  1
+21006ATIVO Chapadinha                                CHAPADINHA                                Chapadinha              1
+21007ATIVO Codó                                      CODO                                      Codó                    1
+21008ATIVO Imperatriz                                IMPERATRIZ                                Imperatriz              1
+21009ATIVO Itapecuru Mirim                           ITAPECURU MIRIM                           Itapecuru Mirim         1
+21010ATIVO Pedreiras                                 PEDREIRAS                                 Pedreiras               1
+21011ATIVO Pinheiro                                  PINHEIRO                                  Pinheiro                1
+21012ATIVO Presidente Dutra                          PRESIDENTE DUTRA                          Presidente Dutra        1
+21013ATIVO Rosário                                   ROSARIO                                   Rosário                 1
+21014ATIVO Santa Inês                                SANTA INES                                Santa Inês              1
+21015ATIVO São João dos Patos                        SAO JOAO DOS PATOS                        São João dos Patos      1
+21016ATIVO São Luís                                  SAO LUIS                                  São Luís                1
+21017ATIVO Timon                                     TIMON                                     Timon                   1
+21018ATIVO Viana                                     VIANA                                     Viana                   1
+21019ATIVO Zé Doca                                   ZE DOCA                                   Zé Doca                 1
+22000IGNOR Município ignorado - PI                   MUNICIPIO IGNORADO - PI                   Ignorado - PI           8
+22001ATIVO Carnaubais                                CARNAUBAIS                                Carnaubais              1
+22002ATIVO Chapada das Mangabeiras                   CHAPADA DAS MANGABEIRAS                   Chapada das Mangabeiras 1
+22003ATIVO Cocais                                    COCAIS                                    Cocais                  1
+22004ATIVO Entre Rios                                ENTRE RIOS                                Entre Rios              1
+22005ATIVO Planície Litorânea                        PLANICIE LITORANEA                        Planície Litorânea      1
+22006ATIVO Serra da Capivara                         SERRA DA CAPIVARA                         Serra da Capivara       1
+22007ATIVO Tabuleiros do Alto Parnaíba               TABULEIROS DO ALTO PARNAIBA               Tabuleiros Alto Parnaíba1
+22008ATIVO Vale do Canindé                           VALE DO CANINDE                           Vale do Canindé         1
+22009ATIVO Vale do Rio Guaribas                      VALE DO RIO GUARIBAS                      Vale do Rio Guaribas    1
+22010ATIVO Vale do Sambito                           VALE DO SAMBITO                           Vale do Sambito         1
+22011ATIVO Vale dos Rios Piauí e Itaueiras           VALE DOS RIOS PIAUI E ITAUEIRAS           Vale Rio Piauí/Itaueiras1
+23000IGNOR Município ignorado - CE                   MUNICIPIO IGNORADO - CE                   Ignorado - CE           8
+23001ATIVO 1ª Região Fortaleza                       1A REGIAO FORTALEZA                       1ª Região Fortaleza     1
+23002ATIVO 2ª Região Caucaia                         2A REGIAO CAUCAIA                         2ª Região Caucaia       1
+23003ATIVO 3ª Região Maracanaú                       3A REGIAO MARACANAU                       3ª Região Maracanaú     1
+23004ATIVO 4ª Região Baturité                        4A REGIAO BATURITE                        4ª Região Baturité      1
+23005ATIVO 5ª Região Canindé                         5A REGIAO CANINDE                         5ª Região Canindé       1
+23006ATIVO 6ª Região Itapipoca                       6A REGIAO ITAPIPOCA                       6ª Região Itapipoca     1
+23007ATIVO 7ª Região Aracati                         7A REGIAO ARACATI                         7ª Região Aracati       1
+23008ATIVO 8ª Região Quixadá                         8A REGIAO QUIXADA                         8ª Região Quixadá       1
+23009ATIVO 9ª Região Russas                          9A REGIAO RUSSAS                          9ª Região Russas        1
+23010ATIVO 10ª Região Limoeiro do Norte              10A REGIAO LIMOEIRO DO NORTE              10ª Região Limoeiro Nort1
+23011ATIVO 11ª Região Sobral                         11A REGIAO SOBRAL                         11ª Região Sobral       1
+23012ATIVO 12ª Região Acaraú                         12A REGIAO ACARAU                         12ª Região Acaraú       1
+23013ATIVO 13ª Região Tianguá                        13A REGIAO TIANGUA                        13ª Região Tianguá      1
+23014ATIVO 14ª Região Tauá                           14A REGIAO TAUA                           14ª Região Tauá         1
+23015ATIVO 15ª Região Crateús                        15A REGIAO CRATEUS                        15ª Região Crateús      1
+23016ATIVO 16ª Região Camocim                        16A REGIAO CAMOCIM                        16ª Região Camocim      1
+23017ATIVO 17ª Região Icó                            17A REGIAO ICO                            17ª Região Icó          1
+23018ATIVO 18ª Região Iguatú                         18A REGIAO IGUATU                         18ª Região Iguatú       1
+23019ATIVO 19ª Região Brejo Santo                    19A REGIAO BREJO SANTO                    19ª Região Brejo Santo  1
+23020ATIVO 20ª Região Crato                          20A REGIAO CRATO                          20ª Região Crato        1
+23021ATIVO 21ª Região Juazeiro do Norte              21A REGIAO JUAZEIRO DO NORTE              21ª Região Juazeiro Nort1
+23022ATIVO 22ª Região Cascavel                       22A REGIAO CASCAVEL                       22ª Região Cascavel     1
+24000IGNOR Município ignorado - RN                   MUNICIPIO IGNORADO - RN                   Ignorado - RN           8
+24001ATIVO 1ª Região de Saúde - São José de Mipibu   1A REGIAO DE SAUDE - SAO JOSE DE MIPIBU   São José de Mipibu      1
+24002ATIVO 2ª Região de Saúde - Mossoró              2A REGIAO DE SAUDE - MOSSORO              Mossoró                 1
+24003ATIVO 3ª Região de Saúde - João Câmara          3A REGIAO DE SAUDE - JOAO CAMARA          João Câmara             1
+24004ATIVO 4ª Região de Saúde - Caicó                4A REGIAO DE SAUDE - CAICO                Caicó                   1
+24005ATIVO 5ª Região de Saúde - Santa Cruz           5A REGIAO DE SAUDE - SANTA CRUZ           Santa Cruz              1
+24006ATIVO 6ª Região de Saúde - Pau dos Ferros       6A REGIAO DE SAUDE - PAU DOS FERROS       Pau dos Ferros          1
+24007ATIVO 7ª Região de Saúde - Metropolitana        7A REGIAO DE SAUDE - METROPOLITANA        Metropolitana           1
+24008ATIVO 8ª Região de Saúde - Açu                  8A REGIAO DE SAUDE - ACU                  Açu                     1
+25000IGNOR Município ignorado - PB                   MUNICIPIO IGNORADO - PB                   Ignorado - PB           8
+25001ATIVO 1ª Região Mata Atlântica                  1A REGIAO MATA ATLANTICA                  1ª Região Mata Atlântica1
+25002ATIVO 2ª Região                                 2A REGIAO                                 2ª Região               1
+25003ATIVO 3ª Região                                 3A REGIAO                                 3ª Região               1
+25004ATIVO 4ª Região                                 4A REGIAO                                 4ª Região               1
+25005ATIVO 5ª Região                                 5A REGIAO                                 5ª Região               1
+25006ATIVO 6ª Região                                 6A REGIAO                                 6ª Região               1
+25007ATIVO 7ª Região                                 7A REGIAO                                 7ª Região               1
+25008ATIVO 8ª Região                                 8A REGIAO                                 8ª Região               1
+25009ATIVO 9ª Região                                 9A REGIAO                                 9ª Região               1
+25010ATIVO 10ª Região                                10A REGIAO                                10ª Região              1
+25011ATIVO 11ª Região                                11A REGIAO                                11ª Região              1
+25012ATIVO 12ª Região                                12A REGIAO                                12ª Região              1
+25013ATIVO 13ª Região                                13A REGIAO                                13ª Região              1
+25014ATIVO 14ª Região                                14A REGIAO                                14ª Região              1
+25015ATIVO 15ª Região                                15A REGIAO                                15ª Região              1
+25016ATIVO 16ª Região                                16A REGIAO                                16ª Região              1
+26000IGNOR Município ignorado - PE                   MUNICIPIO IGNORADO - PE                   Município ignorado - PE 8
+26001ATIVO Afogados da Ingazeira                     AFOGADOS DA INGAZEIRA                     Afogados da Ingazeira   1
+26002ATIVO Arcoverde                                 ARCOVERDE                                 Arcoverde               1
+26003ATIVO Caruaru                                   CARUARU                                   Caruaru                 1
+26004ATIVO Garanhuns                                 GARANHUNS                                 Garanhuns               1
+26005ATIVO Goiana                                    GOIANA                                    Goiana                  1
+26006ATIVO Limoeiro                                  LIMOEIRO                                  Limoeiro                1
+26007ATIVO Ouricuri                                  OURICURI                                  Ouricuri                1
+26008ATIVO Palmares                                  PALMARES                                  Palmares                1
+26009ATIVO Petrolina                                 PETROLINA                                 Petrolina               1
+26010ATIVO Recife                                    RECIFE                                    Recife                  1
+26011ATIVO Salgueiro                                 SALGUEIRO                                 Salgueiro               1
+26012ATIVO Serra Talhada                             SERRA TALHADA                             Serra Talhada           1
+27000IGNOR Município ignorado - AL                   MUNICIPIO IGNORADO - AL                   Ignorado - AL           8
+27001ATIVO 1ª Região de Saúde                        1A REGIAO DE SAUDE                        1ª Região de Saúde      1
+27002ATIVO 2ª Região de Saúde                        2A REGIAO DE SAUDE                        2ª Região de Saúde      1
+27003ATIVO 3ª Região de Saúde                        3A REGIAO DE SAUDE                        3ª Região de Saúde      1
+27004ATIVO 4ª Região de Saúde                        4A REGIAO DE SAUDE                        4ª Região de Saúde      1
+27005ATIVO 5ª Região de Saúde                        5A REGIAO DE SAUDE                        5ª Região de Saúde      1
+27006ATIVO 6ª Região de Saúde                        6A REGIAO DE SAUDE                        6ª Região de Saúde      1
+27007ATIVO 7ª Região de Saúde                        7A REGIAO DE SAUDE                        7ª Região de Saúde      1
+27008ATIVO 8ª Região de Saúde                        8A REGIAO DE SAUDE                        8ª Região de Saúde      1
+27009ATIVO 9ª Região de Saúde                        9A REGIAO DE SAUDE                        9ª Região de Saúde      1
+27010ATIVO 10ª Região de Saúde                       10A REGIAO DE SAUDE                       10ª Região de Saúde     1
+28000IGNOR Município ignorado - SE                   MUNICIPIO IGNORADO - SE                   Ignorado - SE           8
+28001ATIVO Aracaju                                   ARACAJU                                   Aracaju                 1
+28002ATIVO Estância                                  ESTANCIA                                  Estância                1
+28003ATIVO Itabaiana                                 ITABAIANA                                 Itabaiana               1
+28004ATIVO Lagarto                                   LAGARTO                                   Lagarto                 1
+28005ATIVO Nossa Senhora da Glória                   NOSSA SENHORA DA GLORIA                   Nossa Senhora da Glória 1
+28006ATIVO Nossa Senhora do Socorro                  NOSSA SENHORA DO SOCORRO                  Nossa Senhora do Socorro1
+28007ATIVO Propriá                                   PROPRIA                                   Propriá                 1
+29000IGNOR Município ignorado - BA                   MUNICIPIO IGNORADO - BA                   Ignorado - BA           8
+29001ATIVO Alagoinhas                                ALAGOINHAS                                Alagoinhas              1
+29002ATIVO Barreiras                                 BARREIRAS                                 Barreiras               1
+29003ATIVO Brumado                                   BRUMADO                                   Brumado                 1
+29004ATIVO Camaçari                                  CAMACARI                                  Camaçari                1
+29005ATIVO Cruz das Almas                            CRUZ DAS ALMAS                            Cruz das Almas          1
+29006ATIVO Feira de Santana                          FEIRA DE SANTANA                          Feira de Santana        1
+29007ATIVO Guanambi                                  GUANAMBI                                  Guanambi                1
+29008ATIVO Ibotirama                                 IBOTIRAMA                                 Ibotirama               1
+29009ATIVO Ilhéus                                    ILHEUS                                    Ilhéus                  1
+29010ATIVO Irecê                                     IRECE                                     Irecê                   1
+29011ATIVO Itaberaba                                 ITABERABA                                 Itaberaba               1
+29012ATIVO Itabuna                                   ITABUNA                                   Itabuna                 1
+29013ATIVO Itapetinga                                ITAPETINGA                                Itapetinga              1
+29014ATIVO Jacobina                                  JACOBINA                                  Jacobina                1
+29015ATIVO Jequié                                    JEQUIE                                    Jequié                  1
+29016ATIVO Juazeiro                                  JUAZEIRO                                  Juazeiro                1
+29017ATIVO Paulo Afonso                              PAULO AFONSO                              Paulo Afonso            1
+29018ATIVO Porto Seguro                              PORTO SEGURO                              Porto Seguro            1
+29019ATIVO Ribeira do Pombal                         RIBEIRA DO POMBAL                         Ribeira do Pombal       1
+29020ATIVO Salvador                                  SALVADOR                                  Salvador                1
+29021ATIVO Santa Maria da Vitória                    SANTA MARIA DA VITORIA                    Santa Maria da Vitória  1
+29022ATIVO Santo Antônio de Jesus                    SANTO ANTONIO DE JESUS                    Santo Antônio de Jesus  1
+29023ATIVO Seabra                                    SEABRA                                    Seabra                  1
+29024ATIVO Senhor do Bonfim                          SENHOR DO BONFIM                          Senhor do Bonfim        1
+29025ATIVO Serrinha                                  SERRINHA                                  Serrinha                1
+29026ATIVO Teixeira de Freitas                       TEIXEIRA DE FREITAS                       Teixeira de Freitas     1
+29027ATIVO Valença                                   VALENCA                                   Valença                 1
+29028ATIVO Vitória da Conquista                      VITORIA DA CONQUISTA                      Vitória da Conquista    1
+31000IGNOR Município ignorado - MG                   MUNICIPIO IGNORADO - MG                   Ignorado - MG           8
+31001ATIVO Águas Formosas                            AGUAS FORMOSAS                            Águas Formosas          1
+31002ATIVO Além Paraíba                              ALEM PARAIBA                              Além Paraíba            1
+31003ATIVO Alfenas Machado                           ALFENAS MACHADO                           Alfenas Machado         1
+31004ATIVO Almenara                                  ALMENARA                                  Almenara                1
+31005ATIVO Araçuaí                                   ARACUAI                                   Araçuaí                 1
+31006ATIVO Araxá                                     ARAXA                                     Araxá                   1
+31007ATIVO Barbacena                                 BARBACENA                                 Barbacena               1
+31008ATIVO Belo Horizonte Nova Lima Caeté            BELO HORIZONTE NOVA LIMA CAETE            B.Horizonte/N.Lima/Caeté1
+31009ATIVO Betim                                     BETIM                                     Betim                   1
+31010ATIVO Bom Despacho                              BOM DESPACHO                              Bom Despacho            1
+31011ATIVO Brasília de Minas São Francisco           BRASILIA DE MINAS SAO FRANCISCO           Brasília MG/S.Francisco 1
+31012ATIVO Carangola                                 CARANGOLA                                 Carangola               1
+31013ATIVO Caratinga                                 CARATINGA                                 Caratinga               1
+31014ATIVO Conselheiro Lafaiete Congonhas            CONSELHEIRO LAFAIETE CONGONHAS            Cons.Lafaiete/Congonhas 1
+31015ATIVO Contagem                                  CONTAGEM                                  Contagem                1
+31016ATIVO Coração de Jesus                          CORACAO DE JESUS                          Coração de Jesus        1
+31017ATIVO Coronel Fabriciano Timóteo                CORONEL FABRICIANO TIMOTEO                Cel.Fabriciano/Timóteo  1
+31018ATIVO Curvelo                                   CURVELO                                   Curvelo                 1
+31019ATIVO Diamantina                                DIAMANTINA                                Diamantina              1
+31020ATIVO Divinópolis Santo Antônio do Monte        DIVINOPOLIS SANTO ANTONIO DO MONTE        Divinópolis/S.Antº.Monte1
+31021ATIVO Formiga                                   FORMIGA                                   Formiga                 1
+31022ATIVO Francisco Sá                              FRANCISCO SA                              Francisco Sá            1
+31023ATIVO Frutal Iturama                            FRUTAL ITURAMA                            Frutal Iturama          1
+31024ATIVO Governador Valadares                      GOVERNADOR VALADARES                      Governador Valadares    1
+31025ATIVO Guanhães                                  GUANHAES                                  Guanhães                1
+31026ATIVO Guaxupé                                   GUAXUPE                                   Guaxupé                 1
+31027ATIVO Ipatinga                                  IPATINGA                                  Ipatinga                1
+31028ATIVO Itabira                                   ITABIRA                                   Itabira                 1
+31029ATIVO Itajubá                                   ITAJUBA                                   Itajubá                 1
+31030ATIVO Itaobim                                   ITAOBIM                                   Itaobim                 1
+31031ATIVO Itaúna                                    ITAUNA                                    Itaúna                  1
+31032ATIVO Ituiutaba                                 ITUIUTABA                                 Ituiutaba               1
+31033ATIVO Janaúba Monte Azul                        JANAUBA MONTE AZUL                        Janaúba Monte Azul      1
+31034ATIVO Januária                                  JANUARIA                                  Januária                1
+31035ATIVO João Monlevade                            JOAO MONLEVADE                            João Monlevade          1
+31036ATIVO João Pinheiro                             JOAO PINHEIRO                             João Pinheiro           1
+31037ATIVO Juiz de Fora Lima Duarte Bom Jardim Minas JUIZ DE FORA LIMA DUARTE BOM JARDIM MINAS J.Fora/L.Duarte/B.Jardim1
+31038ATIVO Lavras                                    LAVRAS                                    Lavras                  1
+31039ATIVO Leopoldina Cataguases                     LEOPOLDINA CATAGUASES                     Leopoldina Cataguases   1
+31040ATIVO Manga                                     MANGA                                     Manga                   1
+31041ATIVO Manhuaçu                                  MANHUACU                                  Manhuaçu                1
+31042ATIVO Mantena                                   MANTENA                                   Mantena                 1
+31043ATIVO Minas Novas Turmalina Capelinha           MINAS NOVAS TURMALINA CAPELINHA           M.Novas/Turmalin/Capelin1
+31044ATIVO Montes Claros Bocaiúva                    MONTES CLAROS BOCAIUVA                    Montes Claros Bocaiúva  1
+31045ATIVO Muriaé                                    MURIAE                                    Muriaé                  1
+31046ATIVO Nanuque                                   NANUQUE                                   Nanuque                 1
+31047ATIVO Ouro Preto                                OURO PRETO                                Ouro Preto              1
+31048ATIVO Padre Paraíso                             PADRE PARAISO                             Padre Paraíso           1
+31049ATIVO Pará de Minas                             PARA DE MINAS                             Pará de Minas           1
+31050ATIVO Passos Piumhi                             PASSOS PIUMHI                             Passos Piumhi           1
+31051ATIVO Patos de Minas                            PATOS DE MINAS                            Patos de Minas          1
+31052ATIVO Patrocínio Monte Carmelo                  PATROCINIO MONTE CARMELO                  Patrocínio Monte Carmelo1
+31053ATIVO Pedra Azul                                PEDRA AZUL                                Pedra Azul              1
+31054ATIVO Pirapora                                  PIRAPORA                                  Pirapora                1
+31055ATIVO Poços de Caldas                           POCOS DE CALDAS                           Poços de Caldas         1
+31056ATIVO Ponte Nova                                PONTE NOVA                                Ponte Nova              1
+31057ATIVO Pouso Alegre                              POUSO ALEGRE                              Pouso Alegre            1
+31058ATIVO Resplendor                                RESPLENDOR                                Resplendor              1
+31059ATIVO Salinas Taiobeiras                        SALINAS TAIOBEIRAS                        Salinas Taiobeiras      1
+31060ATIVO Santa Maria do Suaçuí São João EvangelistaSANTA MARIA DO SUACUI SAO JOAO EVANGELISTAS.Maria Suaçuí/S.João Ev1
+31061ATIVO Santo Antônio do Amparo Campo Belo        SANTO ANTONIO DO AMPARO CAMPO BELO        S.Antôn.Amparo/Cpo.Belo 1
+31062ATIVO Santos Dumont                             SANTOS DUMONT                             Santos Dumont           1
+31063ATIVO São João del Rei                          SAO JOAO DEL REI                          São João del Rei        1
+31064ATIVO São João Nepomuceno Bicas                 SAO JOAO NEPOMUCENO BICAS                 S.João Nepomuceno/Bicas 1
+31065ATIVO São Lourenço                              SAO LOURENCO                              São Lourenço            1
+31066ATIVO São Sebastião do Paraíso                  SAO SEBASTIAO DO PARAISO                  São Sebastião do Paraíso1
+31067ATIVO Sete Lagoas                               SETE LAGOAS                               Sete Lagoas             1
+31068ATIVO Teófilo Otoni Malacacheta Itambacuri      TEOFILO OTONI MALACACHETA ITAMBACURI      T.Otoni/Malacac/Itambac.1
+31069ATIVO Três Corações                             TRES CORACOES                             Três Corações           1
+31070ATIVO Três Pontas                               TRES PONTAS                               Três Pontas             1
+31071ATIVO Ubá                                       UBA                                       Ubá                     1
+31072ATIVO Uberaba                                   UBERABA                                   Uberaba                 1
+31073ATIVO Uberlândia Araguari                       UBERLANDIA ARAGUARI                       Uberlândia Araguari     1
+31074ATIVO Unaí                                      UNAI                                      Unaí                    1
+31075ATIVO Varginha                                  VARGINHA                                  Varginha                1
+31076ATIVO Vespasiano                                VESPASIANO                                Vespasiano              1
+31077ATIVO Viçosa                                    VICOSA                                    Viçosa                  1
+32000IGNOR Município ignorado - ES                   MUNICIPIO IGNORADO - ES                   Ignorado - ES           8
+32001ATIVO Central                                   CENTRAL                                   Central                 1
+32002ATIVO Metropolitana                             METROPOLITANA                             Metropolitana           1
+32003ATIVO Norte                                     NORTE                                     Norte                   1
+32004ATIVO Sul                                       SUL                                       Sul                     1
+33000IGNOR Município ignorado - RJ                   MUNICIPIO IGNORADO - RJ                   Ignorado - RJ           8
+33001ATIVO Baia da Ilha Grande                       BAIA DA ILHA GRANDE                       Baia da Ilha Grande     1
+33002ATIVO Baixada Litorânea                         BAIXADA LITORANEA                         Baixada Litorânea       1
+33003ATIVO Centro-Sul                                CENTRO-SUL                                Centro-Sul              1
+33004ATIVO Médio Paraíba                             MEDIO PARAIBA                             Médio Paraíba           1
+33005ATIVO Metropolitana I                           METROPOLITANA I                           Metropolitana I         1
+33006ATIVO Metropolitana II                          METROPOLITANA II                          Metropolitana II        1
+33007ATIVO Noroeste                                  NOROESTE                                  Noroeste                1
+33008ATIVO Norte                                     NORTE                                     Norte                   1
+33009ATIVO Serrana                                   SERRANA                                   Serrana                 1
+35000IGNOR Município ignorado - SP                   MUNICIPIO IGNORADO - SP                   Município ignorado - SP 8
+35011ATIVO Alto do Tietê                             ALTO DO TIETE                             Alto do Tietê           1
+35012ATIVO Franco da Rocha                           FRANCO DA ROCHA                           Franco da Rocha         1
+35013ATIVO Mananciais                                MANANCIAIS                                Mananciais              1
+35014ATIVO Rota dos Bandeirantes                     ROTA DOS BANDEIRANTES                     Rota dos Bandeirantes   1
+35015ATIVO Grande ABC                                GRANDE ABC                                Grande ABC              1
+35016ATIVO São Paulo                                 SAO PAULO                                 São Paulo               1
+35021ATIVO Central do DRS II                         CENTRAL DO DRS II                         Central do DRS II       1
+35022ATIVO Lagos do DRS II                           LAGOS DO DRS II                           Lagos do DRS II         1
+35023ATIVO Consórcios do DRS II                      CONSORCIOS DO DRS II                      Consórcios do DRS II    1
+35031ATIVO Central do DRS III                        CENTRAL DO DRS III                        Central do DRS III      1
+35032ATIVO Centro Oeste do DRS III                   CENTRO OESTE DO DRS III                   Centro Oeste do DRS III 1
+35033ATIVO Norte do DRS III                          NORTE DO DRS III                          Norte do DRS III        1
+35034ATIVO Coração do DRS III                        CORACAO DO DRS III                        Coração do DRS III      1
+35041ATIVO Baixada Santista                          BAIXADA SANTISTA                          Baixada Santista        1
+35051ATIVO Norte - Barretos                          NORTE - BARRETOS                          Norte - Barretos        1
+35052ATIVO Sul - Barretos                            SUL - BARRETOS                            Sul - Barretos          1
+35061ATIVO Vale do Jurumirim                         VALE DO JURUMIRIM                         Vale do Jurumirim       1
+35062ATIVO Bauru                                     BAURU                                     Bauru                   1
+35063ATIVO Polo Cuesta                               POLO CUESTA                               Polo Cuesta             1
+35064ATIVO Jaú                                       JAU                                       Jaú                     1
+35065ATIVO Lins                                      LINS                                      Lins                    1
+35071ATIVO Bragança                                  BRAGANCA                                  Bragança                1
+35072ATIVO Região Metropolitana de Campinas          REGIAO METROPOLITANA DE CAMPINAS          Reg Metro Campinas      1
+35073ATIVO Jundiaí                                   JUNDIAI                                   Jundiaí                 1
+35074ATIVO Circuito das Águas                        CIRCUITO DAS AGUAS                        Circuito das Águas      1
+35081ATIVO Três Colinas                              TRES COLINAS                              Três Colinas            1
+35082ATIVO Alta Anhanguera                           ALTA ANHANGUERA                           Alta Anhanguera         1
+35083ATIVO Alta Mogiana                              ALTA MOGIANA                              Alta Mogiana            1
+35091ATIVO Adamantina                                ADAMANTINA                                Adamantina              1
+35092ATIVO Assis                                     ASSIS                                     Assis                   1
+35093ATIVO Marília                                   MARILIA                                   Marília                 1
+35094ATIVO Ourinhos                                  OURINHOS                                  Ourinhos                1
+35095ATIVO Tupã                                      TUPA                                      Tupã                    1
+35101ATIVO Araras                                    ARARAS                                    Araras                  1
+35102ATIVO Limeira                                   LIMEIRA                                   Limeira                 1
+35103ATIVO Piracicaba                                PIRACICABA                                Piracicaba              1
+35104ATIVO Rio Claro                                 RIO CLARO                                 Rio Claro               1
+35111ATIVO Alta Paulista                             ALTA PAULISTA                             Alta Paulista           1
+35112ATIVO Alta Sorocabana                           ALTA SOROCABANA                           Alta Sorocabana         1
+35113ATIVO Alto Capivari                             ALTO CAPIVARI                             Alto Capivari           1
+35114ATIVO Extremo Oeste Paulista                    EXTREMO OESTE PAULISTA                    Extremo Oeste Paulista  1
+35115ATIVO Pontal do Paranapanema                    PONTAL DO PARANAPANEMA                    Pontal do Paranapanema  1
+35121ATIVO Vale do Ribeira                           VALE DO RIBEIRA                           Vale do Ribeira         1
+35131ATIVO Horizonte Verde                           HORIZONTE VERDE                           Horizonte Verde         1
+35132ATIVO Aquífero Guarani                          AQUIFERO GUARANI                          Aquífero Guarani        1
+35133ATIVO Vale das Cachoeiras                       VALE DAS CACHOEIRAS                       Vale das Cachoeiras     1
+35141ATIVO Baixa Mogiana                             BAIXA MOGIANA                             Baixa Mogiana           1
+35142ATIVO Mantiqueira                               MANTIQUEIRA                               Mantiqueira             1
+35143ATIVO Rio Pardo                                 RIO PARDO                                 Rio Pardo               1
+35151ATIVO Catanduva                                 CATANDUVA                                 Catanduva               1
+35152ATIVO Santa Fé do Sul                           SANTA FE DO SUL                           Santa Fé do Sul         1
+35153ATIVO Jales                                     JALES                                     Jales                   1
+35154ATIVO Fernandópolis                             FERNANDOPOLIS                             Fernandópolis           1
+35155ATIVO São José do Rio Preto                     SAO JOSE DO RIO PRETO                     São José do Rio Preto   1
+35156ATIVO José Bonifácio                            JOSE BONIFACIO                            José Bonifácio          1
+35157ATIVO Votuporanga                               VOTUPORANGA                               Votuporanga             1
+35161ATIVO Itapetininga                              ITAPETININGA                              Itapetininga            1
+35162ATIVO Itapeva                                   ITAPEVA                                   Itapeva                 1
+35163ATIVO Sorocaba                                  SOROCABA                                  Sorocaba                1
+35171ATIVO Alto Vale do Paraíba                      ALTO VALE DO PARAIBA                      Alto Vale do Paraíba    1
+35172ATIVO Circuito da Fé e Vale Histórico           CIRCUITO DA FE E VALE HISTORICO           Circ. da Fé/V.Histórico 1
+35173ATIVO Litoral Norte                             LITORAL NORTE                             Litoral Norte           1
+35174ATIVO Vale do Paraíba/Região Serrana            VALE DO PARAIBA/REGIAO SERRANA            V. Paraíba-Reg. Serrana 1
+41000IGNOR Município ignorado - PR                   MUNICIPIO IGNORADO - PR                   Ignorado - PR           8
+41001ATIVO 1ª RS Paranaguá                           1A RS PARANAGUA                           1ª RS Paranaguá         1
+41002ATIVO 2ª RS Metropolitana                       2A RS METROPOLITANA                       2ª RS Metropolitana     1
+41003ATIVO 3ª RS Ponta Grossa                        3A RS PONTA GROSSA                        3ª RS Ponta Grossa      1
+41004ATIVO 4ª RS Irati                               4A RS IRATI                               4ª RS Irati             1
+41005ATIVO 5ª RS Guarapuava                          5A RS GUARAPUAVA                          5ª RS Guarapuava        1
+41006ATIVO 6ª RS União da Vitória                    6A RS UNIAO DA VITORIA                    6ª RS União da Vitória  1
+41007ATIVO 7ª RS Pato Branco                         7A RS PATO BRANCO                         7ª RS Pato Branco       1
+41008ATIVO 8ª RS Francisco Beltrão                   8A RS FRANCISCO BELTRAO                   8ª RS Francisco Beltrão 1
+41009ATIVO 9ª RS Foz do Iguaçu                       9A RS FOZ DO IGUACU                       9ª RS Foz do Iguaçu     1
+41010ATIVO 10ª RS Cascavel                           10A RS CASCAVEL                           10ª RS Cascavel         1
+41011ATIVO 11ª RS Campo Mourão                       11A RS CAMPO MOURAO                       11ª RS Campo Mourão     1
+41012ATIVO 12ª RS Umuarama                           12A RS UMUARAMA                           12ª RS Umuarama         1
+41013ATIVO 13ª RS Cianorte                           13A RS CIANORTE                           13ª RS Cianorte         1
+41014ATIVO 14ª RS Paranavaí                          14A RS PARANAVAI                          14ª RS Paranavaí        1
+41015ATIVO 15ª RS Maringá                            15A RS MARINGA                            15ª RS Maringá          1
+41016ATIVO 16ª RS Apucarana                          16A RS APUCARANA                          16ª RS Apucarana        1
+41017ATIVO 17ª RS Londrina                           17A RS LONDRINA                           17ª RS Londrina         1
+41018ATIVO 18ª RS Cornélio Procópio                  18A RS CORNELIO PROCOPIO                  18ª RS Cornélio Procópio1
+41019ATIVO 19ª RS Jacarezinho                        19A RS JACAREZINHO                        19ª RS Jacarezinho      1
+41020ATIVO 20ª RS Toledo                             20A RS TOLEDO                             20ª RS Toledo           1
+41021ATIVO 21ª RS Telêmaco Borba                     21A RS TELEMACO BORBA                     21ª RS Telêmaco Borba   1
+41022ATIVO 22ª RS Ivaiporã                           22A RS IVAIPORA                           22ª RS Ivaiporã         1
+42000IGNOR Município ignorado - SC                   MUNICIPIO IGNORADO - SC                   Município ignorado - SC 8
+42001ATIVO Extremo Oeste                             EXTREMO OESTE                             Extremo Oeste           1
+42002ATIVO Oeste                                     OESTE                                     Oeste                   1
+42003ATIVO Xanxerê                                   XANXERE                                   Xanxerê                 1
+42004ATIVO Alto Vale do Itajaí                       ALTO VALE DO ITAJAI                       Alto Vale do Itajaí     1
+42005ATIVO Foz do Rio Itajaí                         FOZ DO RIO ITAJAI                         Foz do Rio Itajaí       1
+42006ATIVO Médio Vale do Itajaí                      MEDIO VALE DO ITAJAI                      Médio Vale do Itajaí    1
+42007ATIVO Grande Florianópolis                      GRANDE FLORIANOPOLIS                      Grande Florianópolis    1
+42008ATIVO Meio Oeste                                MEIO OESTE                                Meio Oeste              1
+42009ATIVO Alto Vale do Rio do Peixe                 ALTO VALE DO RIO DO PEIXE                 Alto Vale do R.do Peixe 1
+42010ATIVO Alto Uruguai Catarinense                  ALTO URUGUAI CATARINENSE                  Alto Uruguai Catarinense1
+42011ATIVO Nordeste                                  NORDESTE                                  Nordeste                1
+42012ATIVO Planalto Norte                            PLANALTO NORTE                            Planalto Norte          1
+42013ATIVO Serra Catarinense                         SERRA CATARINENSE                         Serra Catarinense       1
+42014ATIVO Extremo Sul Catarinense                   EXTREMO SUL CATARINENSE                   Extremo Sul Catarinense 1
+42015ATIVO Carbonífera                               CARBONÍFERA                               Carbonífera             1
+42016ATIVO Laguna                                    LAGUNA                                    Laguna                  1
+43000IGNOR Município ignorado - RS                   MUNICIPIO IGNORADO - RS                   Ignorado - RS           8
+43001ATIVO Região 01 - Verdes Campos                 REGIAO 01 - VERDES CAMPOS                 01 Verdes Campos        1
+43002ATIVO Região 02 - Entre Rios                    REGIAO 02 - ENTRE RIOS                    02 Entre Rios           1
+43003ATIVO Região 03 - Fronteira Oeste               REGIAO 03 - FRONTEIRA OESTE               03 Fronteira Oeste      1
+43004ATIVO Região 04 - Belas Praias                  REGIAO 04 - BELAS PRAIAS                  04 Belas Praias         1
+43005ATIVO Região 05 - Bons Ventos                   REGIAO 05 - BONS VENTOS                   05 Bons Ventos          1
+43006ATIVO Região 06 - Vale do Paranhana e Costa SerrREGIAO 06 - VALE DO PARANHANA E COSTA SERR06 V.Paranhana/C. Serra 1
+43007ATIVO Região 07 - Vale dos Sinos                REGIAO 07 - VALE DOS SINOS                07 Vale dos Sinos       1
+43008ATIVO Região 08 - Vale do Caí e Metropolitana   REGIAO 08 - VALE DO CAI E METROPOLITANA   08 Vale Caí/Metropolitan1
+43009ATIVO Região 09 - Carbonífera/Costa Doce        REGIAO 09 - CARBONIFERA/COSTA DOCE        09 Carbonífera/Costa Doc1
+43010ATIVO Região 10 - Capital e Vale do Gravataí    REGIAO 10 - CAPITAL E VALE DO GRAVATAI    10 Capital/Vale Gravataí1
+43011ATIVO Região 11 - Sete Povos das Missões        REGIAO 11 - SETE POVOS DAS MISSOES        11 Sete Povos Missões   1
+43012ATIVO Região 12 - Portal das Missões            REGIAO 12 - PORTAL DAS MISSOES            12 Portal das Missões   1
+43013ATIVO Região 13 - Diversidade                   REGIAO 13 - DIVERSIDADE                   13 Diversidade          1
+43014ATIVO Região 14 - Fronteira Noroeste            REGIAO 14 - FRONTEIRA NOROESTE            14 Fronteira Noroeste   1
+43015ATIVO Região 15 - Caminho das Águas             REGIAO 15 - CAMINHO DAS AGUAS             15 Caminho das Águas    1
+43016ATIVO Região 16 - Alto Uruguai Gaúcho           REGIAO 16 - ALTO URUGUAI GAUCHO           16 Alto Uruguai Gaúcho  1
+43017ATIVO Região 17 - Planalto                      REGIAO 17 - PLANALTO                      17 Planalto             1
+43018ATIVO Região 18 - Araucárias                    REGIAO 18 - ARAUCARIAS                    18 Araucárias           1
+43019ATIVO Região 19 - Botucaraí                     REGIAO 19 - BOTUCARAI                     19 Botucaraí            1
+43020ATIVO Região 20 - Rota da Produção              REGIAO 20 - ROTA DA PRODUCAO              20 Rota da Produção     1
+43021ATIVO Região 21 - Sul                           REGIAO 21 - SUL                           21 Sul                  1
+43022ATIVO Região 22 - Pampa                         REGIAO 22 - PAMPA                         22 Pampa                1
+43023ATIVO Região 23 - Caxias e Hortênsias           REGIAO 23 - CAXIAS E HORTENSIAS           23 Caxias e Hortênsias  1
+43024ATIVO Região 24 - Campos de Cima da Serra       REGIAO 24 - CAMPOS DE CIMA DA SERRA       24 Campos de Cima Serra 1
+43025ATIVO Região 25 - Vinhedos e Basalto            REGIAO 25 - VINHEDOS E BASALTO            25 Vinhedos e Basalto   1
+43026ATIVO Região 26 - Uva Vale                      REGIAO 26 - UVA VALE                      26 Uva Vale             1
+43027ATIVO Região 27 - Jacuí Centro                  REGIAO 27 - JACUI CENTRO                  27 Jacuí Centro         1
+43028ATIVO Região 28 - Vinte e Oito                  REGIAO 28 - VINTE E OITO                  28 Vinte e Oito         1
+43029ATIVO Região 29 - Vales e Montanhas             REGIAO 29 - VALES E MONTANHAS             29 Vales e Montanhas    1
+43030ATIVO Região 30 - Vale da Luz                   REGIAO 30 - VALE DA LUZ                   30 Vale da Luz          1
+50000IGNOR Município ignorado - MS                   MUNICIPIO IGNORADO - MS                   Ignorado - MS           8
+50001ATIVO Campo Grande                              CAMPO GRANDE                              Campo Grande            1
+50002ATIVO Corumbá                                   CORUMBA                                   Corumbá                 1
+50003ATIVO Dourados                                  DOURADOS                                  Dourados                1
+50004ATIVO Três Lagoas                               TRES LAGOAS                               Três Lagoas             1
+51000IGNOR Município ignorado - MT                   MUNICIPIO IGNORADO - MT                   Ignorado - MT           8
+51001ATIVO Alto Tapajós                              ALTO TAPAJOS                              Alto Tapajós            1
+51002ATIVO Baixada Cuiabana                          BAIXADA CUIABANA                          Baixada Cuiabana        1
+51003ATIVO Araguaia Xingu                            ARAGUAIA XINGU                            Araguaia Xingu          1
+51004ATIVO Centro Norte                              CENTRO NORTE                              Centro Norte            1
+51005ATIVO Garças Araguaia                           GARCAS ARAGUAIA                           Garças Araguaia         1
+51006ATIVO Médio Araguaia                            MEDIO ARAGUAIA                            Médio Araguaia          1
+51007ATIVO Médio Norte Matogrossense                 MEDIO NORTE MATOGROSSENSE                 Médio N. Matogrossense  1
+51008ATIVO Noroeste Matogrossense                    NOROESTE MATOGROSSENSE                    Noroeste Matogrossense  1
+51009ATIVO Norte Araguaia Karajá                     NORTE ARAGUAIA KARAJA                     Norte Araguaia Karajá   1
+51010ATIVO Norte Matogrossense                       NORTE MATOGROSSENSE                       Norte Matogrossense     1
+51011ATIVO Oeste Matogrossense                       OESTE MATOGROSSENSE                       Oeste Matogrossense     1
+51012ATIVO Sudoeste Matogrossense                    SUDOESTE MATOGROSSENSE                    Sudoeste Matogrossense  1
+51013ATIVO Sul Matogrossense                         SUL MATOGROSSENSE                         Sul Matogrossense       1
+51014ATIVO Teles Pires                               TELES PIRES                               Teles Pires             1
+51015ATIVO Vale do Peixoto                           VALE DO PEIXOTO                           Vale do Peixoto         1
+51016ATIVO Vale dos Arinos                           VALE DOS ARINOS                           Vale dos Arinos         1
+52000IGNOR Município ignorado - GO                   MUNICIPIO IGNORADO - GO                   Ignorado - GO           8
+52001ATIVO Central                                   CENTRAL                                   Central                 1
+52002ATIVO Centro Sul                                CENTRO SUL                                Centro Sul              1
+52003ATIVO Entorno Norte                             ENTORNO NORTE                             Entorno Norte           1
+52004ATIVO Entorno Sul                               ENTORNO SUL                               Entorno Sul             1
+52005ATIVO Estrada de Ferro                          ESTRADA DE FERRO                          Estrada de Ferro        1
+52006ATIVO Nordeste I                                NORDESTE I                                Nordeste I              1
+52007ATIVO Nordeste II                               NORDESTE II                               Nordeste II             1
+52008ATIVO Norte                                     NORTE                                     Norte                   1
+52009ATIVO Oeste I                                   OESTE I                                   Oeste I                 1
+52010ATIVO Oeste II                                  OESTE II                                  Oeste II                1
+52011ATIVO Pirineus                                  PIRINEUS                                  Pirineus                1
+52012ATIVO Rio Vermelho                              RIO VERMELHO                              Rio Vermelho            1
+52013ATIVO São Patrício I                            SAO PATRICIO I                            São Patrício I          1
+52014ATIVO Serra da Mesa                             SERRA DA MESA                             Serra da Mesa           1
+52015ATIVO Sudoeste I                                SUDOESTE I                                Sudoeste I              1
+52016ATIVO Sudoeste II                               SUDOESTE II                               Sudoeste II             1
+52017ATIVO Sul                                       SUL                                       Sul                     1
+52018ATIVO São Patrício II                           SAO PATRICIO II                           São Patrício II         1
+52980TRANSFMunicípios transferidos para Tocantins    MUNICIPIOS TRANSFERIDOS PARA TOCANTINS    Transf p/Tocantins      7
+53001ATIVO Distrito Federal                          DISTRITO FEDERAL                          Distrito Federal        1
