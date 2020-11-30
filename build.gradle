@@ -1,0 +1,165 @@
+import org.apache.tools.ant.filters.*
+
+Properties props = new Properties()
+props.load(new FileInputStream("config-${env}.properties"))
+props.each { key, value -> project.project.ext.set(key, value) }
+
+repositories {
+  mavenCentral()
+}
+
+configurations {
+  liquibase
+}
+
+dependencies {
+  liquibase 'org.liquibase:liquibase-core:3.0.1'
+  liquibase files(dwDriverFile)
+}
+
+task lbUpdate(type: JavaExec) {
+  group = "Liquibase"
+  classpath configurations.liquibase
+  main = "liquibase.integration.commandline.Main"
+
+  args "--changeLogFile=" + lbMasterFile
+  args "--username=" + dwUserName
+  args "--password=" + dwUserPass
+  args "--url=" + dwURL
+  args "--driver=com.vertica.jdbc.Driver"
+  args "--currentDateTimeFunction=current_timestamp"
+  args "--defaultSchemaName=" + dwSchema
+  args "update"
+}
+
+
+task lbRollback(type: JavaExec) {
+  group = "Liquibase"
+  classpath configurations.liquibase
+  main = "liquibase.integration.commandline.Main"
+
+  args "--changeLogFile=" + lbMasterFile
+  args "--username=" + dwUserName
+  args "--password=" + dwUserPass
+  args "--url=" + dwURL
+  args "--driver=com.vertica.jdbc.Driver"
+  args "--currentDateTimeFunction=current_timestamp"
+  args "--defaultSchemaName=" + dwSchema
+  args "rollbackCount"
+  args "1"
+}
+
+task syncToPRS(type: Exec) {
+  executable "rsync"
+  args "-avzru"
+  args "--delete-excluded"
+  args "./solution/"
+  args "/Applications/biserver-ce-5.2.0.0/pentaho-solutions/repositorySynchronizer/public/"
+}
+
+task syncFromPRS(type: Exec) {
+  executable "rsync"
+  args "-avzru"
+  args "--delete-excluded"
+  args "/Applications/biserver-ce-5.2.0.0/pentaho-solutions/repositorySynchronizer/public/"
+  args "./solution/"
+}
+
+task syncWithPRS {
+doLast {
+  syncFromPRS.execute()
+  syncToPRS.execute()
+ } 
+}
+
+task compileSchema(type: Exec) {
+  workingDir "olap"
+  commandLine "bash", "-c", "cat schema.xml dimensions/*.xml cubes/*.xml virtual_cubes/*.xml roles/*.xml closing.xml > compiled.xml"
+}
+
+task publishSchema(type: Exec) {
+  executable "curl"
+  args "-v", "-i"
+  args "--user", "${pentahoUserName}:${pentahoUserPass}"
+  args pentahoUrl + "/plugin/data-access/api/mondrian/postAnalysis"
+  args "-F", "catalogName=" + olapCatalogName
+  args "-F", "overwrite=true"
+  args "-F", "xmlaEnabledFlag=true"
+  args "-F", "parameters=DataSource=" + olapDataSourceName + "; UseContentCheckSum=true; DynamicSchemaProcessor=cliente.TenantedDynamicSchemaProcessor"
+  args "-F", "uploadAnalysis=@./olap/compiled.xml"
+}
+
+task compileAndPublishSchema {
+doLast {
+  compileSchema.execute()
+  publishSchema.execute()
+  }
+}
+
+task registerConnection(type: Exec) {
+  executable "curl"
+  args "-v", "-i"
+  args "--user", "${pentahoUserName}:${pentahoUserPass}"
+  args pentahoUrl + "/plugin/data-access/api/connection/add"
+  args "-H", "Content-Type: application/json"
+  args "-H", "Accept: */*"
+  args "--data-binary", '{"changed":true,"usingConnectionPool":true,"connectSql":"' + olapDataSourceName + '","databaseName":"dw","databasePort":"5433","hostname":"' + dwHost + '","name":"' + olapDataSourceName + '","password":"' + dwUserPass + '","username":"' + dwUserName + '","attributes":{},"maximumPoolSize":20,"connectionPoolingProperties":{},"extraOptions":{},"accessType":"NATIVE","databaseType":{"defaultDatabasePort":50000,"name":"Vertica 5+","shortName":"VERTICA5","supportedAccessTypes":["NATIVE","ODBC","JNDI"]}}'
+}
+
+task unregisterConnection(type: Exec) {
+  executable "curl"
+  args "-v", "-i"
+  args "-X", "DELETE"
+  args "--user", "${pentahoUserName}:${pentahoUserPass}"
+  args pentahoUrl + "/plugin/data-access/api/connection/deletebyname?name=" + olapDataSourceName
+  args "-H", "Content-Type: application/json"
+  args "-H", "Accept: */*"
+}
+
+task unzipRepoContent(type: Exec){
+  executable "unzip"
+  args "-oq", "pentahorepo", "-d", "pentaho_repository"
+}
+
+task downRepoContent(type: Exec) {
+  executable "curl"
+  args "-v", "-o"
+  args "pentahorepo.zip"
+  args "--user", "${pentahoUserName}:${pentahoUserPass}"
+  args pentahoUrl + "/api/repo/files/%3A/download?withManifest=true"
+}
+
+task getRepoContent {
+doLast {
+  downRepoContent.execute()
+  unzipRepoContent.execute()
+  }
+}
+
+task copyPatches(type: Copy){
+  from 'patches/biserver-ce'
+  into pentahoBaseDir
+  exclude '**/*.bat'
+  exclude '**/*.css'
+  exclude '**/*.html'
+  exclude '**/*.ktr'
+  exclude '**/*.js'
+  exclude '**/*.properties'
+  exclude '**/*.sh'
+  exclude '**/*.xml'
+}
+
+task applyPatches(type: Copy, dependsOn: copyPatches){
+  from 'patches/biserver-ce'
+  into pentahoBaseDir
+  include '**/*.bat'
+  include '**/*.css'
+  include '**/*.html'
+  include '**/*.ktr'
+  include '**/*.js'
+  include '**/*.properties'
+  include '**/*.sh'
+  include '**/*.xml'
+
+  filter(ReplaceTokens, tokens: props)
+}
