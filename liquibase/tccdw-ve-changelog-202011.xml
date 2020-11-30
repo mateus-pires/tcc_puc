@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd"
+    logicalFilePath="tccdw-ve-changelog-202011">
+
+  <preConditions onFail="WARN">
+  	<sqlCheck expectedResult="vertica">select substr(lower(version()),1,7)</sqlCheck>
+  </preConditions>
+     
+  <changeSet author="mateus.medeiros" id="291100">
+    <sql>
+        CREATE TABLE d_data
+    (
+    id_data int NOT NULL,
+    data date,
+    ano int,
+    semestre int,
+    semestre_ext varchar(9),
+    trimestre int,
+    trimestre_abr varchar(2),
+    trimestre_ext varchar(9),
+    mes int,
+    mes_abr varchar(3),
+    mes_ext varchar(9),
+    num_semana_ano int,
+    num_semana_mes int,
+    dia_mes int,
+    num_dia_semana int,
+    per_semana varchar(14),
+    dia_semana varchar(13),
+    data_ext_media varchar(23),
+    data_ext_longa varchar(39),
+    ano_mes varchar(7),
+    ano_mes_abr varchar(8),
+    ano_mes_dia varchar(10),
+    ind_pri_dia_mes int,
+    ind_ult_dia_mes int,
+    ind_feriado varchar(25),
+    ano_trimestre_abr varchar(8),
+    quadrimestre_ext varchar(30),
+    quadrimestre_abr varchar(3),
+    quadrimestre int
+    );
+    </sql>
+    <rollback>
+       drop TABLE d_data cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="291101">
+    <sql>
+    ALTER TABLE d_data ADD CONSTRAINT C_PRIMARY PRIMARY KEY (id_data); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_data drop CONSTRAINT C_PRIMARY ;
+    </rollback>
+  </changeSet>
+                  
+  
+</databaseChangeLog>
