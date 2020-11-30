@@ -1,0 +1,2284 @@
+<transformation>
+  <info>
+    <name>d_municipio</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>&#x2f;dim</directory>
+    <parameters>
+    </parameters>
+    <log>
+<trans-log-table><connection>A4PM</connection>
+<schema/>
+<table>etl_trans_log</table>
+<size_limit_lines/>
+<interval>5</interval>
+<timeout_days>60</timeout_days>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject>Municipios</subject></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject>Merge Join 2 2</subject></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject>atualiza dw</subject></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject>Insere d_municipio</subject></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<perf-log-table><connection/>
+<schema/>
+<table/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<step-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+         <slaveserver><name>hpdin001</name><hostname>104.236.54.21</hostname><port>8787</port><webAppName/><username>cluster</username><password>Encrypted 2be98afc86aa7f2e4cb1aa265cd86aac8</password><proxy_hostname/><proxy_port/><non_proxy_hosts/><master>Y</master><sslMode>N</sslMode></slaveserver>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+  <created_user>-</created_user>
+  <created_date>2015&#x2f;11&#x2f;25 13&#x3a;07&#x3a;21.559</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2020&#x2f;11&#x2f;29 16&#x3a;31&#x3a;03.384</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <connection>
+    <name>A4PM</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>A4PM</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>A4PMDW</name>
+    <server/>
+    <type>VERTICA5</type>
+    <access>JNDI</access>
+    <database>A4PMDW</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>DBADMIN</name>
+    <server/>
+    <type>VERTICA5</type>
+    <access>JNDI</access>
+    <database>DBADMIN</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>DW</name>
+    <server>localhost</server>
+    <type>VERTICA5</type>
+    <access>JNDI</access>
+    <database>DW</database>
+    <port>5433</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>5433</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>ESUS</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>ESUS_&#x24;&#x7b;COD_CLIENTE&#x7d;</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>TCCDW</name>
+    <server/>
+    <type>VERTICA5</type>
+    <access>JNDI</access>
+    <database>TCCDW</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <order>
+  <hop> <from>Regiao_saude</from><to>Apaga Reg Saude</to><enabled>Y</enabled> </hop>
+  <hop> <from>Rel Mun Reg_saude</from><to>Apaga Rel Mun Reg</to><enabled>Y</enabled> </hop>
+  <hop> <from>Municipios</from><to>Apaga Municipios</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort Mun</from><to>Merge Join 2 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Apaga Rel Mun Reg</from><to>Sort Mun 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort Mun 2</from><to>Merge Join 2 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join 2 3</from><to>Sort Mun 2 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort Mun 2 2</from><to>Merge Join 2 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Apaga Reg Saude</from><to>Sort Reg</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort Reg</from><to>Merge Join 2 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join 2 2</from><to>Sort Est1</to><enabled>Y</enabled> </hop>
+  <hop> <from>UF</from><to>Apaga UF</to><enabled>Y</enabled> </hop>
+  <hop> <from>Apaga UF</from><to>Sort Est</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort Est</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort Est1</from><to>Merge Join</to><enabled>Y</enabled> </hop>
+  <hop> <from>Replace in string</from><to>Select values</to><enabled>Y</enabled> </hop>
+  <hop> <from>replace nulls</from><to>Replace in string</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get System Info</from><to>Merge Join 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join 3</from><to>Sort rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>already in dw&#x3f;</from><to>def id</to><enabled>Y</enabled> </hop>
+  <hop> <from>already in dw&#x3f;</from><to>values diff&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>consulta max id dw</from><to>join with max_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>def id</from><to>Insere d_municipio</to><enabled>Y</enabled> </hop>
+  <hop> <from>join source&#x2f;target</from><to>join with max_id</to><enabled>Y</enabled> </hop>
+  <hop> <from>join with max_id</from><to>already in dw&#x3f;</to><enabled>Y</enabled> </hop>
+  <hop> <from>values diff&#x3f;</from><to>dummy</to><enabled>Y</enabled> </hop>
+  <hop> <from>Select values</from><to>Merge Join 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>Apaga Municipios</from><to>Converte Inteiros</to><enabled>Y</enabled> </hop>
+  <hop> <from>Converte Inteiros</from><to>Sort Mun</to><enabled>Y</enabled> </hop>
+  <hop> <from>Sort rows</from><to>calc md5</to><enabled>Y</enabled> </hop>
+  <hop> <from>calc md5</from><to>join source&#x2f;target</to><enabled>Y</enabled> </hop>
+  <hop> <from>consulta dw</from><to>calc md5 dw</to><enabled>Y</enabled> </hop>
+  <hop> <from>calc md5 dw</from><to>join source&#x2f;target</to><enabled>Y</enabled> </hop>
+  <hop> <from>values diff&#x3f;</from><to>atualiza dw</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join</from><to>replace nulls</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input</from><to>Filter rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Execute SQL script</to><enabled>Y</enabled> </hop>
+  </order>
+  <step>
+    <name>Apaga Municipios</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <remove>        <name>CO_STATUS</name>
+      </remove>      <remove>        <name>CO_ALTER</name>
+      </remove>      <remove>        <name>CO_ALTERDV</name>
+      </remove>      <remove>        <name>NU_ORDEM</name>
+      </remove>      <remove>        <name>NU_ORDMAP</name>
+      </remove>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>96</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Apaga Reg Saude</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <remove>        <name>CO_STATUS</name>
+      </remove>      <remove>        <name>DS_NOME</name>
+      </remove>      <remove>        <name>DS_ABREV</name>
+      </remove>      <remove>        <name>NU_ORDEM</name>
+      </remove>      <meta>        <name>CO_REGSAUD</name>
+        <rename>codigo_reg_saude</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>DS_NOMEPAD</name>
+        <rename>nome_reg_saude</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>416</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Apaga Rel Mun Reg</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>CO_MUNICIP</name>
+        <rename>cod_muni_reg</rename>
+        <type>None</type>
+        <length>6</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>CO_REGSAUD</name>
+        <rename>cod_reg_saude</rename>
+        <type>None</type>
+        <length>5</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>192</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Apaga UF</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <remove>        <name>CO_STATUS</name>
+      </remove>      <remove>        <name>CO_SUCESS</name>
+      </remove>      <remove>        <name>CO_ALTER</name>
+      </remove>      <remove>        <name>CO_REGIAO</name>
+      </remove>      <remove>        <name>NU_AREA</name>
+      </remove>      <remove>        <name>NU_ORDEM</name>
+      </remove>      <meta>        <name>CO_UF</name>
+        <rename>codigo_estado</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>DS_NOME</name>
+        <rename>nome_estado</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>DS_NOMEPAD</name>
+        <rename>nome_estado_padronizado</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>DS_SIGLA</name>
+        <rename>sigla_estado</rename>
+        <type>None</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>608</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Converte Inteiros</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var latitude &#x3d; parseInt&#x28;NU_LATITUD&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var longitude &#x3d; parseInt&#x28;NU_LONGIT&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var altitude &#x3d; parseInt&#x28;NU_ALTITUD&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var area &#x3d; parseInt&#x28;NU_AREA&#x29;&#x3b;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>latitude</name>
+        <rename>latitude</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>longitude</name>
+        <rename>longitude</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>altitude</name>
+        <rename>altitude</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>area</name>
+        <rename>area</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>96</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dummy &#x28;do nothing&#x29;</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>224</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>A4PMDW</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>Y</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-1, &#x27;999999&#x27;, &#x27;Ignorado ou Exterior&#x27;, &#x27;IGNORADO OU EXTERIOR&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;NI&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-2, &#x27;359999&#x27;, &#x27;Munic&#xed;pio ignorado - SP&#x27;, &#x27;MUNIC&#xcd;PIO IGNORADO - SP&#x27;, &#x27;&#x27;, &#x27;35&#x27;, &#x27;SAO PAULO&#x27;, &#x27;SP&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-3, &#x27;530005&#x27;, &#x27;Bras&#xed;lia - Asa Norte&#x27;, &#x27;BRASILIA - ASA NORTE&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-4, &#x27;530015&#x27;, &#x27;Bras&#xed;lia - Asa Sul&#x27;, &#x27;BRASILIA - ASA SUL&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-5, &#x27;530020&#x27;, &#x27;Brazl&#xe2;ndia&#x27;, &#x27;BRAZLANDIA&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-6, &#x27;530030&#x27;, &#x27;Candangol&#xe2;ndia&#x27;, &#x27;CANDANGOLANDIA&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-7, &#x27;530040&#x27;, &#x27;Ceil&#xe2;ndia&#x27;, &#x27;CEILANDIA&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-8, &#x27;530050&#x27;, &#x27;Cruzeiro&#x27;, &#x27;CRUZEIRO&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-9, &#x27;530060&#x27;, &#x27;Gama&#x27;, &#x27;GAMA&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-10, &#x27;530070&#x27;, &#x27;Guar&#xe1;&#x27;, &#x27;GUARA&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-11, &#x27;530080&#x27;, &#x27;Lago Norte&#x27;, &#x27;LAGO NORTE&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-12, &#x27;530090&#x27;, &#x27;Lago Sul&#x27;, &#x27;LAGO SUL&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-13, &#x27;530100&#x27;, &#x27;N&#xfa;cleo Bandeirante&#x27;, &#x27;NUCLEO BANDEIRANTE&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-14, &#x27;530110&#x27;, &#x27;Parano&#xe1;&#x27;, &#x27;PARANOA&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-15, &#x27;530120&#x27;, &#x27;Planaltina&#x27;, &#x27;PLANALTINA&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-16, &#x27;530130&#x27;, &#x27;Recanto das Emas&#x27;, &#x27;RECANTO DAS EMAS&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-17, &#x27;530135&#x27;, &#x27;Riacho Fundo&#x27;, &#x27;RIACHO FUNDO&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-18, &#x27;530140&#x27;, &#x27;Samambaia&#x27;, &#x27;SAMAMBAIA&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-19, &#x27;530150&#x27;, &#x27;Santa Maria&#x27;, &#x27;SANTA MARIA&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-20, &#x27;530160&#x27;, &#x27;S&#xe3;o Sebasti&#xe3;o&#x27;, &#x27;SAO SEBASTIAO&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-21, &#x27;530170&#x27;, &#x27;Sobradinho&#x27;, &#x27;SOBRADINHO&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-22, &#x27;530180&#x27;, &#x27;Taguatinga&#x27;, &#x27;TAGUATINGA&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;INSERT INTO d_municipio&#xd;&#xa;&#x28;id_municipio, cod_municipio, nome_municipio, nome_municipio_padronizado, tipo_municipio, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, municipio_observacao, ver_amazonia_legal, ver_capital, ver_semi_arido, ver_faixa_fronteira, ver_zona_fronteira, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, _dt_hr_carga, _id_batch, cod_municipio_ibge, faixa_populacional, qtd_populacao&#x29;&#xd;&#xa;VALUES&#x28;-23, &#x27;530000&#x27;, &#x27;DIST.FEDERAL - Gestor Estadual&#x27;, &#x27;DIST.FEDERAL - GESTOR ESTADUAL&#x27;, &#x27;&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, &#x27;&#x27;, 0, 0, 0, 0, now&#x28;&#x29;, 0, &#x27;&#x27;, &#x27;N&#xc3;O SE APLICA&#x27;, 0&#x29;&#x3b;</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>224</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Dummy &#x28;do nothing&#x29;</send_true_to>
+<send_false_to>Execute SQL script</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>qtd</leftvalue>
+ <function>&#x3e;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>128</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Get System Info</name>
+    <type>SystemInfo</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>sysdate</name>
+        <type>system date &#x28;fixed&#x29;</type>
+        </field>
+      <field>
+        <name>_id_batch</name>
+        <type>batch ID</type>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>992</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Insere d_municipio</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>A4PMDW</connection>
+    <schema/>
+    <table>d_municipio</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>_id_batch</column_name>
+          <stream_name>_id_batch</stream_name>
+        </field>
+        <field>
+          <column_name>id_municipio</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>cod_municipio</column_name>
+          <stream_name>CO_MUNICIP</stream_name>
+        </field>
+        <field>
+          <column_name>nome_municipio</column_name>
+          <stream_name>DS_NOME</stream_name>
+        </field>
+        <field>
+          <column_name>nome_municipio_padronizado</column_name>
+          <stream_name>DS_NOMEPAD</stream_name>
+        </field>
+        <field>
+          <column_name>tipo_municipio</column_name>
+          <stream_name>CO_TIPO</stream_name>
+        </field>
+        <field>
+          <column_name>municipio_observacao</column_name>
+          <stream_name>DS_OBSERV</stream_name>
+        </field>
+        <field>
+          <column_name>ver_capital</column_name>
+          <stream_name>IN_CAPITAL</stream_name>
+        </field>
+        <field>
+          <column_name>ver_amazonia_legal</column_name>
+          <stream_name>IN_AMAZLEG</stream_name>
+        </field>
+        <field>
+          <column_name>ver_semi_arido</column_name>
+          <stream_name>IN_SEMIAR</stream_name>
+        </field>
+        <field>
+          <column_name>ver_zona_fronteira</column_name>
+          <stream_name>IN_FRONTZN</stream_name>
+        </field>
+        <field>
+          <column_name>ver_faixa_fronteira</column_name>
+          <stream_name>IN_FRONTFX</stream_name>
+        </field>
+        <field>
+          <column_name>ver_extrema_pobreza</column_name>
+          <stream_name>IN_POBREZA</stream_name>
+        </field>
+        <field>
+          <column_name>ano_instalacao</column_name>
+          <stream_name>DT_INSTAL</stream_name>
+        </field>
+        <field>
+          <column_name>ano_extincao</column_name>
+          <stream_name>DT_EXTIN</stream_name>
+        </field>
+        <field>
+          <column_name>latitude</column_name>
+          <stream_name>latitude</stream_name>
+        </field>
+        <field>
+          <column_name>longitude</column_name>
+          <stream_name>longitude</stream_name>
+        </field>
+        <field>
+          <column_name>altitude</column_name>
+          <stream_name>altitude</stream_name>
+        </field>
+        <field>
+          <column_name>area</column_name>
+          <stream_name>area</stream_name>
+        </field>
+        <field>
+          <column_name>cod_uf</column_name>
+          <stream_name>codigo_estado</stream_name>
+        </field>
+        <field>
+          <column_name>uf_nome</column_name>
+          <stream_name>nome_estado_padronizado</stream_name>
+        </field>
+        <field>
+          <column_name>uf_sigla</column_name>
+          <stream_name>sigla_estado</stream_name>
+        </field>
+        <field>
+          <column_name>cod_regiao</column_name>
+          <stream_name>codigo_reg_saude</stream_name>
+        </field>
+        <field>
+          <column_name>nome_regiao</column_name>
+          <stream_name>nome_reg_saude</stream_name>
+        </field>
+        <field>
+          <column_name>cod_municipio_ibge</column_name>
+          <stream_name>CO_MUNICDV</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1536</xloc>
+      <yloc>512</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>INNER</join_type>
+<step1>Sort Est</step1>
+<step2>Sort Est1</step2>
+    <keys_1>
+      <key>codigo_estado</key>
+    </keys_1>
+    <keys_2>
+      <key>CO_UF</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>608</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join 2 2</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort Mun 2 2</step1>
+<step2>Sort Reg</step2>
+    <keys_1>
+      <key>cod_reg_saude</key>
+    </keys_1>
+    <keys_2>
+      <key>codigo_reg_saude</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>416</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join 2 3</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>Sort Mun</step1>
+<step2>Sort Mun 2</step2>
+    <keys_1>
+      <key>CO_MUNICIP</key>
+    </keys_1>
+    <keys_2>
+      <key>cod_muni_reg</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>192</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join 3</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>INNER</join_type>
+<step1>Select values</step1>
+<step2>Get System Info</step2>
+    <keys_1>
+    </keys_1>
+    <keys_2>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>992</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Municipios</name>
+    <type>XBaseInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO&#x7d;doc&#x2f;Base_Territorial&#x2f;Municipios&#x2f;tb_municip.dbf</file_dbf>
+    <limit>0</limit>
+    <add_rownr>N</add_rownr>
+    <field_rownr/>
+    <include>N</include>
+    <include_field/>
+    <charset_name/>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>96</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Regiao_saude</name>
+    <type>XBaseInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO&#x7d;doc&#x2f;Base_Territorial&#x2f;Regiao_De_Saude&#x2f;tb_regsaud.dbf</file_dbf>
+    <limit>0</limit>
+    <add_rownr>N</add_rownr>
+    <field_rownr/>
+    <include>N</include>
+    <include_field/>
+    <charset_name/>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>416</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Rel Mun Reg_saude</name>
+    <type>XBaseInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO&#x7d;doc&#x2f;Base_Territorial&#x2f;Relacionamentos&#x2f;Relacionamento_Municipios_e_Regioes_de_Saude&#x2f;rl_municip_regsaud.dbf</file_dbf>
+    <limit>0</limit>
+    <add_rownr>N</add_rownr>
+    <field_rownr/>
+    <include>N</include>
+    <include_field/>
+    <charset_name/>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>192</xloc>
+      <yloc>32</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Replace in string</name>
+    <type>ReplaceString</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <in_stream_name>CO_TIPO</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>MUNIC</replace_string>
+        <replace_by_string>Municipio</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>CO_TIPO</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>DISFED</replace_string>
+        <replace_by_string>Distrito Federal</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>CO_TIPO</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>DISEST</replace_string>
+        <replace_by_string>Distrito Estadual</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>CO_TIPO</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>TERRIT</replace_string>
+        <replace_by_string>Territ&#xf3;rio Federal</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>CO_TIPO</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>IGNOR</replace_string>
+        <replace_by_string>Municipio Ignorado&#x2f;Exterior</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_CAPITAL</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>E</replace_string>
+        <replace_by_string>Capital Estadual</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_CAPITAL</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>F</replace_string>
+        <replace_by_string>Capital Federal</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_CAPITAL</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>N</replace_string>
+        <replace_by_string>N&#xe3;o &#xe9; Capital</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_AMAZLEG</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>S</replace_string>
+        <replace_by_string>Pertence a Amaz&#xf4;nia Legal</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_AMAZLEG</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>N</replace_string>
+        <replace_by_string>N&#xe3;o Pertence a Amaz&#xf4;nia Legal</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_SEMIAR</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>S</replace_string>
+        <replace_by_string>Pertence ao Semi&#xe1;rido</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_SEMIAR</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>N</replace_string>
+        <replace_by_string>N&#xe3;o Pertence ao Semi&#xe1;rido</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_FRONTFX</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>S</replace_string>
+        <replace_by_string>Pertence a Faixa de Fronteira</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_FRONTFX</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>N</replace_string>
+        <replace_by_string>N&#xe3;o Pertence a Faixa de Fronteira</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_FRONTZN</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>S</replace_string>
+        <replace_by_string>Pertence a Zona de Fronteira</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_FRONTZN</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>N</replace_string>
+        <replace_by_string>N&#xe3;o Pertence a Zona de Fronteira</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_POBREZA</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>S</replace_string>
+        <replace_by_string>Munic&#xed;pio de Extrema Pobreza</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_POBREZA</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>N</replace_string>
+        <replace_by_string>N&#xe3;o &#xe9; Munic&#xed;pio de Extrema Pobreza</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>CO_TIPO</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>0</replace_string>
+        <replace_by_string>N&#xc3;O INFORMADO</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_CAPITAL</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>0</replace_string>
+        <replace_by_string>N&#xc3;O INFORMADO</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_AMAZLEG</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>0</replace_string>
+        <replace_by_string>N&#xc3;O INFORMADO</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_SEMIAR</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>0</replace_string>
+        <replace_by_string>N&#xc3;O INFORMADO</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_FRONTFX</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>0</replace_string>
+        <replace_by_string>N&#xc3;O INFORMADO</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_FRONTZN</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>0</replace_string>
+        <replace_by_string>N&#xc3;O INFORMADO</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+      <field>
+        <in_stream_name>IN_POBREZA</in_stream_name>
+        <out_stream_name/>
+        <use_regex>no</use_regex>
+        <replace_string>0</replace_string>
+        <replace_by_string>N&#xc3;O INFORMADO</replace_by_string>
+        <set_empty_string>N</set_empty_string>
+        <replace_field_by_string/>
+        <whole_word>no</whole_word>
+        <case_sensitive>yes</case_sensitive>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>800</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Select values</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <remove>        <name>CO_REGIAO</name>
+      </remove>      <remove>        <name>cod_reg_saude</name>
+      </remove>      <remove>        <name>CO_UF</name>
+      </remove>      <remove>        <name>CO_SUCESS</name>
+      </remove>      <remove>        <name>cod_muni_reg</name>
+      </remove>      <remove>        <name>nome_estado</name>
+      </remove>      <remove>        <name>NU_LONGIT</name>
+      </remove>      <remove>        <name>NU_LATITUD</name>
+      </remove>      <remove>        <name>NU_AREA</name>
+      </remove>      <remove>        <name>NU_ALTITUD</name>
+      </remove>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>896</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort Est</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>codigo_estado</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>608</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort Est1</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>CO_UF</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>512</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort Mun</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>CO_MUNICIP</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>96</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort Mun 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>cod_muni_reg</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>192</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort Mun 2 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>cod_reg_saude</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>288</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort Reg</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>codigo_reg_saude</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>416</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>CO_MUNICIP</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1088</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>A4PMDW</connection>
+    <sql>select count&#x28;&#x2a;&#x29; as qtd from d_municipio where cod_municipio in &#x28;&#x27;359999&#x27;, &#x27;999999&#x27;&#x29;&#x3b;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>32</xloc>
+      <yloc>480</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>UF</name>
+    <type>XBaseInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO&#x7d;doc&#x2f;Base_Territorial&#x2f;UF&#x2f;tb_uf.dbf</file_dbf>
+    <limit>0</limit>
+    <add_rownr>N</add_rownr>
+    <field_rownr/>
+    <include>N</include>
+    <include_field/>
+    <charset_name/>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>608</xloc>
+      <yloc>64</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>already in dw&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>values diff&#x3f;</send_true_to>
+<send_false_to>def id</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>cod_municipio_dw</leftvalue>
+ <function>IS NOT NULL</function>
+ <rightvalue/>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1536</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>atualiza dw</name>
+    <type>Update</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>A4PMDW</connection>
+    <skip_lookup>Y</skip_lookup>
+    <commit>1000</commit>
+    <use_batch>Y</use_batch>
+    <error_ignored>N</error_ignored>
+    <ignore_flag_field/>
+    <lookup>
+      <schema/>
+      <table>d_municipio</table>
+      <key>
+        <name>id_municipio_dw</name>
+        <field>id_municipio</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+        </key>
+      <value>
+        <name>nome_municipio</name>
+        <rename>DS_NOME</rename>
+        </value>
+      <value>
+        <name>nome_municipio_padronizado</name>
+        <rename>DS_NOMEPAD</rename>
+        </value>
+      <value>
+        <name>tipo_municipio</name>
+        <rename>CO_TIPO</rename>
+        </value>
+      <value>
+        <name>cod_uf</name>
+        <rename>codigo_estado</rename>
+        </value>
+      <value>
+        <name>uf_nome</name>
+        <rename>nome_estado_padronizado</rename>
+        </value>
+      <value>
+        <name>uf_sigla</name>
+        <rename>sigla_estado</rename>
+        </value>
+      <value>
+        <name>cod_regiao</name>
+        <rename>codigo_reg_saude</rename>
+        </value>
+      <value>
+        <name>nome_regiao</name>
+        <rename>nome_reg_saude</rename>
+        </value>
+      <value>
+        <name>municipio_observacao</name>
+        <rename>DS_OBSERV</rename>
+        </value>
+      <value>
+        <name>ver_amazonia_legal</name>
+        <rename>IN_AMAZLEG</rename>
+        </value>
+      <value>
+        <name>ver_capital</name>
+        <rename>IN_CAPITAL</rename>
+        </value>
+      <value>
+        <name>ver_semi_arido</name>
+        <rename>IN_SEMIAR</rename>
+        </value>
+      <value>
+        <name>ver_faixa_fronteira</name>
+        <rename>IN_FRONTFX</rename>
+        </value>
+      <value>
+        <name>ver_zona_fronteira</name>
+        <rename>IN_FRONTZN</rename>
+        </value>
+      <value>
+        <name>ver_extrema_pobreza</name>
+        <rename>IN_POBREZA</rename>
+        </value>
+      <value>
+        <name>ano_instalacao</name>
+        <rename>DT_INSTAL</rename>
+        </value>
+      <value>
+        <name>ano_extincao</name>
+        <rename>DT_EXTIN</rename>
+        </value>
+      <value>
+        <name>latitude</name>
+        <rename>latitude</rename>
+        </value>
+      <value>
+        <name>longitude</name>
+        <rename>longitude</rename>
+        </value>
+      <value>
+        <name>altitude</name>
+        <rename>altitude</rename>
+        </value>
+      <value>
+        <name>area</name>
+        <rename>area</rename>
+        </value>
+      <value>
+        <name>cod_municipio_ibge</name>
+        <rename>CO_MUNICDV</rename>
+        </value>
+      </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1664</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>calc md5</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <checksumtype>MD5</checksumtype>
+      <resultfieldName>MD5_ORIGEM</resultfieldName>
+      <resultType>hexadecimal</resultType>
+      <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>CO_MUNICIP</name>
+      </field>
+      <field>
+        <name>DS_NOME</name>
+      </field>
+      <field>
+        <name>DS_NOMEPAD</name>
+      </field>
+      <field>
+        <name>CO_TIPO</name>
+      </field>
+      <field>
+        <name>codigo_estado</name>
+      </field>
+      <field>
+        <name>nome_estado_padronizado</name>
+      </field>
+      <field>
+        <name>sigla_estado</name>
+      </field>
+      <field>
+        <name>codigo_reg_saude</name>
+      </field>
+      <field>
+        <name>nome_reg_saude</name>
+      </field>
+      <field>
+        <name>DS_OBSERV</name>
+      </field>
+      <field>
+        <name>IN_AMAZLEG</name>
+      </field>
+      <field>
+        <name>IN_CAPITAL</name>
+      </field>
+      <field>
+        <name>IN_SEMIAR</name>
+      </field>
+      <field>
+        <name>IN_FRONTFX</name>
+      </field>
+      <field>
+        <name>IN_FRONTZN</name>
+      </field>
+      <field>
+        <name>IN_POBREZA</name>
+      </field>
+      <field>
+        <name>DT_INSTAL</name>
+      </field>
+      <field>
+        <name>DT_EXTIN</name>
+      </field>
+      <field>
+        <name>latitude</name>
+      </field>
+      <field>
+        <name>longitude</name>
+      </field>
+      <field>
+        <name>altitude</name>
+      </field>
+      <field>
+        <name>area</name>
+      </field>
+      <field>
+        <name>CO_MUNICDV</name>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1152</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>calc md5 dw</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <checksumtype>MD5</checksumtype>
+      <resultfieldName>MD5_DW</resultfieldName>
+      <resultType>hexadecimal</resultType>
+      <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>cod_municipio_dw</name>
+      </field>
+      <field>
+        <name>nome_municipio_dw</name>
+      </field>
+      <field>
+        <name>nome_municipio_padronizado_dw</name>
+      </field>
+      <field>
+        <name>tipo_municipio_dw</name>
+      </field>
+      <field>
+        <name>cod_uf_dw</name>
+      </field>
+      <field>
+        <name>uf_nome_dw</name>
+      </field>
+      <field>
+        <name>uf_sigla_dw</name>
+      </field>
+      <field>
+        <name>cod_regiao_dw</name>
+      </field>
+      <field>
+        <name>nome_regiao_dw</name>
+      </field>
+      <field>
+        <name>municipio_observacao_dw</name>
+      </field>
+      <field>
+        <name>ver_amazonia_legal_dw</name>
+      </field>
+      <field>
+        <name>ver_capital_dw</name>
+      </field>
+      <field>
+        <name>ver_semi_arido_dw</name>
+      </field>
+      <field>
+        <name>ver_faixa_fronteira_dw</name>
+      </field>
+      <field>
+        <name>ver_zona_fronteira_dw</name>
+      </field>
+      <field>
+        <name>ver_extrema_pobreza_dw</name>
+      </field>
+      <field>
+        <name>ano_instalacao_dw</name>
+      </field>
+      <field>
+        <name>ano_extincao_dw</name>
+      </field>
+      <field>
+        <name>latitude_dw</name>
+      </field>
+      <field>
+        <name>longitude_dw</name>
+      </field>
+      <field>
+        <name>altitude_dw</name>
+      </field>
+      <field>
+        <name>area_dw</name>
+      </field>
+      <field>
+        <name>cod_municipio_ibge_dw</name>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1248</xloc>
+      <yloc>224</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>consulta dw</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>A4PMDW</connection>
+    <sql>SELECT&#xd;&#xa;		id_municipio as id_municipio_dw,&#xd;&#xa;		cod_municipio as cod_municipio_dw,&#xd;&#xa;		nome_municipio as nome_municipio_dw,&#xd;&#xa;		nome_municipio_padronizado as nome_municipio_padronizado_dw,&#xd;&#xa;		tipo_municipio as tipo_municipio_dw,&#xd;&#xa;		cod_uf as cod_uf_dw,&#xd;&#xa;		uf_nome as uf_nome_dw,&#xd;&#xa;		uf_sigla as uf_sigla_dw,&#xd;&#xa;		cod_regiao as cod_regiao_dw,&#xd;&#xa;		nome_regiao as nome_regiao_dw,&#xd;&#xa;		municipio_observacao as municipio_observacao_dw,&#xd;&#xa;		ver_amazonia_legal as ver_amazonia_legal_dw,&#xd;&#xa;		ver_capital as ver_capital_dw,&#xd;&#xa;		ver_semi_arido as ver_semi_arido_dw,&#xd;&#xa;		ver_faixa_fronteira as ver_faixa_fronteira_dw,&#xd;&#xa;		ver_zona_fronteira as ver_zona_fronteira_dw,&#xd;&#xa;		ver_extrema_pobreza as ver_extrema_pobreza_dw,&#xd;&#xa;		ano_instalacao as ano_instalacao_dw,&#xd;&#xa;		ano_extincao as ano_extincao_dw,&#xd;&#xa;		latitude as latitude_dw,&#xd;&#xa;		longitude as longitude_dw,&#xd;&#xa;		altitude as altitude_dw,&#xd;&#xa;		area as area_dw,&#xd;&#xa;		cod_municipio_ibge as cod_municipio_ibge_dw&#xd;&#xa;FROM&#xd;&#xa;		d_municipio&#xd;&#xa;ORDER BY&#xd;&#xa;		cod_municipio</sql>
+    <limit/>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1248</xloc>
+      <yloc>128</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>consulta max id dw</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>A4PMDW</connection>
+    <sql>select max&#x28;id_municipio&#x29; as max_id from d_municipio</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1408</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>def id</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>var id&#x3b;&#xd;&#xa;&#xa;if &#x28;id &#x3d;&#x3d; null&#x29;&#xa;	id &#x3d; max_id&#xa;&#xa;id&#x2b;&#x2b;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>id</name>
+        <rename>id</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1536</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>dummy</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1760</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>join source&#x2f;target</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>calc md5</step1>
+<step2>calc md5 dw</step2>
+    <keys_1>
+      <key>CO_MUNICIP</key>
+    </keys_1>
+    <keys_2>
+      <key>cod_municipio_dw</key>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1248</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>join with max_id</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>LEFT OUTER</join_type>
+<step1>join source&#x2f;target</step1>
+<step2>consulta max id dw</step2>
+    <keys_1>
+    </keys_1>
+    <keys_2>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1408</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>replace nulls</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>Y</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>sigla_estado</name>
+        <value>NI</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>nome_estado</name>
+        <value>N&#xc3;O INFORMADO</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>nome_estado_padronizado</name>
+        <value>N&#xc3;O INFORMADO</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>CO_TIPO</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>DS_NOME</name>
+        <value>N&#xc3;O INFORMADO</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>DS_NOMEPAD</name>
+        <value>N&#xc3;O INFORMADO</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>DS_OBSERV</name>
+        <value>N&#xc3;O INFORMADO</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>IN_CAPITAL</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>IN_AMAZLEG</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>IN_SEMIAR</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>IN_FRONTZN</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>IN_FRONTFX</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>IN_POBREZA</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>latitude</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>longitude</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>altitude</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>area</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>nome_reg_saude</name>
+        <value>N&#xc3;O INFORMADO</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>DT_EXTIN</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>DT_INSTAL</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>704</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>values diff&#x3f;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>atualiza dw</send_true_to>
+<send_false_to>dummy</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>MD5_ORIGEM</leftvalue>
+ <function>&#x3c;&#x3e;</function>
+ <rightvalue>MD5_DW</rightvalue>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1664</xloc>
+      <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step_error_handling>
+      <error>
+        <source_step>Insere d_municipio</source_step>
+        <target_step/>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
+  </step_error_handling>
+   <slave-step-copy-partition-distribution>
+</slave-step-copy-partition-distribution>
+   <slave_transformation>N</slave_transformation>
+
+</transformation>
