@@ -69,7 +69,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;25 13&#x3a;07&#x3a;21.559</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;12&#x2f;05 18&#x3a;04&#x3a;32.893</modified_date>
+  <modified_date>2020&#x2f;12&#x2f;05 18&#x3a;43&#x3a;22.972</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -253,14 +253,17 @@
   <hop> <from>join with max_id</from><to>already in dw&#x3f;</to><enabled>Y</enabled> </hop>
   <hop> <from>values diff&#x3f;</from><to>dummy</to><enabled>Y</enabled> </hop>
   <hop> <from>Select values</from><to>Merge Join 3</to><enabled>Y</enabled> </hop>
-  <hop> <from>Apaga Municipios</from><to>Converte Inteiros</to><enabled>Y</enabled> </hop>
-  <hop> <from>Converte Inteiros</from><to>Sort Mun</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows</from><to>calc md5</to><enabled>Y</enabled> </hop>
   <hop> <from>calc md5</from><to>join source&#x2f;target</to><enabled>Y</enabled> </hop>
-  <hop> <from>consulta dw</from><to>calc md5 dw</to><enabled>Y</enabled> </hop>
   <hop> <from>calc md5 dw</from><to>join source&#x2f;target</to><enabled>Y</enabled> </hop>
   <hop> <from>values diff&#x3f;</from><to>atualiza dw</to><enabled>Y</enabled> </hop>
   <hop> <from>Merge Join</from><to>replace nulls</to><enabled>Y</enabled> </hop>
+  <hop> <from>Apaga Municipios</from><to>Sort Mun</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Execute SQL script</to><enabled>Y</enabled> </hop>
+  <hop> <from>Table input</from><to>Filter rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>consulta dw</from><to>Apaga Municipios 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Apaga Municipios 2</from><to>calc md5 dw</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Apaga Municipios</name>
@@ -284,7 +287,37 @@
       </remove>      <remove>        <name>IN_FRONTZN</name>
       </remove>      <remove>        <name>CO_TIPO</name>
       </remove>      <remove>        <name>DS_OBSERV</name>
-      </remove>    </fields>     <cluster_schema/>
+      </remove>      <meta>        <name>NU_LATITUD</name>
+        <rename>NU_LATITUD</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>NU_LONGIT</name>
+        <rename>NU_LONGIT</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>96</xloc>
       <yloc>128</yloc>
@@ -483,54 +516,6 @@
     </step>
 
   <step>
-    <name>Converte Inteiros</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var latitude &#x3d; parseInt&#x28;NU_LATITUD&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var longitude &#x3d; parseInt&#x28;NU_LONGIT&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var altitude &#x3d; parseInt&#x28;NU_ALTITUD&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var area &#x3d; parseInt&#x28;NU_AREA&#x29;&#x3b;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>latitude</name>
-        <rename>latitude</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>longitude</name>
-        <rename>longitude</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>altitude</name>
-        <rename>altitude</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>area</name>
-        <rename>area</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>96</xloc>
-      <yloc>224</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Get System Info</name>
     <type>SystemInfo</type>
     <description/>
@@ -629,22 +614,6 @@
           <stream_name>DT_EXTIN</stream_name>
         </field>
         <field>
-          <column_name>latitude</column_name>
-          <stream_name>latitude</stream_name>
-        </field>
-        <field>
-          <column_name>longitude</column_name>
-          <stream_name>longitude</stream_name>
-        </field>
-        <field>
-          <column_name>altitude</column_name>
-          <stream_name>altitude</stream_name>
-        </field>
-        <field>
-          <column_name>area</column_name>
-          <stream_name>area</stream_name>
-        </field>
-        <field>
           <column_name>cod_uf</column_name>
           <stream_name>codigo_estado</stream_name>
         </field>
@@ -668,11 +637,27 @@
           <column_name>cod_municipio_ibge</column_name>
           <stream_name>CO_MUNICDV</stream_name>
         </field>
+        <field>
+          <column_name>latitude</column_name>
+          <stream_name>NU_LATITUD</stream_name>
+        </field>
+        <field>
+          <column_name>longitude</column_name>
+          <stream_name>NU_LONGIT</stream_name>
+        </field>
+        <field>
+          <column_name>altitude</column_name>
+          <stream_name>NU_ALTITUD</stream_name>
+        </field>
+        <field>
+          <column_name>area</column_name>
+          <stream_name>NU_AREA</stream_name>
+        </field>
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1536</xloc>
-      <yloc>512</yloc>
+      <xloc>1534</xloc>
+      <yloc>513</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1023,10 +1008,6 @@
       </remove>      <remove>        <name>CO_SUCESS</name>
       </remove>      <remove>        <name>cod_muni_reg</name>
       </remove>      <remove>        <name>nome_estado</name>
-      </remove>      <remove>        <name>NU_LONGIT</name>
-      </remove>      <remove>        <name>NU_LATITUD</name>
-      </remove>      <remove>        <name>NU_AREA</name>
-      </remove>      <remove>        <name>NU_ALTITUD</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>896</xloc>
@@ -1407,19 +1388,19 @@
         </value>
       <value>
         <name>latitude</name>
-        <rename>latitude</rename>
+        <rename>NU_LATITUD</rename>
         </value>
       <value>
         <name>longitude</name>
-        <rename>longitude</rename>
+        <rename>NU_LONGIT</rename>
         </value>
       <value>
         <name>altitude</name>
-        <rename>altitude</rename>
+        <rename>NU_ALTITUD</rename>
         </value>
       <value>
         <name>area</name>
-        <rename>area</rename>
+        <rename>NU_AREA</rename>
         </value>
       <value>
         <name>cod_municipio_ibge</name>
@@ -1490,18 +1471,6 @@
         <name>DT_EXTIN</name>
       </field>
       <field>
-        <name>latitude</name>
-      </field>
-      <field>
-        <name>longitude</name>
-      </field>
-      <field>
-        <name>altitude</name>
-      </field>
-      <field>
-        <name>area</name>
-      </field>
-      <field>
         <name>CO_MUNICDV</name>
       </field>
     </fields>
@@ -1569,18 +1538,6 @@
         <name>ano_extincao_dw</name>
       </field>
       <field>
-        <name>latitude_dw</name>
-      </field>
-      <field>
-        <name>longitude_dw</name>
-      </field>
-      <field>
-        <name>altitude_dw</name>
-      </field>
-      <field>
-        <name>area_dw</name>
-      </field>
-      <field>
         <name>cod_municipio_ibge_dw</name>
       </field>
     </fields>
@@ -1612,8 +1569,8 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1248</xloc>
-      <yloc>128</yloc>
+      <xloc>1243</xloc>
+      <yloc>93</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1815,25 +1772,25 @@
         <set_empty_string>N</set_empty_string>
         </field>
       <field>
-        <name>latitude</name>
+        <name>NU_LATITUD</name>
         <value>0</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
         </field>
       <field>
-        <name>longitude</name>
+        <name>NU_LONGIT</name>
         <value>0</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
         </field>
       <field>
-        <name>altitude</name>
+        <name>NU_ALTITUD</name>
         <value>0</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
         </field>
       <field>
-        <name>area</name>
+        <name>NU_AREA</name>
         <value>0</value>
         <mask/>
         <set_empty_string>N</set_empty_string>
@@ -1890,6 +1847,192 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1664</xloc>
       <yloc>320</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dummy &#x28;do nothing&#x29;</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1030</xloc>
+      <yloc>509</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Execute SQL script</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>TCCDW</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>Y</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-1, &#x27;999999&#x27;, NULL, &#x27;Ignorado ou Exterior&#x27;, &#x27;IGNORADO OU EXTERIOR&#x27;, NULL, &#x27;NI&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-2, &#x27;359999&#x27;, NULL, &#x27;Munic&#xed;pio ignorado - SP&#x27;, &#x27;MUNIC&#xcd;PIO IGNORADO - SP&#x27;, &#x27;35&#x27;, &#x27;SAO PAULO&#x27;, &#x27;SP&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-3, &#x27;530005&#x27;, NULL, &#x27;Bras&#xed;lia - Asa Norte&#x27;, &#x27;BRASILIA - ASA NORTE&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-4, &#x27;530015&#x27;, NULL, &#x27;Bras&#xed;lia - Asa Sul&#x27;, &#x27;BRASILIA - ASA SUL&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-5, &#x27;530020&#x27;, NULL, &#x27;Brazl&#xe2;ndia&#x27;, &#x27;BRAZLANDIA&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-6, &#x27;530030&#x27;, NULL, &#x27;Candangol&#xe2;ndia&#x27;, &#x27;CANDANGOLANDIA&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-7, &#x27;530040&#x27;, NULL, &#x27;Ceil&#xe2;ndia&#x27;, &#x27;CEILANDIA&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-8, &#x27;530050&#x27;, NULL, &#x27;Cruzeiro&#x27;, &#x27;CRUZEIRO&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-9, &#x27;530060&#x27;, NULL, &#x27;Gama&#x27;, &#x27;GAMA&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-10, &#x27;530070&#x27;, NULL, &#x27;Guar&#xe1;&#x27;, &#x27;GUARA&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-11, &#x27;530080&#x27;, NULL, &#x27;Lago Norte&#x27;, &#x27;LAGO NORTE&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-12, &#x27;530090&#x27;, NULL, &#x27;Lago Sul&#x27;, &#x27;LAGO SUL&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-13, &#x27;530100&#x27;, NULL, &#x27;N&#xfa;cleo Bandeirante&#x27;, &#x27;NUCLEO BANDEIRANTE&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-14, &#x27;530110&#x27;, NULL, &#x27;Parano&#xe1;&#x27;, &#x27;PARANOA&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-15, &#x27;530120&#x27;, NULL, &#x27;Planaltina&#x27;, &#x27;PLANALTINA&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-16, &#x27;530130&#x27;, NULL, &#x27;Recanto das Emas&#x27;, &#x27;RECANTO DAS EMAS&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-17, &#x27;530135&#x27;, NULL, &#x27;Riacho Fundo&#x27;, &#x27;RIACHO FUNDO&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-18, &#x27;530140&#x27;, NULL, &#x27;Samambaia&#x27;, &#x27;SAMAMBAIA&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-19, &#x27;530150&#x27;, NULL, &#x27;Santa Maria&#x27;, &#x27;SANTA MARIA&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-20, &#x27;530160&#x27;, NULL, &#x27;S&#xe3;o Sebasti&#xe3;o&#x27;, &#x27;SAO SEBASTIAO&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-21, &#x27;530170&#x27;, NULL, &#x27;Sobradinho&#x27;, &#x27;SOBRADINHO&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-22, &#x27;530180&#x27;, NULL, &#x27;Taguatinga&#x27;, &#x27;TAGUATINGA&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;INSERT INTO d_municipio&#xa;&#x28;id_municipio, cod_municipio, cod_municipio_ibge, nome_municipio, nome_municipio_padronizado, cod_uf, uf_nome, uf_sigla, cod_regiao, nome_regiao, ver_capital, ver_semi_arido, ver_extrema_pobreza, ano_instalacao, ano_extincao, latitude, longitude, altitude, area, &#x22;_dt_hr_carga&#x22;, &#x22;_id_batch&#x22;&#x29;&#xa;VALUES&#x28;-23, &#x27;530000&#x27;, NULL, &#x27;DIST.FEDERAL - Gestor Estadual&#x27;, &#x27;DIST.FEDERAL - GESTOR ESTADUAL&#x27;, &#x27;53&#x27;, &#x27;DISTRITO FEDERAL&#x27;, &#x27;DF&#x27;, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, &#x28;&#x27;now&#x28;&#x29;&#x27;&#x29;&#x3a;&#x3a;timestamptz, 0&#x29;&#x3b;&#xa;</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+    </arguments>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1030</xloc>
+      <yloc>381</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>Dummy &#x28;do nothing&#x29;</send_true_to>
+<send_false_to>Execute SQL script</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>qtd</leftvalue>
+ <function>&#x3e;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Integer</type><text>0</text><length>-1</length><precision>0</precision><isnull>N</isnull><mask>&#x23;&#x3b;-&#x23;</mask></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>934</xloc>
+      <yloc>445</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Table input</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>TCCDW</connection>
+    <sql>select count&#x28;&#x2a;&#x29; as qtd from d_municipio where cod_municipio in &#x28;&#x27;359999&#x27;, &#x27;999999&#x27;&#x29;&#x3b;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>838</xloc>
+      <yloc>445</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Apaga Municipios 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>latitude_dw</name>
+        <rename>latitude_dw</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>longitude_dw</name>
+        <rename>longitude_dw</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>area_dw</name>
+        <rename>area_dw</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>altitude_dw</name>
+        <rename>altitude_dw</rename>
+        <type>Number</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask>0.00</conversion_mask>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1247</xloc>
+      <yloc>158</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
