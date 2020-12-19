@@ -20,9 +20,9 @@
         </parameter>
     </parameters>
     <log>
-<trans-log-table><connection>A4PM</connection>
+<trans-log-table><connection>TCC</connection>
 <schema/>
-<table>etl_trans_log_datasus</table>
+<table>etl_trans_log_tcc</table>
 <size_limit_lines/>
 <interval>5</interval>
 <timeout_days>60</timeout_days>
@@ -79,7 +79,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;23 12&#x3a;11&#x3a;52.081</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;12&#x2f;19 19&#x3a;05&#x3a;27.033</modified_date>
+  <modified_date>2020&#x2f;12&#x2f;19 19&#x3a;39&#x3a;22.679</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -154,6 +154,33 @@
       <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
       <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
       <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>N</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>TCC</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>TCC</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
       <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
     </attributes>
   </connection>
@@ -533,6 +560,9 @@
       <linenr_fieldname/>
       <give_back_row>N</give_back_row>
       <group>
+        <field>
+          <name>_id_batch</name>
+        </field>
       </group>
       <fields>
         <field>
