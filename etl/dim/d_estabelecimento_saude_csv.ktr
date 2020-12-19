@@ -10,12 +10,12 @@
     <parameters>
         <parameter>
             <name>ARQUIVO</name>
-            <default_value/>
+            <default_value>&#x2f;home&#x2f;a4pm&#x2f;Downloads&#x2f;TCC&#x2f;CNES&#x2f;estabelecimentos&#x2f;STMG0508.csv</default_value>
             <description/>
         </parameter>
         <parameter>
             <name>UF</name>
-            <default_value/>
+            <default_value>MG</default_value>
             <description/>
         </parameter>
     </parameters>
@@ -78,7 +78,7 @@
   <created_user>-</created_user>
   <created_date>2020&#x2f;06&#x2f;30 09&#x3a;22&#x3a;51.327</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;12&#x2f;05 21&#x3a;29&#x3a;13.934</modified_date>
+  <modified_date>2020&#x2f;12&#x2f;19 09&#x3a;53&#x3a;13.223</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -276,7 +276,6 @@
   <hop> <from>Dummy &#x28;do nothing&#x29; 3 2</from><to>Group by</to><enabled>Y</enabled> </hop>
   <hop> <from>Generate Rows</from><to>Block 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Group by</from><to>Apaga estab</to><enabled>Y</enabled> </hop>
-  <hop> <from>If field value is null</from><to>Sort rows</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows</from><to>calc md5</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort rows 4</from><to>join source&#x2f;target</to><enabled>Y</enabled> </hop>
   <hop> <from>already in dw&#x3f;</from><to>join with max_id</to><enabled>Y</enabled> </hop>
@@ -290,10 +289,11 @@
   <hop> <from>join with max_id</from><to>def id</to><enabled>Y</enabled> </hop>
   <hop> <from>values diff&#x3f;</from><to>Dummy &#x28;do nothing&#x29; 3 2</to><enabled>Y</enabled> </hop>
   <hop> <from>values diff&#x3f;</from><to>dummy</to><enabled>Y</enabled> </hop>
-  <hop> <from>Merge Join 3 2</from><to>If field value is null</to><enabled>Y</enabled> </hop>
   <hop> <from>Apaga Reg Saude 2 2 2</from><to>Sort Mun 2 3 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Rel Mun mac reg</from><to>Apaga Reg Saude 2 2 2</to><enabled>Y</enabled> </hop>
   <hop> <from>Sort Mun 2 3 2</from><to>Merge Join 2 3 2 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Merge Join 3 2</from><to>If field value is null</to><enabled>Y</enabled> </hop>
+  <hop> <from>If field value is null</from><to>Sort rows</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Apaga Campos</name>
@@ -470,6 +470,59 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1642</xloc>
       <yloc>91</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Apaga Municipios</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <remove>        <name>Field_001</name>
+      </remove>      <remove>        <name>Field_002</name>
+      </remove>      <remove>        <name>Field_003</name>
+      </remove>      <meta>        <name>Field_000</name>
+        <rename>codigo_municipio</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>Field_004</name>
+        <rename>nome_municipio</rename>
+        <type>String</type>
+        <length>-2</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>637</xloc>
+      <yloc>231</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -714,6 +767,56 @@
     </step>
 
   <step>
+    <name>Apaga Reg Saude 2 2 2</name>
+    <type>SelectValues</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>        <select_unspecified>N</select_unspecified>
+      <meta>        <name>CO_MUNICIP</name>
+        <rename>cod_mun_mac</rename>
+        <type>String</type>
+        <length>6</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>      <meta>        <name>CO_MACSAUD</name>
+        <rename>cod_mac_reg</rename>
+        <type>String</type>
+        <length>5</length>
+        <precision>-2</precision>
+        <conversion_mask/>
+        <date_format_lenient>false</date_format_lenient>
+        <date_format_locale/>
+        <date_format_timezone/>
+        <lenient_string_to_number>false</lenient_string_to_number>
+        <encoding/>
+        <decimal_symbol/>
+        <grouping_symbol/>
+        <currency_symbol/>
+        <storage_type/>
+      </meta>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1460</xloc>
+      <yloc>225</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Apaga Reg Saude 3</name>
     <type>SelectValues</type>
     <description/>
@@ -872,6 +975,39 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>2452</xloc>
       <yloc>93</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Apaga estab</name>
+    <type>ExecSQL</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>TCCDW</connection>
+    <execute_each_row>Y</execute_each_row>
+    <single_statement>N</single_statement>
+    <replace_variables>Y</replace_variables>
+    <quoteString>N</quoteString>
+    <sql>delete from d_estabelecimento_saude where id_estabelecimento_saude in &#x28;&#x3f;&#x29;&#x3b;</sql>
+    <set_params>N</set_params>
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
+    <arguments>
+       <argument><name>pk</name></argument>
+    </arguments>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3572</xloc>
+      <yloc>471</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1166,6 +1302,56 @@
     </step>
 
   <step>
+    <name>Block</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <steps>
+      <step>
+        <name>Apaga estab</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3374</xloc>
+      <yloc>554</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Block 2</name>
+    <type>BlockUntilStepsFinish</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <steps>
+      <step>
+        <name>Insere d_estabelecimento_saude atualizado</name>
+        <CopyNr>0</CopyNr>
+        </step>
+      </steps>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2969</xloc>
+      <yloc>466</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Divisao administrativa</name>
     <type>XBaseInput</type>
     <description/>
@@ -1209,6 +1395,25 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>124</xloc>
       <yloc>453</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dummy &#x28;do nothing&#x29; 3 2</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3376</xloc>
+      <yloc>477</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3536,6 +3741,35 @@
     </step>
 
   <step>
+    <name>Estabelecimentos CNES</name>
+    <type>XBaseInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO_TCC&#x7d;docs&#x2f;CNES&#x2f;Cad_Geral&#x2f;CADGER&#x24;&#x7b;UF&#x7d;.dbf</file_dbf>
+    <limit>0</limit>
+    <add_rownr>N</add_rownr>
+    <field_rownr/>
+    <include>N</include>
+    <include_field/>
+    <charset_name/>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>143</xloc>
+      <yloc>28</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Filter rows</name>
     <type>FilterRows</type>
     <description/>
@@ -3594,6 +3828,44 @@
     </step>
 
   <step>
+    <name>Generate Rows</name>
+    <type>RowGenerator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>teste</name>
+        <type>Integer</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>1</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <limit>1</limit>
+    <never_ending>N</never_ending>
+    <interval_in_ms>5000</interval_in_ms>
+    <row_time_field>now</row_time_field>
+    <last_time_field>FiveSecondsAgo</last_time_field>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2884</xloc>
+      <yloc>465</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Get System Info</name>
     <type>SystemInfo</type>
     <description/>
@@ -3618,6 +3890,43 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>2630</xloc>
       <yloc>298</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Group by</name>
+    <type>GroupBy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <all_rows>N</all_rows>
+      <ignore_aggregate>N</ignore_aggregate>
+      <field_ignore/>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>grp</prefix>
+      <add_linenr>N</add_linenr>
+      <linenr_fieldname/>
+      <give_back_row>N</give_back_row>
+      <group>
+      </group>
+      <fields>
+        <field>
+          <aggregate>pk</aggregate>
+          <subject>id_estabelecimento_saude_dw</subject>
+          <type>CONCAT_COMMA</type>
+          <valuefield/>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3482</xloc>
+      <yloc>471</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -3712,6 +4021,226 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>290</xloc>
       <yloc>238</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Insere d_estabelecimento_saude</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>TCCDW</connection>
+    <schema/>
+    <table>d_estabelecimento_saude</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>cod_cnes</column_name>
+          <stream_name>cnes_estabelecimento</stream_name>
+        </field>
+        <field>
+          <column_name>cep</column_name>
+          <stream_name>COD_CEP</stream_name>
+        </field>
+        <field>
+          <column_name>vinculo_sus</column_name>
+          <stream_name>VINC_SUS</stream_name>
+        </field>
+        <field>
+          <column_name>_id_batch</column_name>
+          <stream_name>_id_batch</stream_name>
+        </field>
+        <field>
+          <column_name>cod_municipio</column_name>
+          <stream_name>codigo_municipio</stream_name>
+        </field>
+        <field>
+          <column_name>nome_municipio</column_name>
+          <stream_name>nome_municipio</stream_name>
+        </field>
+        <field>
+          <column_name>_ativador</column_name>
+          <stream_name>ativador</stream_name>
+        </field>
+        <field>
+          <column_name>nome_fantasia</column_name>
+          <stream_name>FANTASIA</stream_name>
+        </field>
+        <field>
+          <column_name>razao_soc_mantenedora</column_name>
+          <stream_name>razao_social_mantenedora</stream_name>
+        </field>
+        <field>
+          <column_name>data_inclusao</column_name>
+          <stream_name>DATAINCL</stream_name>
+        </field>
+        <field>
+          <column_name>data_exclusao</column_name>
+          <stream_name>DATAEXCL</stream_name>
+        </field>
+        <field>
+          <column_name>cnpj_mantenedora</column_name>
+          <stream_name>CNPJ_MAN</stream_name>
+        </field>
+        <field>
+          <column_name>id_estabelecimento_saude</column_name>
+          <stream_name>id</stream_name>
+        </field>
+        <field>
+          <column_name>tipo_gestao</column_name>
+          <stream_name>tipo_gestao</stream_name>
+        </field>
+        <field>
+          <column_name>turno_atendimento</column_name>
+          <stream_name>TURNO_AT</stream_name>
+        </field>
+        <field>
+          <column_name>tipo_unidade</column_name>
+          <stream_name>tipo</stream_name>
+        </field>
+        <field>
+          <column_name>sigla_estado_processamento</column_name>
+          <stream_name>estado</stream_name>
+        </field>
+        <field>
+          <column_name>fluxo_clientela</column_name>
+          <stream_name>tipo_atendimento</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3166</xloc>
+      <yloc>612</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Insere d_estabelecimento_saude atualizado</name>
+    <type>TableOutput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>TCCDW</connection>
+    <schema/>
+    <table>d_estabelecimento_saude</table>
+    <commit>1000</commit>
+    <truncate>N</truncate>
+    <ignore_errors>N</ignore_errors>
+    <use_batch>Y</use_batch>
+    <specify_fields>Y</specify_fields>
+    <partitioning_enabled>N</partitioning_enabled>
+    <partitioning_field/>
+    <partitioning_daily>N</partitioning_daily>
+    <partitioning_monthly>Y</partitioning_monthly>
+    <tablename_in_field>N</tablename_in_field>
+    <tablename_field/>
+    <tablename_in_table>Y</tablename_in_table>
+    <return_keys>N</return_keys>
+    <return_field/>
+    <fields>
+        <field>
+          <column_name>cod_cnes</column_name>
+          <stream_name>cnes_estabelecimento</stream_name>
+        </field>
+        <field>
+          <column_name>cep</column_name>
+          <stream_name>COD_CEP</stream_name>
+        </field>
+        <field>
+          <column_name>vinculo_sus</column_name>
+          <stream_name>VINC_SUS</stream_name>
+        </field>
+        <field>
+          <column_name>_id_batch</column_name>
+          <stream_name>_id_batch</stream_name>
+        </field>
+        <field>
+          <column_name>cod_municipio</column_name>
+          <stream_name>codigo_municipio</stream_name>
+        </field>
+        <field>
+          <column_name>nome_municipio</column_name>
+          <stream_name>nome_municipio</stream_name>
+        </field>
+        <field>
+          <column_name>_ativador</column_name>
+          <stream_name>ativador</stream_name>
+        </field>
+        <field>
+          <column_name>nome_fantasia</column_name>
+          <stream_name>FANTASIA</stream_name>
+        </field>
+        <field>
+          <column_name>razao_soc_mantenedora</column_name>
+          <stream_name>razao_social_mantenedora</stream_name>
+        </field>
+        <field>
+          <column_name>data_inclusao</column_name>
+          <stream_name>DATAINCL</stream_name>
+        </field>
+        <field>
+          <column_name>data_exclusao</column_name>
+          <stream_name>DATAEXCL</stream_name>
+        </field>
+        <field>
+          <column_name>cnpj_mantenedora</column_name>
+          <stream_name>CNPJ_MAN</stream_name>
+        </field>
+        <field>
+          <column_name>id_estabelecimento_saude</column_name>
+          <stream_name>id_estabelecimento_saude_dw</stream_name>
+        </field>
+        <field>
+          <column_name>tipo_gestao</column_name>
+          <stream_name>tipo_gestao</stream_name>
+        </field>
+        <field>
+          <column_name>turno_atendimento</column_name>
+          <stream_name>TURNO_AT</stream_name>
+        </field>
+        <field>
+          <column_name>tipo_unidade</column_name>
+          <stream_name>tipo</stream_name>
+        </field>
+        <field>
+          <column_name>sigla_estado_processamento</column_name>
+          <stream_name>estado</stream_name>
+        </field>
+        <field>
+          <column_name>fluxo_clientela</column_name>
+          <stream_name>tipo_atendimento</stream_name>
+        </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3373</xloc>
+      <yloc>643</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -4389,6 +4918,95 @@
     </step>
 
   <step>
+    <name>Municipios</name>
+    <type>CsvInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <filename>&#x24;&#x7b;CAMINHO_REPOSITORIO_TCC&#x7d;docs&#x2f;Base_Territorial&#x2f;Municipios&#x2f;tb_municip.csv</filename>
+    <filename_field/>
+    <rownum_field/>
+    <include_filename>N</include_filename>
+    <separator>&#x3b;</separator>
+    <enclosure>&#x22;</enclosure>
+    <header>N</header>
+    <buffer_size>50000</buffer_size>
+    <lazy_conversion>Y</lazy_conversion>
+    <add_filename_result>N</add_filename_result>
+    <parallel>N</parallel>
+    <newline_possible>N</newline_possible>
+    <encoding>ISO-8859-1</encoding>
+    <fields>
+      <field>
+        <name>Field_000</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Field_001</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Field_002</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Field_003</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+      <field>
+        <name>Field_004</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>632</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Regiao Metropolitana</name>
     <type>XBaseInput</type>
     <description/>
@@ -4418,6 +5036,64 @@
     </step>
 
   <step>
+    <name>Regiao_saude</name>
+    <type>XBaseInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO_TCC&#x7d;docs&#x2f;Base_Territorial&#x2f;Regiao_De_Saude&#x5c;tb_regsaud.dbf</file_dbf>
+    <limit>0</limit>
+    <add_rownr>N</add_rownr>
+    <field_rownr/>
+    <include>N</include>
+    <include_field/>
+    <charset_name/>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>883</xloc>
+      <yloc>20</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Rel Mun Reg_saude</name>
+    <type>XBaseInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO_TCC&#x7d;docs&#x2f;Base_Territorial&#x2f;Relacionamentos&#x2f;Relacionamento_Municipios_e_Regioes_de_Saude&#x2f;rl_municip_regsaud.dbf</file_dbf>
+    <limit>0</limit>
+    <add_rownr>N</add_rownr>
+    <field_rownr/>
+    <include>N</include>
+    <include_field/>
+    <charset_name/>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>738</xloc>
+      <yloc>141</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Rel Mun div adm</name>
     <type>XBaseInput</type>
     <description/>
@@ -4442,6 +5118,35 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1820</xloc>
       <yloc>88</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Rel Mun mac reg</name>
+    <type>XBaseInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO_TCC&#x7d;docs&#x2f;Base_Territorial&#x5c;Relacionamentos&#x5c;Municipios_e_Macrorregioes_de_Saude&#x5c;rl_municip_macsaud.dbf</file_dbf>
+    <limit>0</limit>
+    <add_rownr>N</add_rownr>
+    <field_rownr/>
+    <include>N</include>
+    <include_field/>
+    <charset_name/>
+    <accept_filenames>N</accept_filenames>
+    <accept_field/>
+    <accept_stepname/>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1460</xloc>
+      <yloc>165</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -4948,6 +5653,40 @@
     </step>
 
   <step>
+    <name>Sort Mun 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>codigo_municipio</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>637</xloc>
+      <yloc>308</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Sort Mun 2 2</name>
     <type>SortRows</type>
     <description/>
@@ -5011,6 +5750,40 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>1070</xloc>
       <yloc>298</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort Mun 2 3 2</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>cod_mun_mac</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1460</xloc>
+      <yloc>315</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -5766,6 +6539,40 @@
     </step>
 
   <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>cnes_estabelecimento</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>2935</xloc>
+      <yloc>389</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Sort rows 2</name>
     <type>SortRows</type>
     <description/>
@@ -5834,6 +6641,40 @@
     </step>
 
   <step>
+    <name>Sort rows 4</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>cod_cnes_dw</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>3079</xloc>
+      <yloc>300</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>Table input</name>
     <type>TableInput</type>
     <description/>
@@ -5855,178 +6696,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>2720</xloc>
       <yloc>298</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>descarte</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>260</xloc>
-      <yloc>478</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>int</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var ativador &#x3d; parseInt&#x28;EXCLUIDO&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var dt_expedicao &#x3d; null&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>ativador</name>
-        <rename>ativador</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>dt_expedicao</name>
-        <rename>dt_expedicao</rename>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>30</xloc>
-      <yloc>328</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>int 2</name>
-    <type>ScriptValueMod</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <compatible>N</compatible>
-    <optimizationLevel>9</optimizationLevel>
-    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
-        <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var ativador &#x3d; parseInt&#x28;EXCLUIDO&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;if&#x28;DT_EXPED &#x21;&#x3d; null&#x29;&#xd;&#xa;&#x7b;&#xd;&#xa;	var ano &#x3d; parseInt&#x28;substr&#x28;DT_EXPED,0,4&#x29;&#x29;&#x3b;&#xd;&#xa;	var mes &#x3d; parseInt&#x28;substr&#x28;DT_EXPED,4,2&#x29;&#x29; - 1&#x3b;&#xd;&#xa;	var dia &#x3d; parseInt&#x28;substr&#x28;DT_EXPED,6,2&#x29;&#x29;&#x3b;&#xd;&#xa;	var dt_expedicao &#x3d; new Date &#x28;ano,&#x28;mes&#x29;, dia&#x29;&#x3b;&#xd;&#xa;&#x7d;else&#xd;&#xa;&#x7b;&#xd;&#xa;var dt_expedicao &#x3d; null&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>ativador</name>
-        <rename>ativador</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>dt_expedicao</name>
-        <rename>dt_expedicao</rename>
-        <type>Date</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>124</xloc>
-      <yloc>327</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>replace nulls</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>Y</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>FANTASIA</name>
-        <value>NOME N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>RAZ_SOCI</name>
-        <value>RAZ&#xc3;O SOCIAL N&#xc3;O INFORMADA</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>RSOC_MAN</name>
-        <value>RAZ&#xc3;O SOCIAL MANTENEDORA N&#xc3;O INFORMADA</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>EXCLUIDO</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>71</xloc>
-      <yloc>388</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Estabelecimentos CNES</name>
-    <type>XBaseInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO_TCC&#x7d;docs&#x2f;CNES&#x2f;Cad_Geral&#x2f;CADGER&#x24;&#x7b;UF&#x7d;.dbf</file_dbf>
-    <limit>0</limit>
-    <add_rownr>N</add_rownr>
-    <field_rownr/>
-    <include>N</include>
-    <include_field/>
-    <charset_name/>
-    <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>143</xloc>
-      <yloc>28</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -6083,895 +6752,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>482</xloc>
       <yloc>23</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Apaga Municipios</name>
-    <type>SelectValues</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>        <select_unspecified>N</select_unspecified>
-      <remove>        <name>Field_001</name>
-      </remove>      <remove>        <name>Field_002</name>
-      </remove>      <remove>        <name>Field_003</name>
-      </remove>      <meta>        <name>Field_000</name>
-        <rename>codigo_municipio</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>Field_004</name>
-        <rename>nome_municipio</rename>
-        <type>String</type>
-        <length>-2</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>637</xloc>
-      <yloc>231</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Municipios</name>
-    <type>CsvInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <filename>&#x24;&#x7b;CAMINHO_REPOSITORIO_TCC&#x7d;docs&#x2f;Base_Territorial&#x2f;Municipios&#x2f;tb_municip.csv</filename>
-    <filename_field/>
-    <rownum_field/>
-    <include_filename>N</include_filename>
-    <separator>&#x3b;</separator>
-    <enclosure>&#x22;</enclosure>
-    <header>N</header>
-    <buffer_size>50000</buffer_size>
-    <lazy_conversion>Y</lazy_conversion>
-    <add_filename_result>N</add_filename_result>
-    <parallel>N</parallel>
-    <newline_possible>N</newline_possible>
-    <encoding>ISO-8859-1</encoding>
-    <fields>
-      <field>
-        <name>Field_000</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Field_001</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Field_002</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Field_003</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-      <field>
-        <name>Field_004</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <trim_type>none</trim_type>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>632</xloc>
-      <yloc>160</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort Mun 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>codigo_municipio</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>637</xloc>
-      <yloc>308</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Rel Mun Reg_saude</name>
-    <type>XBaseInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO_TCC&#x7d;docs&#x2f;Base_Territorial&#x2f;Relacionamentos&#x2f;Relacionamento_Municipios_e_Regioes_de_Saude&#x2f;rl_municip_regsaud.dbf</file_dbf>
-    <limit>0</limit>
-    <add_rownr>N</add_rownr>
-    <field_rownr/>
-    <include>N</include>
-    <include_field/>
-    <charset_name/>
-    <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>738</xloc>
-      <yloc>141</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Regiao_saude</name>
-    <type>XBaseInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO_TCC&#x7d;docs&#x2f;Base_Territorial&#x2f;Regiao_De_Saude&#x5c;tb_regsaud.dbf</file_dbf>
-    <limit>0</limit>
-    <add_rownr>N</add_rownr>
-    <field_rownr/>
-    <include>N</include>
-    <include_field/>
-    <charset_name/>
-    <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>883</xloc>
-      <yloc>20</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Apaga estab</name>
-    <type>ExecSQL</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>TCCDW</connection>
-    <execute_each_row>Y</execute_each_row>
-    <single_statement>N</single_statement>
-    <replace_variables>Y</replace_variables>
-    <quoteString>N</quoteString>
-    <sql>delete from d_estabelecimento_saude where id_estabelecimento_saude in &#x28;&#x3f;&#x29;&#x3b;</sql>
-    <set_params>N</set_params>
-    <insert_field/>
-    <update_field/>
-    <delete_field/>
-    <read_field/>
-    <arguments>
-       <argument><name>pk</name></argument>
-    </arguments>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3572</xloc>
-      <yloc>471</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Block</name>
-    <type>BlockUntilStepsFinish</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <steps>
-      <step>
-        <name>Apaga estab</name>
-        <CopyNr>0</CopyNr>
-        </step>
-      </steps>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3374</xloc>
-      <yloc>554</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Block 2</name>
-    <type>BlockUntilStepsFinish</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <steps>
-      <step>
-        <name>Insere d_estabelecimento_saude atualizado</name>
-        <CopyNr>0</CopyNr>
-        </step>
-      </steps>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2969</xloc>
-      <yloc>466</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Dummy &#x28;do nothing&#x29; 3 2</name>
-    <type>Dummy</type>
-    <description/>
-    <distribute>N</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3376</xloc>
-      <yloc>477</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Generate Rows</name>
-    <type>RowGenerator</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>teste</name>
-        <type>Integer</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <nullif>1</nullif>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <limit>1</limit>
-    <never_ending>N</never_ending>
-    <interval_in_ms>5000</interval_in_ms>
-    <row_time_field>now</row_time_field>
-    <last_time_field>FiveSecondsAgo</last_time_field>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2884</xloc>
-      <yloc>465</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Group by</name>
-    <type>GroupBy</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <all_rows>N</all_rows>
-      <ignore_aggregate>N</ignore_aggregate>
-      <field_ignore/>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>grp</prefix>
-      <add_linenr>N</add_linenr>
-      <linenr_fieldname/>
-      <give_back_row>N</give_back_row>
-      <group>
-      </group>
-      <fields>
-        <field>
-          <aggregate>pk</aggregate>
-          <subject>id_estabelecimento_saude_dw</subject>
-          <type>CONCAT_COMMA</type>
-          <valuefield/>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3482</xloc>
-      <yloc>471</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>If field value is null</name>
-    <type>IfNull</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <replaceAllByValue/>
-      <replaceAllMask/>
-      <selectFields>Y</selectFields>
-      <selectValuesType>N</selectValuesType>
-      <setEmptyStringAll>N</setEmptyStringAll>
-    <valuetypes>
-      </valuetypes>
-    <fields>
-      <field>
-        <name>cnes_estabelecimento</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>COD_CEP</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>VINC_SUS</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>codigo_micro_regiao_ibge</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>nome_micro_regiao_ibge</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>codigo_reg_saude</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>nome_reg_saude</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>codigo_municipio</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>nome_municipio</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>ativador</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>FANTASIA</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>razao_social</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>razao_social_mantenedora</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>CPF_CNPJ</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>CNPJ_MAN</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>tipo_gestao</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>ESFERA_A</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>TURNO_AT</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>tipo</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>codigo_macro_regiao_saude</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>nome_macro_regiao_saude</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>codigo_divisao_administrativa</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>nome_divisao_administrativa</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>codigo_regiao_metropolitana</name>
-        <value>0</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>nome_regiao_metropolitana</name>
-        <value>N&#xc3;O INFORMADO</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>estado</name>
-        <value>NI</value>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      <field>
-        <name>tipo_atendimento</name>
-        <value/>
-        <mask/>
-        <set_empty_string>N</set_empty_string>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2815</xloc>
-      <yloc>389</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Insere d_estabelecimento_saude</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>TCCDW</connection>
-    <schema/>
-    <table>d_estabelecimento_saude</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>cod_cnes</column_name>
-          <stream_name>cnes_estabelecimento</stream_name>
-        </field>
-        <field>
-          <column_name>cep</column_name>
-          <stream_name>COD_CEP</stream_name>
-        </field>
-        <field>
-          <column_name>vinculo_sus</column_name>
-          <stream_name>VINC_SUS</stream_name>
-        </field>
-        <field>
-          <column_name>_id_batch</column_name>
-          <stream_name>_id_batch</stream_name>
-        </field>
-        <field>
-          <column_name>cod_municipio</column_name>
-          <stream_name>codigo_municipio</stream_name>
-        </field>
-        <field>
-          <column_name>nome_municipio</column_name>
-          <stream_name>nome_municipio</stream_name>
-        </field>
-        <field>
-          <column_name>_ativador</column_name>
-          <stream_name>ativador</stream_name>
-        </field>
-        <field>
-          <column_name>nome_fantasia</column_name>
-          <stream_name>FANTASIA</stream_name>
-        </field>
-        <field>
-          <column_name>razao_soc_mantenedora</column_name>
-          <stream_name>razao_social_mantenedora</stream_name>
-        </field>
-        <field>
-          <column_name>data_inclusao</column_name>
-          <stream_name>DATAINCL</stream_name>
-        </field>
-        <field>
-          <column_name>data_exclusao</column_name>
-          <stream_name>DATAEXCL</stream_name>
-        </field>
-        <field>
-          <column_name>cnpj_mantenedora</column_name>
-          <stream_name>CNPJ_MAN</stream_name>
-        </field>
-        <field>
-          <column_name>id_estabelecimento_saude</column_name>
-          <stream_name>id</stream_name>
-        </field>
-        <field>
-          <column_name>tipo_gestao</column_name>
-          <stream_name>tipo_gestao</stream_name>
-        </field>
-        <field>
-          <column_name>turno_atendimento</column_name>
-          <stream_name>TURNO_AT</stream_name>
-        </field>
-        <field>
-          <column_name>tipo_unidade</column_name>
-          <stream_name>tipo</stream_name>
-        </field>
-        <field>
-          <column_name>sigla_estado_processamento</column_name>
-          <stream_name>estado</stream_name>
-        </field>
-        <field>
-          <column_name>fluxo_clientela</column_name>
-          <stream_name>tipo_atendimento</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3166</xloc>
-      <yloc>612</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Insere d_estabelecimento_saude atualizado</name>
-    <type>TableOutput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <connection>TCCDW</connection>
-    <schema/>
-    <table>d_estabelecimento_saude</table>
-    <commit>1000</commit>
-    <truncate>N</truncate>
-    <ignore_errors>N</ignore_errors>
-    <use_batch>Y</use_batch>
-    <specify_fields>Y</specify_fields>
-    <partitioning_enabled>N</partitioning_enabled>
-    <partitioning_field/>
-    <partitioning_daily>N</partitioning_daily>
-    <partitioning_monthly>Y</partitioning_monthly>
-    <tablename_in_field>N</tablename_in_field>
-    <tablename_field/>
-    <tablename_in_table>Y</tablename_in_table>
-    <return_keys>N</return_keys>
-    <return_field/>
-    <fields>
-        <field>
-          <column_name>cod_cnes</column_name>
-          <stream_name>cnes_estabelecimento</stream_name>
-        </field>
-        <field>
-          <column_name>cep</column_name>
-          <stream_name>COD_CEP</stream_name>
-        </field>
-        <field>
-          <column_name>vinculo_sus</column_name>
-          <stream_name>VINC_SUS</stream_name>
-        </field>
-        <field>
-          <column_name>_id_batch</column_name>
-          <stream_name>_id_batch</stream_name>
-        </field>
-        <field>
-          <column_name>cod_municipio</column_name>
-          <stream_name>codigo_municipio</stream_name>
-        </field>
-        <field>
-          <column_name>nome_municipio</column_name>
-          <stream_name>nome_municipio</stream_name>
-        </field>
-        <field>
-          <column_name>_ativador</column_name>
-          <stream_name>ativador</stream_name>
-        </field>
-        <field>
-          <column_name>nome_fantasia</column_name>
-          <stream_name>FANTASIA</stream_name>
-        </field>
-        <field>
-          <column_name>razao_soc_mantenedora</column_name>
-          <stream_name>razao_social_mantenedora</stream_name>
-        </field>
-        <field>
-          <column_name>data_inclusao</column_name>
-          <stream_name>DATAINCL</stream_name>
-        </field>
-        <field>
-          <column_name>data_exclusao</column_name>
-          <stream_name>DATAEXCL</stream_name>
-        </field>
-        <field>
-          <column_name>cnpj_mantenedora</column_name>
-          <stream_name>CNPJ_MAN</stream_name>
-        </field>
-        <field>
-          <column_name>id_estabelecimento_saude</column_name>
-          <stream_name>id_estabelecimento_saude_dw</stream_name>
-        </field>
-        <field>
-          <column_name>tipo_gestao</column_name>
-          <stream_name>tipo_gestao</stream_name>
-        </field>
-        <field>
-          <column_name>turno_atendimento</column_name>
-          <stream_name>TURNO_AT</stream_name>
-        </field>
-        <field>
-          <column_name>tipo_unidade</column_name>
-          <stream_name>tipo</stream_name>
-        </field>
-        <field>
-          <column_name>sigla_estado_processamento</column_name>
-          <stream_name>estado</stream_name>
-        </field>
-        <field>
-          <column_name>fluxo_clientela</column_name>
-          <stream_name>tipo_atendimento</stream_name>
-        </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3373</xloc>
-      <yloc>643</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>cnes_estabelecimento</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>2935</xloc>
-      <yloc>389</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort rows 4</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
-    <fields>
-      <field>
-        <name>cod_cnes_dw</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>3079</xloc>
-      <yloc>300</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -7216,6 +6996,25 @@
     </step>
 
   <step>
+    <name>descarte</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>260</xloc>
+      <yloc>478</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>dummy</name>
     <type>Dummy</type>
     <description/>
@@ -7230,6 +7029,78 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>3496</xloc>
       <yloc>387</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>int</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var ativador &#x3d; parseInt&#x28;EXCLUIDO&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var dt_expedicao &#x3d; null&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>ativador</name>
+        <rename>ativador</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>dt_expedicao</name>
+        <rename>dt_expedicao</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>30</xloc>
+      <yloc>328</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>int 2</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>N</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var ativador &#x3d; parseInt&#x28;EXCLUIDO&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;if&#x28;DT_EXPED &#x21;&#x3d; null&#x29;&#xd;&#xa;&#x7b;&#xd;&#xa;	var ano &#x3d; parseInt&#x28;substr&#x28;DT_EXPED,0,4&#x29;&#x29;&#x3b;&#xd;&#xa;	var mes &#x3d; parseInt&#x28;substr&#x28;DT_EXPED,4,2&#x29;&#x29; - 1&#x3b;&#xd;&#xa;	var dia &#x3d; parseInt&#x28;substr&#x28;DT_EXPED,6,2&#x29;&#x29;&#x3b;&#xd;&#xa;	var dt_expedicao &#x3d; new Date &#x28;ano,&#x28;mes&#x29;, dia&#x29;&#x3b;&#xd;&#xa;&#x7d;else&#xd;&#xa;&#x7b;&#xd;&#xa;var dt_expedicao &#x3d; null&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>ativador</name>
+        <rename>ativador</rename>
+        <type>Integer</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>dt_expedicao</name>
+        <rename>dt_expedicao</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>124</xloc>
+      <yloc>327</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -7289,6 +7160,58 @@
     </step>
 
   <step>
+    <name>replace nulls</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>Y</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>FANTASIA</name>
+        <value>NOME N&#xc3;O INFORMADO</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>RAZ_SOCI</name>
+        <value>RAZ&#xc3;O SOCIAL N&#xc3;O INFORMADA</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>RSOC_MAN</name>
+        <value>RAZ&#xc3;O SOCIAL MANTENEDORA N&#xc3;O INFORMADA</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>EXCLUIDO</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>71</xloc>
+      <yloc>388</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
     <name>values diff&#x3f;</name>
     <type>FilterRows</type>
     <description/>
@@ -7318,8 +7241,8 @@
     </step>
 
   <step>
-    <name>Apaga Reg Saude 2 2 2</name>
-    <type>SelectValues</type>
+    <name>If field value is null</name>
+    <type>IfNull</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -7328,104 +7251,175 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <fields>        <select_unspecified>N</select_unspecified>
-      <meta>        <name>CO_MUNICIP</name>
-        <rename>cod_mun_mac</rename>
-        <type>String</type>
-        <length>6</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>      <meta>        <name>CO_MACSAUD</name>
-        <rename>cod_mac_reg</rename>
-        <type>String</type>
-        <length>5</length>
-        <precision>-2</precision>
-        <conversion_mask/>
-        <date_format_lenient>false</date_format_lenient>
-        <date_format_locale/>
-        <date_format_timezone/>
-        <lenient_string_to_number>false</lenient_string_to_number>
-        <encoding/>
-        <decimal_symbol/>
-        <grouping_symbol/>
-        <currency_symbol/>
-        <storage_type/>
-      </meta>    </fields>     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1460</xloc>
-      <yloc>225</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Rel Mun mac reg</name>
-    <type>XBaseInput</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <file_dbf>&#x24;&#x7b;CAMINHO_REPOSITORIO_TCC&#x7d;docs&#x2f;Base_Territorial&#x5c;Relacionamentos&#x5c;Municipios_e_Macrorregioes_de_Saude&#x5c;rl_municip_macsaud.dbf</file_dbf>
-    <limit>0</limit>
-    <add_rownr>N</add_rownr>
-    <field_rownr/>
-    <include>N</include>
-    <include_field/>
-    <charset_name/>
-    <accept_filenames>N</accept_filenames>
-    <accept_field/>
-    <accept_stepname/>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1460</xloc>
-      <yloc>165</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Sort Mun 2 3 2</name>
-    <type>SortRows</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
     <fields>
       <field>
-        <name>cod_mun_mac</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
+        <name>cnes_estabelecimento</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>VINC_SUS</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>codigo_micro_regiao_ibge</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>nome_micro_regiao_ibge</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>codigo_reg_saude</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>nome_reg_saude</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>codigo_municipio</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>nome_municipio</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>ativador</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>FANTASIA</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>razao_social</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>razao_social_mantenedora</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>CPF_CNPJ</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>CNPJ_MAN</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>tipo_gestao</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>ESFERA_A</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>TURNO_AT</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>tipo</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>codigo_macro_regiao_saude</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>nome_macro_regiao_saude</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>codigo_divisao_administrativa</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>nome_divisao_administrativa</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>codigo_regiao_metropolitana</name>
+        <value>0</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>nome_regiao_metropolitana</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>estado</name>
+        <value>NI</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      <field>
+        <name>tipo_atendimento</name>
+        <value>N&#xe3;o Informado</value>
+        <mask/>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>1460</xloc>
-      <yloc>315</yloc>
+      <xloc>2825</xloc>
+      <yloc>389</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
