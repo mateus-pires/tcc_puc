@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+    http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd"
+    logicalFilePath="tccdw-ve-changelog-202012">
+
+  <preConditions onFail="WARN">
+  	<sqlCheck expectedResult="vertica">select substr(lower(version()),1,7)</sqlCheck>
+  </preConditions>
+     
+  <changeSet author="mateus.medeiros" id="051700">
+    <sql>
+      CREATE TABLE d_municipio
+(
+    id_municipio int NOT NULL,
+    cod_municipio varchar(10),
+    cod_municipio_ibge varchar(10),
+    nome_municipio varchar(255),
+    nome_municipio_padronizado varchar(255),
+    cod_uf varchar(6),
+    uf_nome varchar(255),
+    uf_sigla varchar(5),
+    cod_regiao varchar(6),
+    nome_regiao varchar(255),
+    ver_capital varchar(50),
+    ver_semi_arido varchar(50),
+    ver_extrema_pobreza varchar(50),
+    ano_instalacao varchar(5),
+    ano_extincao varchar(5),
+    latitude float,
+    longitude float,
+    altitude float,
+    area float,
+    _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    _id_batch int
+);
+    </sql>
+    <rollback>
+       drop TABLE d_municipio cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="011705">
+    <sql>
+    ALTER TABLE d_municipio ADD CONSTRAINT fk_d_municipio PRIMARY KEY (id_municipio); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_municipio DROP CONSTRAINT fk_d_municipio; 
+    </rollback>
+  </changeSet>
+                  
+  <changeSet author="mateus.medeiros" id="051901">
+    <sql>
+        CREATE TABLE d_estabelecimento_saude
+        (
+            id_estabelecimento_saude int NOT NULL,
+            cod_cnes varchar(10),       
+            cep varchar(8),
+            cnpj_mantenedora varchar(15),
+            nome_fantasia varchar(100),
+            razao_soc_mantenedora varchar(100),
+            cod_municipio varchar(10),
+            nome_municipio varchar(100),
+            _ativador int,
+            data_inclusao timestamp,
+            data_exclusao timestamp,
+            vinculo_sus varchar(15),
+            tipo_gestao varchar(255),
+            tipo_unidade varchar(255),
+            turno_atendimento varchar(255),
+            fluxo_clientela varchar(100),
+            logradouro varchar(255),
+            numero varchar(20),
+            bairro varchar(100),
+            sigla_estado_processamento varchar(5),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_estabelecimento_saude cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="011903">
+    <sql>
+    ALTER TABLE d_estabelecimento_saude ADD CONSTRAINT Pk_estabelecimento_saude PRIMARY KEY (id_estabelecimento_saude); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_estabelecimento_saude DROP CONSTRAINT Pk_estabelecimento_saude; 
+    </rollback>
+  </changeSet>              
+       
+  <changeSet author="mateus.medeiros" id="191850">
+    <sql>
+        CREATE TABLE d_profissional_saude
+        (
+            id_profissional_saude int NOT NULL,
+            cod_cns varchar(20),
+            nome varchar(200),
+            cbo varchar(15),
+            conselho_prof varchar(15),
+            registro_conselho varchar(100),
+            profissional_sus varchar(15),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int,
+            sigla_estado_processamento varchar(2)
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_profissional_saude cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="191855">
+    <sql>
+    ALTER TABLE d_profissional_saude ADD CONSTRAINT Pk_profissional_saude PRIMARY KEY (id_profissional_saude); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_profissional_saude DROP CONSTRAINT Pk_profissional_saude; 
+    </rollback>
+  </changeSet>
+                     
+  <changeSet author="mateus.medeiros" id="191950">
+    <sql>
+        CREATE TABLE d_faixa_anual
+        (
+            id_faixa_anual int NOT NULL,
+            faixa_etaria_siab varchar(50),
+            faixa_etaria_siab_ordem int,
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_faixa_anual cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="191955">
+    <sql>
+    ALTER TABLE d_faixa_anual ADD CONSTRAINT Pk_d_faixa_anual PRIMARY KEY (id_faixa_anual); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_faixa_anual DROP CONSTRAINT Pk_d_faixa_anual; 
+    </rollback>
+  </changeSet>
+                                   
+  <changeSet author="mateus.medeiros" id="192010">
+    <sql>
+        CREATE TABLE d_cid
+        (
+            id_cid int NOT NULL,
+            cod_categoria_cid varchar(5),
+            categoria_cid varchar(300),
+            grupo_cid varchar(300),
+            capitulo_cid varchar(300),
+            cid_nome varchar(300),
+            cod_capitulo int,
+            cod_cid varchar(10),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_cid cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="192015">
+    <sql>
+    ALTER TABLE d_cid ADD CONSTRAINT Pk_d_cid PRIMARY KEY (id_cid); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_cid DROP CONSTRAINT Pk_d_cid; 
+    </rollback>
+  </changeSet>
+                                                    
+  <changeSet author="mateus.medeiros" id="201112">
+    <sql>
+        CREATE TABLE t_grupo_cid
+        (
+            id_grupo_cid int NOT NULL,
+            cat_inicial_grupo varchar(5),
+            cat_final_grupo varchar(5),
+            nome_grupo varchar(300),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+    </sql>
+    <rollback>
+       drop TABLE d_cid cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="201118">
+    <sql>
+    ALTER TABLE t_grupo_cid ADD CONSTRAINT Pk_t_cid PRIMARY KEY (id_grupo_cid);
+    </sql>
+    <rollback>
+     ALTER TABLE t_grupo_cid DROP CONSTRAINT Pk_t_cid; 
+    </rollback>
+  </changeSet>
+                                                                   
+  <changeSet author="mateus.medeiros" id="201122">
+    <sql>
+     CREATE TABLE t_capitulo_cid
+    (
+        id_capitulo_cid int NOT NULL,
+        cat_inicial_capitulo varchar(5),
+        cat_final_capitulo varchar(5),
+        nome_capitulo varchar(300),
+        _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        _id_batch int
+    );
+    </sql>
+    <rollback>
+       drop TABLE t_capitulo_cid cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="201128">
+    <sql>
+    ALTER TABLE t_capitulo_cid ADD CONSTRAINT Pk_t_capitulo_cid PRIMARY KEY (id_capitulo_cid); 
+    </sql>
+    <rollback>
+     ALTER TABLE t_capitulo_cid DROP CONSTRAINT Pk_t_capitulo_cid; 
+    </rollback>
+  </changeSet>
+                  
+  
+</databaseChangeLog>
