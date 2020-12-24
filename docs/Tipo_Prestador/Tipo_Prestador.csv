@@ -1,0 +1,10 @@
+cod_tipo_prest;tipo_prestador
+20;Privado Com Fins Lucrativos
+22;Privado Optante pelo Simples
+30;Público Federal
+40;Público Estadual
+50;Público Municipal
+60;Privado Sem Fins Lucrativos
+61;Filatrópico Com CNAS Válido
+80;Sindicato
+0;Não Informado
