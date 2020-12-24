@@ -233,7 +233,120 @@
     <rollback>
      ALTER TABLE t_capitulo_cid DROP CONSTRAINT Pk_t_capitulo_cid; 
     </rollback>
+  </changeSet> 
+    
+  <changeSet author="mateus.medeiros" id="241051">
+    <sql>
+     CREATE TABLE d_procedimento_tabela_unificada
+(
+    id_procedimento int NOT NULL,
+    cod_procedimento varchar(20),
+    nome_procedimento varchar(280),
+    complexidade varchar(50),
+    sexo varchar(15),
+    cod_grupo_procedimento varchar(6),
+    nome_grupo_procedimento varchar(255),
+    cod_sub_grupo_procedimento varchar(6),
+    nome_sub_grupo_procedimento varchar(255),
+    cod_forma_organizacao_procedimento varchar(6),
+    nome_forma_organizacao_procedimento varchar(255),
+    cod_financiamento varchar(6),
+    nome_financiamento varchar(255),
+    _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    _id_batch int
+);
+    </sql>
+    <rollback>
+       drop TABLE d_procedimento_tabela_unificada cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="241055">
+    <sql>
+    ALTER TABLE d_procedimento_tabela_unificada ADD CONSTRAINT pk_d_procedimento_t_u PRIMARY KEY (id_procedimento); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_procedimento_tabela_unificada DROP CONSTRAINT pk_d_procedimento_t_u; 
+    </rollback>
   </changeSet>
-                  
+                                      
+  <changeSet author="mateus.medeiros" id="241257">
+    <sql>
+        CREATE TABLE d_tipo_gestao
+        (
+            id_tipo_gestao int NOT NULL,
+            cod_tipo_gestao varchar(4),
+            tipo_gestao varchar(50),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_tipo_gestao cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="241258">
+    <sql>
+    ALTER TABLE d_tipo_gestao ADD CONSTRAINT Pk_d_tipo_gestao PRIMARY KEY (id_tipo_gestao); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_tipo_gestao DROP CONSTRAINT Pk_d_tipo_gestao; 
+    </rollback>
+  </changeSet>
+                                                     
+  <changeSet author="mateus.medeiros" id="241757">
+    <sql>
+        CREATE TABLE d_tipo_prestador
+        (
+            id_tipo_prestador int NOT NULL,
+            cod_tipo_prestador varchar(4),
+            tipo_prestador varchar(50),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_tipo_prestador cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="241758">
+    <sql>
+    ALTER TABLE d_tipo_prestador ADD CONSTRAINT Pk_d_tipo_prestador PRIMARY KEY (id_tipo_prestador); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_tipo_prestador DROP CONSTRAINT Pk_d_tipo_prestador; 
+    </rollback>
+  </changeSet>
+                                                                      
+  <changeSet author="mateus.medeiros" id="241815">
+    <sql>
+        CREATE TABLE d_sexo
+        (
+            id_sexo int NOT NULL,
+            cod_sexo varchar(2),
+            descricao varchar(50),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_sexo cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="241819">
+    <sql>
+    ALTER TABLE d_sexo ADD CONSTRAINT Pk_d_sexo PRIMARY KEY (id_sexo); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_sexo DROP CONSTRAINT Pk_d_sexo; 
+    </rollback>
+  </changeSet>
+                                
   
 </databaseChangeLog>
