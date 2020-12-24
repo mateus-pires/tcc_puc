@@ -78,32 +78,11 @@
   <created_user>-</created_user>
   <created_date>2020&#x2f;06&#x2f;30 09&#x3a;22&#x3a;51.327</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;12&#x2f;19 19&#x3a;37&#x3a;19.758</modified_date>
+  <modified_date>2020&#x2f;12&#x2f;24 11&#x3a;01&#x3a;34.215</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
-    <notepad>
-      <note>Nome&#x3a; Dimens&#xe3;o de Estabelecimento de Sa&#xfa;de&#x3b;&#xd;&#xa;Arquivos&#x3a; &#xd;&#xa;1- Cadastro geral dos estabelecimentos de acordo com o estado &#x28;dentro da pasta Datasus&#x2f;CNES&#x2f;Arquivos_Auxiliares_de_Tabulacao&#x2f;Estabelecimento_CNES&#x2f;&#x29;. Este arquivo geralmente &#xe9; atualizado&#xd;&#xa; uma vez ao ano, por isso sempre &#xe9; necess&#xe1;rio verificar a ultima atualiza&#xe7;&#xe3;o dele.&#xd;&#xa;Link&#x3a; http&#x3a;&#x2f;&#x2f;www2.datasus.gov.br&#x2f;DATASUS&#x2f;index.php&#x3f;area&#x3d;0901&#x26;item&#x3d;1&#x26;acao&#x3d;31&#x26;pad&#x3d;31655 &#x28;op&#xe7;&#xe3;o de Arquivos Auxiliares de Tabula&#xe7;&#xe3;o&#x29;. Caso o arquivo &#x22;tab_cnes_tabelasDBF&#x22; tenha sido atualizado&#xd;&#xa;ser&#xe1; necess&#xe1;rio baixar este arquivo e substituir os dbfs dentro da pasta &#x28;Datasus&#x2f;CNES&#x2f;Arquivos_Auxiliares_de_Tabulacao&#x2f;Estabelecimento_CNES&#x2f;&#x29;, pelos arquivos baixados.&#xd;&#xa;2- Arquivo do estabelecimento , onde, todos os meses s&#xe3;o lan&#xe7;ados novos arquivos &#x28;geralmente o arquivo do m&#xea;s anterior&#x29;.&#xd;&#xa;Link&#x3a; http&#x3a;&#x2f;&#x2f;www2.datasus.gov.br&#x2f;DATASUS&#x2f;index.php&#x3f;area&#x3d;0901&#x26;item&#x3d;1&#x26;acao&#x3d;31&#x26;pad&#x3d;31655, selecionar as op&#xe7;&#xf5;es&#x3a; Dados, ST- Estabelecimentos, selecionar o ano, m&#xea;s e o UF desejado e clicar em enviar.&#xd;&#xa;Depois de exibidos os arquivos, para download.  Na primeira carga, deve-se baixar todos os arquivos desde 2005 de cada estado, descompactar para dbf, renomear para &#x28;&#x7b;ano_do_arquivo&#x7d;-d_estabelecimento_saude.dbf&#x29;&#xd;&#xa; e colocar em &#x28;Datasus&#x2f;CNES&#x2f;Dados&#x2f;Estabelecimento&#x2f;&#x28;pasta do uf&#x29;&#x29;. Nas cargas mensais, deve-se baixar o &#xfa;ltimo arquivo disponibilizado de cada estado e colocar em sua respectiva pasta.&#xd;&#xa;3- Demais arquivos referentes a base territorial &#x28;dentro da pasta Datasus&#x2f;Base_Territorial&#x29;. Arquivos utilizados na dimens&#xe3;o de Municipio.&#x3b;&#xd;&#xa;Forma de executar&#x3a; Ap&#xf3;s baixar, descompactar, renomear e organizar os arquivos em cada pasta de UF, deve-se executar o job do jenkins &#x22;Executa Recursivamente por Estado&#x22;, passando como &#xd;&#xa;par&#xe2;metro, a localiza&#xe7;&#xe3;o da pasta &#x28;Datasus&#x2f;CNES&#x2f;Dados&#x2f;Estabelecimento&#x2f;&#x29;.&#x3b;&#xd;&#xa;Par&#xe2;metros&#x3a; &#xd;&#xa;1- &#x7b;UF&#x7d; - UF do estabelecimento, composto por duas letras. Este par&#xe2;metro &#xe9; enviado automaticamente para a transforma&#xe7;&#xe3;o, atrav&#xe9;s do script &#x22;dequeue-etl-jobs-datasus-subpastas.sh&#x22;, desde que o arquivo esteja dentro &#xd;&#xa;da pasta de uf correta.&#xd;&#xa;2- &#x7b;ARQUIVO&#x7d;&#x3a; Nome completo do arquivo, considerando a estrutura de pastas at&#xe9; chegar ao arquivo. Este par&#xe2;metro &#xe9; enviado automaticamente para a transforma&#xe7;&#xe3;o, atrav&#xe9;s do script &#x22;dequeue-etl-jobs-datasus-subpastas.sh&#x22;, desde que o arquivo esteja dentro &#xd;&#xa;da pasta de uf correta.&#x3b;</note>
-      <xloc>230</xloc>
-      <yloc>538</yloc>
-      <width>1610</width>
-      <heigth>298</heigth>
-      <fontname>Segoe UI</fontname>
-      <fontsize>9</fontsize>
-      <fontbold>N</fontbold>
-      <fontitalic>N</fontitalic>
-      <fontcolorred>0</fontcolorred>
-      <fontcolorgreen>0</fontcolorgreen>
-      <fontcolorblue>0</fontcolorblue>
-      <backgroundcolorred>255</backgroundcolorred>
-      <backgroundcolorgreen>205</backgroundcolorgreen>
-      <backgroundcolorblue>112</backgroundcolorblue>
-      <bordercolorred>100</bordercolorred>
-      <bordercolorgreen>100</bordercolorgreen>
-      <bordercolorblue>100</bordercolorblue>
-      <drawshadow>Y</drawshadow>
-    </notepad>
   </notepads>
   <connection>
     <name>A4PM</name>
