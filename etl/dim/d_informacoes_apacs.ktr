@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;23 08&#x3a;36&#x3a;24.202</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;12&#x2f;25 20&#x3a;22&#x3a;11.941</modified_date>
+  <modified_date>2020&#x2f;12&#x2f;26 11&#x3a;10&#x3a;30.629</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -196,136 +196,6 @@
   <hop> <from>calc md5</from><to>join source&#x2f;target</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Get System Info</name>
-    <type>SystemInfo</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>sysdate</name>
-        <type>system date &#x28;fixed&#x29;</type>
-        </field>
-      <field>
-        <name>_id_batch</name>
-        <type>batch ID</type>
-        </field>
-      </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>271</xloc>
-      <yloc>108</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Merge Join</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>Tipo Apac</step1>
-<step2>Carater Atendimento</step2>
-    <keys_1>
-    </keys_1>
-    <keys_2>
-    </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>95</xloc>
-      <yloc>204</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Merge Join 4</name>
-    <type>MergeJoin</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-<join_type>INNER</join_type>
-<step1>Get System Info</step1>
-<step2>Merge Join</step2>
-    <keys_1>
-    </keys_1>
-    <keys_2>
-    </keys_2>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>271</xloc>
-      <yloc>204</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Tipo Apac</name>
-    <type>DataGrid</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>cod_tipo_apac</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>tipo_apac</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <data>
-      <line> <item>0</item><item>N&#xe3;o Informado</item> </line>
-      <line> <item>1</item><item>Inicial</item> </line>
-      <line> <item>2</item><item>Continuidade</item> </line>
-      <line> <item>3</item><item>&#xda;nica</item> </line>
-    </data>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>25</xloc>
-      <yloc>111</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
     <name>Carater Atendimento</name>
     <type>DataGrid</type>
     <description/>
@@ -364,6 +234,18 @@
       <line> <item>00</item><item>N&#xe3;o Informado</item> </line>
       <line> <item>01</item><item>Eletivo</item> </line>
       <line> <item>02</item><item>Urg&#xea;ncia</item> </line>
+      <line> <item>03</item><item>Acidente no Local de Trabalho ou a Servi&#xe7;o da Empresa</item> </line>
+      <line> <item>04</item><item>Acidente no Trajeto Para o Trabalho</item> </line>
+      <line> <item>05</item><item>Outros Tipos de Acidente de Tr&#xe2;nsito</item> </line>
+      <line> <item>06</item><item>Outros Tipos de Les&#xf5;es&#x2f;Envenenamentos &#x28;Agentes F&#xed;sicos&#x2f;Qu&#xed;micos&#x29;</item> </line>
+      <line> <item>07</item><item>Car&#xe1;ter de Atendimento Inv&#xe1;lido</item> </line>
+      <line> <item>10</item><item>Car&#xe1;ter de Atendimento Inv&#xe1;lido</item> </line>
+      <line> <item>12</item><item>Car&#xe1;ter de Atendimento Inv&#xe1;lido</item> </line>
+      <line> <item>20</item><item>Car&#xe1;ter de Atendimento Inv&#xe1;lido</item> </line>
+      <line> <item>53</item><item>Car&#xe1;ter de Atendimento Inv&#xe1;lido</item> </line>
+      <line> <item>54</item><item>Car&#xe1;ter de Atendimento Inv&#xe1;lido</item> </line>
+      <line> <item>57</item><item>Car&#xe1;ter de Atendimento Inv&#xe1;lido</item> </line>
+      <line> <item>99</item><item>Informa&#xe7;&#xe3;o Inexistente &#x28;BPA-C&#x29;</item> </line>
     </data>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
@@ -374,8 +256,8 @@
     </step>
 
   <step>
-    <name>Sort rows</name>
-    <type>SortRows</type>
+    <name>Get System Info</name>
+    <type>SystemInfo</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -384,31 +266,20 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
-      <prefix>out</prefix>
-      <sort_size>1000000</sort_size>
-      <free_memory/>
-      <compress>N</compress>
-      <compress_variable/>
-      <unique_rows>N</unique_rows>
     <fields>
       <field>
-        <name>cod_tipo_apac</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
+        <name>sysdate</name>
+        <type>system date &#x28;fixed&#x29;</type>
+        </field>
       <field>
-        <name>cod_carater_atendimento</name>
-        <ascending>Y</ascending>
-        <case_sensitive>N</case_sensitive>
-        <presorted>N</presorted>
-      </field>
-    </fields>
+        <name>_id_batch</name>
+        <type>batch ID</type>
+        </field>
+      </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>377</xloc>
-      <yloc>203</yloc>
+      <xloc>271</xloc>
+      <yloc>108</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -471,6 +342,147 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>813</xloc>
       <yloc>389</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>INNER</join_type>
+<step1>Tipo Apac</step1>
+<step2>Carater Atendimento</step2>
+    <keys_1>
+    </keys_1>
+    <keys_2>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>95</xloc>
+      <yloc>204</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Merge Join 4</name>
+    <type>MergeJoin</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<join_type>INNER</join_type>
+<step1>Get System Info</step1>
+<step2>Merge Join</step2>
+    <keys_1>
+    </keys_1>
+    <keys_2>
+    </keys_2>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>271</xloc>
+      <yloc>204</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Sort rows</name>
+    <type>SortRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <directory>&#x25;&#x25;java.io.tmpdir&#x25;&#x25;</directory>
+      <prefix>out</prefix>
+      <sort_size>1000000</sort_size>
+      <free_memory/>
+      <compress>N</compress>
+      <compress_variable/>
+      <unique_rows>N</unique_rows>
+    <fields>
+      <field>
+        <name>cod_tipo_apac</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+      <field>
+        <name>cod_carater_atendimento</name>
+        <ascending>Y</ascending>
+        <case_sensitive>N</case_sensitive>
+        <presorted>N</presorted>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>377</xloc>
+      <yloc>203</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Tipo Apac</name>
+    <type>DataGrid</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>cod_tipo_apac</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>tipo_apac</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <data>
+      <line> <item>0</item><item>N&#xe3;o Informado</item> </line>
+      <line> <item>1</item><item>Inicial</item> </line>
+      <line> <item>2</item><item>Continuidade</item> </line>
+      <line> <item>3</item><item>&#xda;nica</item> </line>
+    </data>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>25</xloc>
+      <yloc>111</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -549,6 +561,43 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>935</xloc>
       <yloc>295</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>calc md5</name>
+    <type>CheckSum</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <checksumtype>MD5</checksumtype>
+      <resultfieldName>MD5_ORIGEM</resultfieldName>
+      <resultType>hexadecimal</resultType>
+      <compatibilityMode>N</compatibilityMode>
+    <fields>
+      <field>
+        <name>cod_tipo_apac</name>
+      </field>
+      <field>
+        <name>tipo_apac</name>
+      </field>
+      <field>
+        <name>cod_carater_atendimento</name>
+      </field>
+      <field>
+        <name>carater_atendimento</name>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>462</xloc>
+      <yloc>202</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -776,44 +825,19 @@
       </GUI>
     </step>
 
-  <step>
-    <name>calc md5</name>
-    <type>CheckSum</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-      <checksumtype>MD5</checksumtype>
-      <resultfieldName>MD5_ORIGEM</resultfieldName>
-      <resultType>hexadecimal</resultType>
-      <compatibilityMode>N</compatibilityMode>
-    <fields>
-      <field>
-        <name>cod_tipo_apac</name>
-      </field>
-      <field>
-        <name>tipo_apac</name>
-      </field>
-      <field>
-        <name>cod_carater_atendimento</name>
-      </field>
-      <field>
-        <name>carater_atendimento</name>
-      </field>
-    </fields>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>462</xloc>
-      <yloc>202</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
   <step_error_handling>
+      <error>
+        <source_step>Insere d_informacoes_apacs</source_step>
+        <target_step>Dummy &#x28;do nothing&#x29;</target_step>
+        <is_enabled>Y</is_enabled>
+        <nr_valuename/>
+        <descriptions_valuename/>
+        <fields_valuename/>
+        <codes_valuename/>
+        <max_errors/>
+        <max_pct_errors/>
+        <min_pct_rows/>
+      </error>
   </step_error_handling>
    <slave-step-copy-partition-distribution>
 </slave-step-copy-partition-distribution>
