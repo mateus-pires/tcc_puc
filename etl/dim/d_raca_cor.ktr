@@ -10,9 +10,9 @@
     <parameters>
     </parameters>
     <log>
-<trans-log-table><connection>A4PM</connection>
+<trans-log-table><connection>TCC</connection>
 <schema/>
-<table>etl_trans_log_datasus</table>
+<table>etl_trans_log_tcc</table>
 <size_limit_lines/>
 <interval>5</interval>
 <timeout_days>60</timeout_days>
@@ -68,7 +68,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;23 08&#x3a;36&#x3a;24.202</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;12&#x2f;26 11&#x3a;22&#x3a;54.926</modified_date>
+  <modified_date>2021&#x2f;01&#x2f;01 18&#x3a;23&#x3a;10.705</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -193,6 +193,66 @@
   <hop> <from>calc md5</from><to>join source&#x2f;target</to><enabled>Y</enabled> </hop>
   <hop> <from>Data Grid</from><to>Merge Join 4</to><enabled>Y</enabled> </hop>
   </order>
+  <step>
+    <name>Data Grid</name>
+    <type>DataGrid</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>cod_raca_cor</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+      <field>
+        <name>raca_cor</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+    <data>
+      <line> <item>00</item><item>Ra&#xe7;a&#x2f;Cor N&#xe3;o Exigido</item> </line>
+      <line> <item>01</item><item>Branca</item> </line>
+      <line> <item>02</item><item>Preta</item> </line>
+      <line> <item>03</item><item>Parda</item> </line>
+      <line> <item>04</item><item>Amarela</item> </line>
+      <line> <item>05</item><item>Ind&#xed;gena</item> </line>
+      <line> <item>99</item><item>Sem Informa&#xe7;&#xe3;o</item> </line>
+      <line> <item>06</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Indevido&#x29;</item> </line>
+      <line> <item>09</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Indevido&#x29;</item> </line>
+      <line> <item>1M</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
+      <line> <item>1G</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
+      <line> <item>1C</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
+      <line> <item>DE</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
+      <line> <item>D</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
+      <line> <item>87</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
+    </data>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>47</xloc>
+      <yloc>207</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
   <step>
     <name>Get System Info</name>
     <type>SystemInfo</type>
@@ -646,66 +706,6 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>800</xloc>
       <yloc>200</yloc>
-      <draw>Y</draw>
-      </GUI>
-    </step>
-
-  <step>
-    <name>Data Grid</name>
-    <type>DataGrid</type>
-    <description/>
-    <distribute>Y</distribute>
-    <custom_distribution/>
-    <copies>1</copies>
-         <partitioning>
-           <method>none</method>
-           <schema_name/>
-           </partitioning>
-    <fields>
-      <field>
-        <name>cod_raca_cor</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-      <field>
-        <name>raca_cor</name>
-        <type>String</type>
-        <format/>
-        <currency/>
-        <decimal/>
-        <group/>
-        <length>-1</length>
-        <precision>-1</precision>
-        <set_empty_string>N</set_empty_string>
-      </field>
-    </fields>
-    <data>
-      <line> <item>00</item><item>Ra&#xe7;a&#x2f;Cor N&#xe3;o Exigido</item> </line>
-      <line> <item>01</item><item>Branca</item> </line>
-      <line> <item>02</item><item>Preta</item> </line>
-      <line> <item>03</item><item>Parda</item> </line>
-      <line> <item>04</item><item>Amarela</item> </line>
-      <line> <item>05</item><item>Ind&#xed;gena</item> </line>
-      <line> <item>99</item><item>Sem Informa&#xe7;&#xe3;o</item> </line>
-      <line> <item>06</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Indevido&#x29;</item> </line>
-      <line> <item>09</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Indevido&#x29;</item> </line>
-      <line> <item>1M</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
-      <line> <item>1G</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
-      <line> <item>1C</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
-      <line> <item>DE</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
-      <line> <item>D</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
-      <line> <item>87</item><item>Ra&#xe7;a&#x2f;Cor &#x28;Outros Indev&#xed;dos&#x29;</item> </line>
-    </data>
-     <cluster_schema/>
- <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>47</xloc>
-      <yloc>207</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
