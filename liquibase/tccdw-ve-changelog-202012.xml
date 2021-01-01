@@ -346,7 +346,362 @@
     <rollback>
      ALTER TABLE d_sexo DROP CONSTRAINT Pk_d_sexo; 
     </rollback>
+  </changeSet>      
+    
+  <changeSet author="mateus.medeiros" id="251915">
+    <sql>
+        CREATE TABLE d_tipo_atendimento
+        (
+            id_tipo_atendimento int NOT NULL,
+            cod_tipo_atendimento varchar(2),
+            tipo_atendimento varchar(50),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_tipo_atendimento cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="251919">
+    <sql>
+    ALTER TABLE d_tipo_atendimento ADD CONSTRAINT Pk_d_tipo_atendimento PRIMARY KEY (id_tipo_atendimento); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_tipo_atendimento DROP CONSTRAINT Pk_d_tipo_atendimento; 
+    </rollback>
+  </changeSet>          
+      
+  <changeSet author="mateus.medeiros" id="251958">
+    <sql>
+        CREATE TABLE d_informacoes_apacs
+        (
+            id_informacoes_apacs int NOT NULL,
+            cod_tipo_apac varchar(2),
+            tipo_apac varchar(20),
+            cod_carater_atendimento varchar(2),
+            carater_atendimento varchar(90),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_informacoes_apacs cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="251959">
+    <sql>
+    ALTER TABLE d_informacoes_apacs ADD CONSTRAINT Pk_d_informacoes_apacs PRIMARY KEY (id_informacoes_apacs); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_informacoes_apacs DROP CONSTRAINT Pk_d_informacoes_apacs; 
+    </rollback>
   </changeSet>
-                                
-  
+    
+  <changeSet author="mateus.medeiros" id="261117">
+    <sql>
+        CREATE TABLE d_raca_cor
+        (
+            id_raca_cor int NOT NULL,
+            cod_raca_cor varchar(2),
+            raca_cor varchar(40),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_raca_cor cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="261118">
+    <sql>
+    ALTER TABLE d_raca_cor ADD CONSTRAINT Pk_d_raca_cor PRIMARY KEY (id_raca_cor); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_raca_cor DROP CONSTRAINT Pk_d_raca_cor; 
+    </rollback>
+  </changeSet>
+    
+  <changeSet author="mateus.medeiros" id="302046">
+    <sql>
+        CREATE TABLE d_indicador_municipe
+        (
+            id_indicador_municipe int NOT NULL,
+            cod_indicador_municipe int,
+            indicador_municipe varchar(40),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_indicador_municipe cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="302047">
+    <sql>
+    ALTER TABLE d_indicador_municipe ADD CONSTRAINT Pk_d_indicador_municipe PRIMARY KEY (id_indicador_municipe); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_indicador_municipe DROP CONSTRAINT Pk_d_indicador_municipe; 
+    </rollback>
+  </changeSet>
+    
+  <changeSet author="mateus.medeiros" id="311152">
+    <sql>
+        CREATE TABLE d_finalidade_tratamento
+        (
+            id_finalidade_tratamento int NOT NULL,
+            cod_finalidade_tratamento int,
+            finalidade_tratamento varchar(40),
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE d_finalidade_tratamento cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="311153">
+    <sql>
+    ALTER TABLE d_finalidade_tratamento ADD CONSTRAINT Pk_d_finalidade_tratamento PRIMARY KEY (id_finalidade_tratamento); 
+    </sql>
+    <rollback>
+     ALTER TABLE d_finalidade_tratamento DROP CONSTRAINT Pk_d_finalidade_tratamento; 
+    </rollback>
+  </changeSet>
+               
+  <changeSet author="mateus.medeiros" id="311504">
+    <sql>
+          CREATE TABLE f_quimioterapia
+    (   
+        numero_apac varchar(15),
+        id_data_processamento int NOT NULL,
+        id_cid int ,
+        id_data_atendimento int NOT NULL,
+        id_data_identificacao_patologia int NOT NULL,
+        id_data_autorizacao int,
+        id_data_inicio_tratamento int,
+        id_data_solicitacao int,
+        id_estabelecimento_saude int NOT NULL,
+        id_estabelecimento_solicitante int ,
+        id_faixa_etaria int,
+        id_informacoes_apacs int ,
+        id_municipio_gestor int NOT NULL,
+        id_municipio_atendimento int NOT NULL,
+        id_municipio_paciente int NOT NULL,
+        id_procedimento_apac int NOT NULL,
+        id_raca_cor int,
+        id_sexo int,
+        id_tipo_atendimento int,
+        id_tipo_gestao int,
+        id_tipo_prestador int,
+        qtd_alta int,
+        qtd_apac int,
+        qtd_encerramento int,
+        qtd_obito int,
+        qtd_transferencia int,
+        qtd_permanencia int,
+        valor_total_apac float,
+        _dt_hr_carga timestamp,
+        _id_batch int,
+        sigla_estado_processamento varchar(2),
+        id_indicador_municipe int
+    );
+    </sql>
+    <rollback>
+       drop TABLE f_quimioterapia cascade;
+    </rollback>
+  </changeSet> 
+        
+    <changeSet author="mateus.medeiros" id="311505">
+    <sql>
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_data_processamento FOREIGN KEY (id_data_processamento) references d_data (id_data);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_data_atendimento FOREIGN KEY (id_data_atendimento) references d_data (id_data);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_municipio_gestor FOREIGN KEY (id_municipio_gestor) references d_municipio (id_municipio);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_procedimento_apac FOREIGN KEY (id_procedimento_apac) references d_procedimento_tabela_unificada (id_procedimento);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_municipio_atendimento FOREIGN KEY (id_municipio_atendimento) references d_municipio (id_municipio);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_data_inicio_tratamento FOREIGN KEY (id_data_inicio_tratamento) references d_data (id_data);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_data_identificacao_patologia FOREIGN KEY (id_data_identificacao_patologia) references d_data (id_data);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_municipio_paciente FOREIGN KEY (id_municipio_paciente) references d_municipio (id_municipio);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_data_solicitacao FOREIGN KEY (id_data_solicitacao) references d_data (id_data);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_data_autorizacao FOREIGN KEY (id_data_autorizacao) references d_data (id_data);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_cid FOREIGN KEY (id_cid) references d_cid (id_cid);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_estabelecimento_saude FOREIGN KEY (id_estabelecimento_saude) references d_estabelecimento_saude (id_estabelecimento_saude);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_estabelecimento_solicitante FOREIGN KEY (id_estabelecimento_solicitante) references d_estabelecimento_saude (id_estabelecimento_saude);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_faixa_anual FOREIGN KEY (id_faixa_etaria) references d_faixa_anual (id_faixa_anual);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_informacoes_apacs FOREIGN KEY (id_informacoes_apacs) references d_informacoes_apacs (id_informacoes_apacs);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_raca_cor FOREIGN KEY (id_raca_cor) references d_raca_cor (id_raca_cor);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_sexo FOREIGN KEY (id_sexo) references d_sexo (id_sexo);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_tipo_atendimento FOREIGN KEY (id_tipo_atendimento) references d_tipo_atendimento (id_tipo_atendimento);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_tipo_gestao FOREIGN KEY (id_tipo_gestao) references d_tipo_gestao (id_tipo_gestao);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_tipo_prestador FOREIGN KEY (id_tipo_prestador) references d_tipo_prestador (id_tipo_prestador);
+    ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_indicador_municipe FOREIGN KEY (id_indicador_municipe) references d_indicador_municipe (id_indicador_municipe);
+    </sql>
+    <rollback>
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_data_processamento; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_data_atendimento; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_data_identificacao_patologia; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_municipio_gestor; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_procedimento_apac; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_municipio_atendimento; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_data_inicio_tratamento; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_municipio_paciente; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_data_solicitacao; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_data_autorizacao; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_cid; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_estabelecimento_saude; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_estabelecimento_solicitante; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_faixa_anual; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_informacoes_apacs; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_raca_cor; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_sexo; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_tipo_atendimento; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_tipo_gestao; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_tipo_prestador; 
+     ALTER TABLE f_quimioterapia DROP CONSTRAINT fk_d_indicador_municipe; 
+    </rollback>
+  </changeSet> 
+       
+  <changeSet author="mateus.medeiros" id="311458">
+    <sql>
+          CREATE TABLE f_radioterapia
+    (   
+        numero_apac varchar(15),
+        id_data_processamento int NOT NULL,
+        id_cid int ,
+        id_data_atendimento int NOT NULL,
+        id_data_identificacao_patologia int NOT NULL,
+        id_data_autorizacao int,
+        id_data_inicio_tratamento int,
+        id_data_solicitacao int,
+        id_estabelecimento_saude int NOT NULL,
+        id_estabelecimento_solicitante int ,
+        id_faixa_etaria int,
+        id_informacoes_apacs int ,
+        id_municipio_gestor int NOT NULL,
+        id_municipio_atendimento int NOT NULL,
+        id_municipio_paciente int NOT NULL,
+        id_procedimento_apac int NOT NULL,
+        id_raca_cor int,
+        id_sexo int,
+        id_tipo_atendimento int,
+        id_tipo_gestao int,
+        id_tipo_prestador int,
+        qtd_alta int,
+        qtd_apac int,
+        qtd_encerramento int,
+        qtd_obito int,
+        qtd_transferencia int,
+        qtd_permanencia int,
+        valor_total_apac float,
+        _dt_hr_carga timestamp,
+        _id_batch int,
+        sigla_estado_processamento varchar(2),
+        id_indicador_municipe int,
+        id_finalidade_tratamento int
+    );
+    </sql>
+    <rollback>
+       drop TABLE f_radioterapia cascade;
+    </rollback>
+  </changeSet>       
+    
+    <changeSet author="mateus.medeiros" id="311515">
+    <sql>
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_data_processamento FOREIGN KEY (id_data_processamento) references d_data (id_data);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_data_atendimento FOREIGN KEY (id_data_atendimento) references d_data (id_data);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_municipio_gestor FOREIGN KEY (id_municipio_gestor) references d_municipio (id_municipio);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_procedimento_apac FOREIGN KEY (id_procedimento_apac) references d_procedimento_tabela_unificada (id_procedimento);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_municipio_atendimento FOREIGN KEY (id_municipio_atendimento) references d_municipio (id_municipio);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_data_inicio_tratamento FOREIGN KEY (id_data_inicio_tratamento) references d_data (id_data);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_data_identificacao_patologia FOREIGN KEY (id_data_identificacao_patologia) references d_data (id_data);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_municipio_paciente FOREIGN KEY (id_municipio_paciente) references d_municipio (id_municipio);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_data_solicitacao FOREIGN KEY (id_data_solicitacao) references d_data (id_data);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_data_autorizacao FOREIGN KEY (id_data_autorizacao) references d_data (id_data);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_cid FOREIGN KEY (id_cid) references d_cid (id_cid);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_estabelecimento_saude FOREIGN KEY (id_estabelecimento_saude) references d_estabelecimento_saude (id_estabelecimento_saude);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_estabelecimento_solicitante FOREIGN KEY (id_estabelecimento_solicitante) references d_estabelecimento_saude (id_estabelecimento_saude);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_faixa_anual FOREIGN KEY (id_faixa_etaria) references d_faixa_anual (id_faixa_anual);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_informacoes_apacs FOREIGN KEY (id_informacoes_apacs) references d_informacoes_apacs (id_informacoes_apacs);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_raca_cor FOREIGN KEY (id_raca_cor) references d_raca_cor (id_raca_cor);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_sexo FOREIGN KEY (id_sexo) references d_sexo (id_sexo);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_tipo_atendimento FOREIGN KEY (id_tipo_atendimento) references d_tipo_atendimento (id_tipo_atendimento);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_tipo_gestao FOREIGN KEY (id_tipo_gestao) references d_tipo_gestao (id_tipo_gestao);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_tipo_prestador FOREIGN KEY (id_tipo_prestador) references d_tipo_prestador (id_tipo_prestador);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_indicador_municipe FOREIGN KEY (id_indicador_municipe) references d_indicador_municipe (id_indicador_municipe);
+    ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_finalidade_tratamento  FOREIGN KEY (id_finalidade_tratamento ) references d_finalidade_tratamento (id_finalidade_tratamento );
+    </sql>
+    <rollback>
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_data_processamento; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_data_atendimento; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_data_identificacao_patologia; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_municipio_gestor; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_procedimento_apac; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_municipio_atendimento; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_data_inicio_tratamento; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_municipio_paciente; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_data_solicitacao; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_data_autorizacao; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_cid; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_estabelecimento_saude; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_estabelecimento_solicitante; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_faixa_anual; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_informacoes_apacs; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_raca_cor; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_sexo; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_tipo_atendimento; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_tipo_gestao; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_tipo_prestador; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_indicador_municipe; 
+     ALTER TABLE f_radioterapia DROP CONSTRAINT fk_d_finalidade_tratamento ; 
+    </rollback>
+  </changeSet> 
+          
+  <changeSet author="mateus.medeiros" id="311652">
+    <sql>
+        CREATE TABLE f_censo_populacao
+        (
+            id_data_referencia int NOT NULL,
+            id_municipio int NOT NULL,
+            qtd_populacao int,
+            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            _id_batch int
+        );
+
+    </sql>
+    <rollback>
+       drop TABLE f_censo_populacao cascade;
+    </rollback>
+  </changeSet>     
+    
+  <changeSet author="mateus.medeiros" id="311653">
+    <sql>
+    ALTER TABLE f_censo_populacao ADD CONSTRAINT Pk_censo_populacao PRIMARY KEY (id_data_referencia,id_municipio); 
+    </sql>
+    <rollback>
+     ALTER TABLE f_censo_populacao DROP CONSTRAINT Pk_censo_populacao; 
+    </rollback>
+  </changeSet> 
+        
+    <changeSet author="mateus.medeiros" id="311655">
+    <sql>
+    ALTER TABLE f_censo_populacao ADD CONSTRAINT fk_d_data_referencia FOREIGN KEY (id_data_referencia) references d_data (id_data);
+    ALTER TABLE f_censo_populacao ADD CONSTRAINT fk_d_municipio FOREIGN KEY (id_municipio) references d_municipio (id_municipio);
+    </sql>
+    <rollback>
+     ALTER TABLE f_censo_populacao DROP CONSTRAINT fk_d_data_referencia; 
+     ALTER TABLE f_censo_populacao DROP CONSTRAINT fk_d_municipio; 
+    </rollback>
+  </changeSet> 
+          
 </databaseChangeLog>
