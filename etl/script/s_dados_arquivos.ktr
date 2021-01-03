@@ -1,6 +1,6 @@
 <transformation>
   <info>
-    <name>s_lista_arquivos</name>
+    <name>s_dados_arquivos</name>
     <description/>
     <extended_description/>
     <trans_version/>
@@ -9,7 +9,7 @@
     <directory>&#x2f;script</directory>
     <parameters>
         <parameter>
-            <name>CAMINHO_ARQUIVO</name>
+            <name>CAMINHO</name>
             <default_value/>
             <description/>
         </parameter>
@@ -73,12 +73,39 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;08&#x2f;25 16&#x3a;38&#x3a;55.240</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2020&#x2f;12&#x2f;19 18&#x3a;37&#x3a;00.443</modified_date>
+  <modified_date>2021&#x2f;01&#x2f;03 10&#x3a;11&#x3a;46.824</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
   <notepads>
   </notepads>
+  <connection>
+    <name>TCC</name>
+    <server/>
+    <type>MYSQL</type>
+    <access>JNDI</access>
+    <database>TCC</database>
+    <port>1521</port>
+    <username/>
+    <password>Encrypted </password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>1521</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>N</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
   <connection>
     <name>TCCDW</name>
     <server/>
@@ -105,12 +132,12 @@
   </connection>
   <order>
   <hop> <from>Replace in string</from><to>Set Variables</to><enabled>Y</enabled> </hop>
-  <hop> <from>Get File Names</from><to>converte campos</to><enabled>Y</enabled> </hop>
   <hop> <from>converte campos</from><to>Replace in string</to><enabled>Y</enabled> </hop>
+  <hop> <from>Get Variables</from><to>converte campos</to><enabled>Y</enabled> </hop>
   </order>
   <step>
-    <name>Get File Names</name>
-    <type>GetFileNames</type>
+    <name>Get Variables</name>
+    <type>GetVariable</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -119,30 +146,24 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <filter>
-      <filterfiletype>all_files</filterfiletype>
-    </filter>
-    <doNotFailIfNoFile>N</doNotFailIfNoFile>
-    <rownum>N</rownum>
-    <isaddresult>Y</isaddresult>
-    <filefield>N</filefield>
-    <rownum_field/>
-    <filename_Field/>
-    <wildcard_Field/>
-    <exclude_wildcard_Field/>
-    <dynamic_include_subfolders>N</dynamic_include_subfolders>
-    <limit>0</limit>
-    <file>
-      <name>&#x24;&#x7b;CAMINHO_ARQUIVO&#x7d;</name>
-      <filemask/>
-      <exclude_filemask/>
-      <file_required>N</file_required>
-      <include_subfolders>Y</include_subfolders>
-    </file>
+    <fields>
+      <field>
+        <name>arquivo</name>
+        <variable>&#x24;&#x7b;CAMINHO&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>192</xloc>
-      <yloc>128</yloc>
+      <xloc>204</xloc>
+      <yloc>129</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -163,7 +184,7 @@
         <in_stream_name>tipo_ktr</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
-        <replace_string>d_</replace_string>
+        <replace_string>d</replace_string>
         <replace_by_string>dim</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
@@ -174,7 +195,7 @@
         <in_stream_name>tipo_ktr</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
-        <replace_string>f_</replace_string>
+        <replace_string>f</replace_string>
         <replace_by_string>fato</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
@@ -185,7 +206,7 @@
         <in_stream_name>tipo_ktr</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
-        <replace_string>s_</replace_string>
+        <replace_string>s</replace_string>
         <replace_by_string>script</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
@@ -196,7 +217,7 @@
         <in_stream_name>tipo_ktr</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
-        <replace_string>t_</replace_string>
+        <replace_string>t</replace_string>
         <replace_by_string>temp</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
@@ -207,7 +228,7 @@
         <in_stream_name>tipo_ktr</in_stream_name>
         <out_stream_name/>
         <use_regex>no</use_regex>
-        <replace_string>v_</replace_string>
+        <replace_string>v</replace_string>
         <replace_by_string>validacao</replace_by_string>
         <set_empty_string>N</set_empty_string>
         <replace_field_by_string/>
@@ -248,20 +269,14 @@
         <default_value/>
         </field>
       <field>
-        <field_name>short_filename</field_name>
+        <field_name>arquivo</field_name>
         <variable_name>ARQUIVO</variable_name>
         <variable_type>JVM</variable_type>
         <default_value/>
         </field>
       <field>
-        <field_name>path</field_name>
+        <field_name>pasta</field_name>
         <variable_name>DIRETORIO</variable_name>
-        <variable_type>JVM</variable_type>
-        <default_value/>
-        </field>
-      <field>
-        <field_name>type</field_name>
-        <variable_name>TIPO_ARQUIVO</variable_name>
         <variable_type>JVM</variable_type>
         <default_value/>
         </field>
@@ -290,24 +305,27 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var data_hora &#x3d; short_filename.split&#x28;&#x22;-&#x22;&#x29;&#x5b;0&#x5d;&#x3b;&#xd;&#xa;&#xd;&#xa;var transformacao&#x3b;&#xd;&#xa;var tipo_arquivo&#x3b;&#xd;&#xa;&#xd;&#xa;if &#x28;type &#x3d;&#x3d; &#x22;file&#x22;&#x29; &#x7b;&#xd;&#xa;	transformacao &#x3d; short_filename.split&#x28;&#x22;-&#x22;&#x29;&#x5b;1&#x5d;.replace&#x28;&#x22;.&#x22;&#x2b;extension, &#x22;&#x22;&#x29;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;else transformacao &#x3d; short_filename.split&#x28;&#x22;-&#x22;&#x29;&#x5b;1&#x5d;&#x3b;&#xd;&#xa;&#xd;&#xa;var tipo_ktr &#x3d; substr&#x28;short_filename.split&#x28;&#x22;-&#x22;&#x29;&#x5b;1&#x5d;, 0, 2&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
-      </jsScript>      <jsScript>        <jsScript_type>-1</jsScript_type>
-        <jsScript_name>getVariable_Sample</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f; Retrieves the value of a given Kettle&#x2f;Pentaho Variable&#xa;&#x2f;&#x2f; &#xa;&#x2f;&#x2f; Usage&#x3a;&#xa;&#x2f;&#x2f; getVariable&#x28;var, var&#x29;&#x3b;&#xa;&#x2f;&#x2f; 1&#x3a; String - The name of the variable to retrieve.&#xa;&#x2f;&#x2f; 2&#x3a; String - The default if the variable doesn&#x27;t exist.&#xa;&#x2f;&#x2f;&#xa;&#x2f;&#x2f; 2007-07-27&#xa;&#x2f;&#x2f;&#xa;var strVarName&#x3d;&#x22;getVariableTest&#x22;&#x3b;&#xa;var strVarValue&#x3d;&#x22;123456&#x22;&#x3b;&#xa;Alert&#x28;getVariable&#x28;strVarName, &#x22;&#x22;&#x29;&#x29;&#x3b;&#xa;setVariable&#x28;strVarName,strVarValue, &#x22;r&#x22;&#x29;&#x3b;&#xa;Alert&#x28;getVariable&#x28;strVarName, &#x22;&#x22;&#x29;&#x29;&#x3b;&#xa;strVarValue&#x3d;&#x22;654321&#x22;&#x3b;&#xa;setVariable&#x28;strVarName,strVarValue, &#x22;r&#x22;&#x29;&#x3b;&#xa;Alert&#x28;getVariable&#x28;strVarName, &#x22;&#x22;&#x29;&#x29;&#x3b;</jsScript_script>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;var nome_arquivo &#x3d; arquivo.split&#x28;&#x22;-&#x22;&#x29;&#x5b;1&#x5d;&#x3b;&#xd;&#xa;&#xd;&#xa;var transformacao &#x3d; nome_arquivo.split&#x28;&#x22;.&#x22;&#x29;&#x5b;0&#x5d;&#x3b;&#xd;&#xa;&#xd;&#xa;var tipo_ktr &#x3d; nome_arquivo.split&#x28;&#x22;_&#x22;&#x29;&#x5b;0&#x5d;&#x3b;&#xa;&#xa;var pasta &#x3d; nome_arquivo &#x3d; arquivo.split&#x28;&#x22;20&#x22;&#x29;&#x5b;0&#x5d;&#x3b;&#xd;&#xa;&#xd;&#xa;</jsScript_script>
       </jsScript>    </jsScripts>    <fields>      <field>        <name>transformacao</name>
         <rename>transformacao</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
-      </field>      <field>        <name>data_hora</name>
-        <rename>data_hora</rename>
+      </field>      <field>        <name>nome_arquivo</name>
+        <rename>nome_arquivo</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
         <replace>N</replace>
       </field>      <field>        <name>tipo_ktr</name>
         <rename>tipo_ktr</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>pasta</name>
+        <rename>pasta</rename>
         <type>String</type>
         <length>-1</length>
         <precision>-1</precision>
