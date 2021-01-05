@@ -9,7 +9,7 @@
     <directory>&#x2f;dim</directory>
     <parameters>
         <parameter>
-            <name>PASTA</name>
+            <name>ARQUIVO</name>
             <default_value/>
             <description/>
         </parameter>
@@ -74,7 +74,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;11&#x2f;24 08&#x3a;54&#x3a;46.722</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2021&#x2f;01&#x2f;04 21&#x3a;12&#x3a;13.754</modified_date>
+  <modified_date>2021&#x2f;01&#x2f;04 22&#x3a;05&#x3a;26.585</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -569,7 +569,7 @@
     <encoding>ISO-8859-1</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;CAMINHO_FONTE_EXTERNA_TCC&#x7d;&#x2f;Tabela_Unificada&#x2f;&#x24;&#x7b;PASTA&#x7d;&#x2f;tb_financiamento.txt</name>
+      <name>&#x24;&#x7b;ARQUIVO&#x7d;&#x2f;tb_financiamento.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -667,7 +667,7 @@
     <encoding>ISO-8859-1</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;CAMINHO_FONTE_EXTERNA_TCC&#x7d;&#x2f;Tabela_Unificada&#x2f;&#x24;&#x7b;PASTA&#x7d;&#x2f;tb_forma_organizacao.txt</name>
+      <name>&#x24;&#x7b;ARQUIVO&#x7d;&#x2f;tb_forma_organizacao.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -834,7 +834,7 @@
     <encoding>ISO-8859-1</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;CAMINHO_FONTE_EXTERNA_TCC&#x7d;&#x2f;Tabela_Unificada&#x2f;&#x24;&#x7b;PASTA&#x7d;&#x2f;tb_grupo.txt</name>
+      <name>&#x24;&#x7b;ARQUIVO&#x7d;&#x2f;tb_grupo.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1258,7 +1258,7 @@
     <encoding>ISO-8859-1</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;CAMINHO_FONTE_EXTERNA_TCC&#x7d;&#x2f;Tabela_Unificada&#x2f;&#x24;&#x7b;PASTA&#x7d;&#x2f;tb_procedimento.txt</name>
+      <name>&#x24;&#x7b;ARQUIVO&#x7d;&#x2f;tb_procedimento.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
@@ -1909,7 +1909,7 @@
     <encoding>ISO-8859-1</encoding>
     <add_to_result_filenames>Y</add_to_result_filenames>
     <file>
-      <name>&#x24;&#x7b;CAMINHO_FONTE_EXTERNA_TCC&#x7d;&#x2f;Tabela_Unificada&#x2f;&#x24;&#x7b;PASTA&#x7d;&#x2f;tb_sub_grupo.txt</name>
+      <name>&#x24;&#x7b;ARQUIVO&#x7d;&#x2f;tb_sub_grupo.txt</name>
       <filemask/>
       <exclude_filemask/>
       <file_required>N</file_required>
