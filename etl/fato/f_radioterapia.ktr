@@ -79,7 +79,7 @@
   <created_user>-</created_user>
   <created_date>2015&#x2f;12&#x2f;18 15&#x3a;19&#x3a;37.273</created_date>
   <modified_user>-</modified_user>
-  <modified_date>2021&#x2f;01&#x2f;16 10&#x3a;40&#x3a;26.052</modified_date>
+  <modified_date>2021&#x2f;01&#x2f;16 11&#x3a;11&#x3a;21.365</modified_date>
     <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
     <is_key_private>N</is_key_private>
   </info>
@@ -211,8 +211,16 @@
   <hop> <from>sigla estado</from><to>Merge Join 4</to><enabled>Y</enabled> </hop>
   <hop> <from>Merge Join 2</from><to>Merge Join 4</to><enabled>Y</enabled> </hop>
   <hop> <from>Merge Join 4</from><to>Insere f_radioterapia</to><enabled>Y</enabled> </hop>
-  <hop> <from>Java Script</from><to>Ind Mun&#xed;cipe</to><enabled>Y</enabled> </hop>
   <hop> <from>Ind Mun&#xed;cipe</from><to>apaga campos</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>ind_mun</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows</from><to>Filter rows 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>ind_mun</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>ind_mun 2</to><enabled>Y</enabled> </hop>
+  <hop> <from>Filter rows 2</from><to>ind_mun 3</to><enabled>Y</enabled> </hop>
+  <hop> <from>ind_mun 2</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>ind_mun 3</from><to>Dummy &#x28;do nothing&#x29;</to><enabled>Y</enabled> </hop>
+  <hop> <from>Java Script</from><to>Filter rows</to><enabled>Y</enabled> </hop>
+  <hop> <from>Dummy &#x28;do nothing&#x29;</from><to>Ind Mun&#xed;cipe</to><enabled>Y</enabled> </hop>
   </order>
   <step>
     <name>Dados Radioterapia</name>
@@ -239,6 +247,48 @@
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
       <xloc>47</xloc>
       <yloc>33</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Ind Mun&#xed;cipe</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>TCCDW</connection>
+    <cache>Y</cache>
+    <cache_load_all>Y</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>d_indicador_municipe</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>Y</eat_row_on_failure>
+      <key>
+        <name>id_indicador_municipe_src</name>
+        <field>cod_indicador_municipe</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id_indicador_municipe</name>
+        <rename>id_indicador_municipe</rename>
+        <default/>
+        <type>Integer</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1107</xloc>
+      <yloc>106</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -399,8 +449,8 @@
     </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>836</xloc>
-      <yloc>162</yloc>
+      <xloc>1233</xloc>
+      <yloc>172</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -420,14 +470,8 @@
     <optimizationLevel>9</optimizationLevel>
     <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
         <jsScript_name>Script 1</jsScript_name>
-        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;var id_indicador_municipe_src&#x3b;&#xa;&#xa;if&#x28;id_municipio_atendimento_src &#x3d;&#x3d; id_municipio_residencia_src&#x29;&#xa;&#x7b;&#xa;	id_indicador_municipe_src &#x3d; 1&#x3b;&#xa;&#x7d;else if &#x28;id_municipio_atendimento_src &#x3d;&#x3d; null&#x29;&#xa;&#x7b;&#xa;	id_indicador_municipe_src &#x3d; 0&#x3b;&#xa;&#x7d;else if &#x28;id_municipio_residencia_src &#x3d;&#x3d; null&#x29;&#xa;&#x7b;&#xa;	id_indicador_municipe_src &#x3d; 0&#x3b;&#xa;&#x7d;else&#xa;&#x7b;&#xa;	id_indicador_municipe_src &#x3d; 2&#x3b;&#xa;&#x7d;&#xa;&#xa;var qtd_apac &#x3d; 1&#x3b;&#xa;&#xa;var id_data_inicio_validade &#x3d; parseInt&#x28;id_data_inicio_validade_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_data_fim_validade &#x3d; parseInt&#x28;id_data_fim_validade_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_data_solicitacao &#x3d; parseInt&#x28;id_data_solicitacao_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_data_autorizacao &#x3d; parseInt&#x28;id_data_autorizacao_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_data_identificacao &#x3d; parseInt&#x28;id_data_identificacao_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_data_inicio_tratamento &#x3d; parseInt&#x28;id_data_inicio_tratamento_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_faixa_etaria_src&#x3b;&#xd;&#xa;&#xd;&#xa;var id_idade &#x3d; parseInt&#x28;idade&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var codigo_idade &#x3d; parseInt&#x28;cod_idade&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;if&#x28;codigo_idade &#x3d;&#x3d; 3&#x29;&#xd;&#xa;&#x7b;&#xd;&#xa;	id_faixa_etaria_src &#x3d; 0&#x3b;&#xd;&#xa;&#x7d;else if&#x28;codigo_idade &#x3d;&#x3d; 4&#x29;&#xd;&#xa;&#x7b;&#xd;&#xa;	id_faixa_etaria_src &#x3d; id_idade&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;else&#xd;&#xa;&#x7b;&#xd;&#xa;	id_faixa_etaria_src &#x3d; -1&#x3b;&#xd;&#xa;&#x7d;&#xa;&#xa;var dia &#x3d; &#x27;01&#x27;&#x3b;&#xa;&#xa;var qtd_apac &#x3d; 1&#x3b;&#xa;&#xa;var tmp_data_atendimento &#x3d; id_data_atendimento_a &#x2b; dia&#x3b;&#xa;&#xa;var tmp_data_processamento &#x3d; data_processamento_a &#x2b; dia&#x3b;&#xa;&#xa;var id_data_atendimento &#x3d; parseInt&#x28;tmp_data_atendimento&#x29;&#x3b;&#xa;&#xa;var id_data_processamento &#x3d; parseInt&#x28;tmp_data_processamento&#x29;&#x3b;&#xd;&#xa;</jsScript_script>
-      </jsScript>    </jsScripts>    <fields>      <field>        <name>id_indicador_municipe_src</name>
-        <rename>id_indicador_municipe_src</rename>
-        <type>Integer</type>
-        <length>-1</length>
-        <precision>-1</precision>
-        <replace>N</replace>
-      </field>      <field>        <name>qtd_apac</name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;var qtd_apac &#x3d; 1&#x3b;&#xa;&#xa;var id_data_inicio_validade &#x3d; parseInt&#x28;id_data_inicio_validade_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_data_fim_validade &#x3d; parseInt&#x28;id_data_fim_validade_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_data_solicitacao &#x3d; parseInt&#x28;id_data_solicitacao_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_data_autorizacao &#x3d; parseInt&#x28;id_data_autorizacao_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_data_identificacao &#x3d; parseInt&#x28;id_data_identificacao_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_data_inicio_tratamento &#x3d; parseInt&#x28;id_data_inicio_tratamento_a&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var id_faixa_etaria_src&#x3b;&#xd;&#xa;&#xd;&#xa;var id_idade &#x3d; parseInt&#x28;idade&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;var codigo_idade &#x3d; parseInt&#x28;cod_idade&#x29;&#x3b;&#xd;&#xa;&#xd;&#xa;if&#x28;codigo_idade &#x3d;&#x3d; 3&#x29;&#xd;&#xa;&#x7b;&#xd;&#xa;	id_faixa_etaria_src &#x3d; 0&#x3b;&#xd;&#xa;&#x7d;else if&#x28;codigo_idade &#x3d;&#x3d; 4&#x29;&#xd;&#xa;&#x7b;&#xd;&#xa;	id_faixa_etaria_src &#x3d; id_idade&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;else&#xd;&#xa;&#x7b;&#xd;&#xa;	id_faixa_etaria_src &#x3d; -1&#x3b;&#xd;&#xa;&#x7d;&#xa;&#xa;var dia &#x3d; &#x27;01&#x27;&#x3b;&#xa;&#xa;var qtd_apac &#x3d; 1&#x3b;&#xa;&#xa;var tmp_data_atendimento &#x3d; id_data_atendimento_a &#x2b; dia&#x3b;&#xa;&#xa;var tmp_data_processamento &#x3d; data_processamento_a &#x2b; dia&#x3b;&#xa;&#xa;var id_data_atendimento &#x3d; parseInt&#x28;tmp_data_atendimento&#x29;&#x3b;&#xa;&#xa;var id_data_processamento &#x3d; parseInt&#x28;tmp_data_processamento&#x29;&#x3b;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>qtd_apac</name>
         <rename>qtd_apac</rename>
         <type>Integer</type>
         <length>-1</length>
@@ -515,8 +559,8 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>827</xloc>
-      <yloc>11</yloc>
+      <xloc>1224</xloc>
+      <yloc>21</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -541,8 +585,8 @@
     </keys_2>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>832</xloc>
-      <yloc>89</yloc>
+      <xloc>1229</xloc>
+      <yloc>99</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1230,8 +1274,8 @@
       </fields>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>930</xloc>
-      <yloc>14</yloc>
+      <xloc>1327</xloc>
+      <yloc>24</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -1278,8 +1322,8 @@
       </remove>      <remove>        <name>finalidade_tratamento</name>
       </remove>    </fields>     <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>710</xloc>
-      <yloc>11</yloc>
+      <xloc>1107</xloc>
+      <yloc>21</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
@@ -2085,15 +2129,15 @@
     <lazy_conversion_active>N</lazy_conversion_active>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>934</xloc>
-      <yloc>88</yloc>
+      <xloc>1331</xloc>
+      <yloc>98</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
 
   <step>
-    <name>Ind Mun&#xed;cipe</name>
-    <type>DBLookup</type>
+    <name>Filter rows</name>
+    <type>FilterRows</type>
     <description/>
     <distribute>Y</distribute>
     <custom_distribution/>
@@ -2102,33 +2146,167 @@
            <method>none</method>
            <schema_name/>
            </partitioning>
-    <connection>TCCDW</connection>
-    <cache>Y</cache>
-    <cache_load_all>Y</cache_load_all>
-    <cache_size>0</cache_size>
-    <lookup>
-      <schema/>
-      <table>d_indicador_municipe</table>
-      <orderby/>
-      <fail_on_multiple>N</fail_on_multiple>
-      <eat_row_on_failure>Y</eat_row_on_failure>
-      <key>
-        <name>id_indicador_municipe_src</name>
-        <field>cod_indicador_municipe</field>
-        <condition>&#x3d;</condition>
-        <name2/>
-      </key>
-      <value>
-        <name>id_indicador_municipe</name>
-        <rename>id_indicador_municipe</rename>
-        <default/>
-        <type>Integer</type>
-      </value>
-    </lookup>
+<send_true_to>ind_mun</send_true_to>
+<send_false_to>Filter rows 2</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>id_municipio_atendimento_src</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue>id_municipio_residencia_src</rightvalue>
+ </condition>
+    </compare>
      <cluster_schema/>
  <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
-      <xloc>710</xloc>
-      <yloc>96</yloc>
+      <xloc>713</xloc>
+      <yloc>99</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>ind_mun</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>id_indicador_municipe_src</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>1</field_a>
+<field_b/>
+<field_c/>
+<value_type>Integer</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>878</xloc>
+      <yloc>24</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Filter rows 2</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>ind_mun 2</send_true_to>
+<send_false_to>ind_mun 3</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>id_municipio_atendimento_src</leftvalue>
+ <function>&#x3c;&#x3e;</function>
+ <rightvalue>id_municipio_residencia_src</rightvalue>
+ </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>795</xloc>
+      <yloc>102</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>ind_mun 2</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>id_indicador_municipe_src</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>2</field_a>
+<field_b/>
+<field_c/>
+<value_type>Integer</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>881</xloc>
+      <yloc>103</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>ind_mun 3</name>
+    <type>Calculator</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+       <calculation><field_name>id_indicador_municipe_src</field_name>
+<calc_type>CONSTANT</calc_type>
+<field_a>0</field_a>
+<field_b/>
+<field_c/>
+<value_type>Integer</value_type>
+<value_length>-1</value_length>
+<value_precision>-1</value_precision>
+<remove>N</remove>
+<conversion_mask/>
+<decimal_symbol/>
+<grouping_symbol/>
+<currency_symbol/>
+</calculation>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>878</xloc>
+      <yloc>182</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>Dummy &#x28;do nothing&#x29;</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>993</xloc>
+      <yloc>106</yloc>
       <draw>Y</draw>
       </GUI>
     </step>
