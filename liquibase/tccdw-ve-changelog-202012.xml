@@ -52,7 +52,7 @@
     </rollback>
   </changeSet>
                   
-  <changeSet author="mateus.medeiros" id="051901">
+  <changeSet author="mateus.medeiros" id="051902">
     <sql>
         CREATE TABLE d_estabelecimento_saude
         (
@@ -76,6 +76,8 @@
             numero varchar(20),
             bairro varchar(100),
             sigla_estado_processamento varchar(5),
+            latitude numeric(9,6),
+            longitude numeric(9,6),
             _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
             _id_batch int
         );
@@ -86,7 +88,7 @@
     </rollback>
   </changeSet>     
     
-  <changeSet author="mateus.medeiros" id="011903">
+  <changeSet author="mateus.medeiros" id="011904">
     <sql>
     ALTER TABLE d_estabelecimento_saude ADD CONSTRAINT Pk_estabelecimento_saude PRIMARY KEY (id_estabelecimento_saude); 
     </sql>
@@ -94,37 +96,6 @@
      ALTER TABLE d_estabelecimento_saude DROP CONSTRAINT Pk_estabelecimento_saude; 
     </rollback>
   </changeSet>              
-       
-  <changeSet author="mateus.medeiros" id="191850">
-    <sql>
-        CREATE TABLE d_profissional_saude
-        (
-            id_profissional_saude int NOT NULL,
-            cod_cns varchar(20),
-            nome varchar(200),
-            cbo varchar(15),
-            conselho_prof varchar(15),
-            registro_conselho varchar(100),
-            profissional_sus varchar(15),
-            _dt_hr_carga timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            _id_batch int,
-            sigla_estado_processamento varchar(2)
-        );
-
-    </sql>
-    <rollback>
-       drop TABLE d_profissional_saude cascade;
-    </rollback>
-  </changeSet>     
-    
-  <changeSet author="mateus.medeiros" id="191855">
-    <sql>
-    ALTER TABLE d_profissional_saude ADD CONSTRAINT Pk_profissional_saude PRIMARY KEY (id_profissional_saude); 
-    </sql>
-    <rollback>
-     ALTER TABLE d_profissional_saude DROP CONSTRAINT Pk_profissional_saude; 
-    </rollback>
-  </changeSet>
                      
   <changeSet author="mateus.medeiros" id="191950">
     <sql>
@@ -480,7 +451,7 @@
     </rollback>
   </changeSet>
                
-  <changeSet author="mateus.medeiros" id="311504">
+  <changeSet author="mateus.medeiros" id="311501">
     <sql>
           CREATE TABLE f_quimioterapia
     (   
@@ -523,7 +494,7 @@
     </rollback>
   </changeSet> 
         
-    <changeSet author="mateus.medeiros" id="311505">
+    <changeSet author="mateus.medeiros" id="311502">
     <sql>
     ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_data_processamento FOREIGN KEY (id_data_processamento) references d_data (id_data);
     ALTER TABLE f_quimioterapia ADD CONSTRAINT fk_d_data_atendimento FOREIGN KEY (id_data_atendimento) references d_data (id_data);
@@ -572,7 +543,7 @@
     </rollback>
   </changeSet> 
        
-  <changeSet author="mateus.medeiros" id="311458">
+  <changeSet author="mateus.medeiros" id="311456">
     <sql>
           CREATE TABLE f_radioterapia
     (   
@@ -616,7 +587,7 @@
     </rollback>
   </changeSet>       
     
-    <changeSet author="mateus.medeiros" id="311515">
+    <changeSet author="mateus.medeiros" id="311514">
     <sql>
     ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_data_processamento FOREIGN KEY (id_data_processamento) references d_data (id_data);
     ALTER TABLE f_radioterapia ADD CONSTRAINT fk_d_data_atendimento FOREIGN KEY (id_data_atendimento) references d_data (id_data);
