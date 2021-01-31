@@ -6,10 +6,12 @@
 
 #sh convertercsvs.sh (caminho arquivos) (nome arquivos)
 
+#/home/a4pm/Documentos/blast-dbf/  caminho onde está instalado o software de conversão
+
 caminho=$1  
 nome=$2
 
-cd /home/a4pm/Documentos/blast-dbf/
+cd /home/a4pm/Documentos/blast-dbf/ 
 
 make
 
