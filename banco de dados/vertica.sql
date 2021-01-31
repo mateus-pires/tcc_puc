@@ -414,3 +414,242 @@ CREATE TABLE d_data
     ALTER TABLE f_censo_populacao ADD CONSTRAINT Pk_censo_populacao PRIMARY KEY (id_data_referencia,id_municipio); 
     ALTER TABLE f_censo_populacao ADD CONSTRAINT fk_d_data_referencia FOREIGN KEY (id_data_referencia) references d_data (id_data);
     ALTER TABLE f_censo_populacao ADD CONSTRAINT fk_d_municipio FOREIGN KEY (id_municipio) references d_municipio (id_municipio);
+
+-- View da dimensão de CID
+
+CREATE  VIEW tccdw.vw_d_cid AS
+ SELECT d_cid.id_cid,
+        d_cid.cod_categoria_cid,
+        d_cid.categoria_cid,
+        d_cid.grupo_cid,
+        d_cid.capitulo_cid,
+        d_cid.cid_nome,
+        d_cid.cod_capitulo,
+        d_cid.cod_cid,
+        d_cid._dt_hr_carga,
+        d_cid._id_batch
+ FROM tccdw.d_cid
+ WHERE (d_cid.id_cid IN ( SELECT f_quimioterapia.id_cid
+ FROM tccdw.f_quimioterapia
+ GROUP BY f_quimioterapia.id_cid UNION  SELECT f_radioterapia.id_cid
+ FROM tccdw.f_radioterapia
+ GROUP BY f_radioterapia.id_cid));
+ 
+ -- View da dimensão de estabelecimento de saúde
+
+CREATE  VIEW tccdw.vw_d_estabelecimento_saude AS
+ SELECT d_estabelecimento_saude.id_estabelecimento_saude,
+        d_estabelecimento_saude.cod_cnes,
+        d_estabelecimento_saude.cep,
+        d_estabelecimento_saude.cnpj_mantenedora,
+        initcap(d_estabelecimento_saude.nome_fantasia) AS nome_fantasia,
+        d_estabelecimento_saude.razao_soc_mantenedora,
+        d_estabelecimento_saude._ativador,
+        d_estabelecimento_saude.data_inclusao,
+        d_estabelecimento_saude.data_exclusao,
+        d_estabelecimento_saude.vinculo_sus,
+        d_estabelecimento_saude.tipo_gestao,
+        d_estabelecimento_saude.tipo_unidade,
+        d_estabelecimento_saude.turno_atendimento,
+        d_estabelecimento_saude.fluxo_clientela,
+        d_estabelecimento_saude.logradouro,
+        d_estabelecimento_saude.numero,
+        d_estabelecimento_saude.bairro,
+        d_estabelecimento_saude.sigla_estado_processamento,
+        d_estabelecimento_saude.latitude,
+        d_estabelecimento_saude.longitude,
+        d_estabelecimento_saude._dt_hr_carga,
+        d_estabelecimento_saude._id_batch
+ FROM tccdw.d_estabelecimento_saude
+ WHERE (d_estabelecimento_saude.id_estabelecimento_saude IN ( SELECT f_quimioterapia.id_estabelecimento_saude
+ FROM tccdw.f_quimioterapia
+ GROUP BY f_quimioterapia.id_estabelecimento_saude UNION  SELECT f_radioterapia.id_estabelecimento_saude
+ FROM tccdw.f_radioterapia
+ GROUP BY f_radioterapia.id_estabelecimento_saude));
+ 
+ -- View da dimensão de município, com papel de município de atendimento
+
+CREATE  VIEW tccdw.vw_d_municipio_atendimento AS
+ SELECT d_municipio.id_municipio,
+        d_municipio.cod_municipio,
+        d_municipio.cod_municipio_ibge,
+        d_municipio.nome_municipio,
+        d_municipio.nome_municipio_padronizado,
+        d_municipio.cod_uf,
+        d_municipio.uf_nome,
+        d_municipio.uf_sigla,
+        d_municipio.cod_regiao,
+        d_municipio.nome_regiao,
+        d_municipio.ver_capital,
+        d_municipio.ver_semi_arido,
+        d_municipio.ver_extrema_pobreza,
+        d_municipio.ano_instalacao,
+        d_municipio.ano_extincao,
+        d_municipio.latitude,
+        d_municipio.longitude,
+        d_municipio.altitude,
+        d_municipio.area,
+        d_municipio._dt_hr_carga,
+        d_municipio._id_batch
+ FROM tccdw.d_municipio
+ WHERE (d_municipio.id_municipio IN ( SELECT f_quimioterapia.id_municipio_atendimento
+ FROM tccdw.f_quimioterapia
+ GROUP BY f_quimioterapia.id_municipio_atendimento UNION  SELECT f_radioterapia.id_municipio_atendimento
+ FROM tccdw.f_radioterapia
+ GROUP BY f_radioterapia.id_municipio_atendimento));
+
+-- View da dimensão de Procedimento Tabela Unificada
+
+CREATE  VIEW tccdw.vw_d_procedimento_tabela_unificada AS
+ SELECT d_procedimento_tabela_unificada.id_procedimento,
+        d_procedimento_tabela_unificada.cod_procedimento,
+        initcap(d_procedimento_tabela_unificada.nome_procedimento) AS nome_procedimento,
+        d_procedimento_tabela_unificada.complexidade,
+        d_procedimento_tabela_unificada.sexo,
+        d_procedimento_tabela_unificada.cod_grupo_procedimento,
+        d_procedimento_tabela_unificada.nome_grupo_procedimento,
+        d_procedimento_tabela_unificada.cod_sub_grupo_procedimento,
+        d_procedimento_tabela_unificada.nome_sub_grupo_procedimento,
+        d_procedimento_tabela_unificada.cod_forma_organizacao_procedimento,
+        d_procedimento_tabela_unificada.nome_forma_organizacao_procedimento,
+        d_procedimento_tabela_unificada.cod_financiamento,
+        d_procedimento_tabela_unificada.nome_financiamento,
+        d_procedimento_tabela_unificada._dt_hr_carga,
+        d_procedimento_tabela_unificada._id_batch
+ FROM tccdw.d_procedimento_tabela_unificada
+ WHERE (d_procedimento_tabela_unificada.id_procedimento IN ( SELECT f_quimioterapia.id_procedimento_apac
+ FROM tccdw.f_quimioterapia
+ GROUP BY f_quimioterapia.id_procedimento_apac UNION  SELECT f_radioterapia.id_procedimento_apac
+ FROM tccdw.f_radioterapia
+ GROUP BY f_radioterapia.id_procedimento_apac));
+ 
+-- View das médias mensais de quimioterapia
+
+CREATE  VIEW tccdw.vw_f_medias_mensais_quimioterapia AS
+ SELECT coalesce(round((sum(f.qtd_apac) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_apacs,
+        coalesce(round((sum(f.valor_total_apac) / count(DISTINCT dd.ano_mes))), 0::float) AS media_valor_apacs,
+        coalesce(round((sum(f.qtd_alta) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_altas,
+        coalesce(round((sum(f.qtd_permanencia) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_permanencia,
+        coalesce(round((sum(f.qtd_transferencia) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_transferencias,
+        coalesce(round((sum(f.qtd_encerramento) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_encerramento,
+        coalesce(round((sum(f.qtd_obito) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_obitos
+ FROM (tccdw.f_quimioterapia f JOIN tccdw.d_data dd ON ((dd.id_data = f.id_data_atendimento)));
+
+-- View das médias mensais de radioterapia
+
+CREATE  VIEW tccdw.vw_f_medias_mensais_radioterapia AS
+ SELECT coalesce(round((sum(f.qtd_apac) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_apacs,
+        coalesce(round((sum(f.valor_total_apac) / count(DISTINCT dd.ano_mes))), 0::float) AS media_valor_apacs,
+        coalesce(round((sum(f.qtd_alta) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_altas,
+        coalesce(round((sum(f.qtd_permanencia) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_permanencia,
+        coalesce(round((sum(f.qtd_transferencia) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_transferencias,
+        coalesce(round((sum(f.qtd_encerramento) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_encerramento,
+        coalesce(round((sum(f.qtd_obito) / count(DISTINCT dd.ano_mes)), 0), 0::numeric(18,0)) AS media_obitos
+ FROM (tccdw.f_radioterapia f JOIN tccdw.d_data dd ON ((dd.id_data = f.id_data_atendimento)));
+
+-- View com valores mensais de quimioterapia
+
+CREATE  VIEW tccdw.vw_f_quimioterapia_mensal AS
+ SELECT coalesce(sum(f_quimioterapia.qtd_apac), 0) AS atendimentos_quimio,
+        coalesce(sum(f_quimioterapia.qtd_obito), 0) AS obitos_quimio,
+        f_quimioterapia.id_data_atendimento,
+        f_quimioterapia.id_municipio_atendimento,
+        f_quimioterapia.id_estabelecimento_saude,
+        f_quimioterapia.id_cid,
+        f_quimioterapia.id_procedimento_apac
+ FROM tccdw.f_quimioterapia
+ GROUP BY f_quimioterapia.id_data_atendimento,
+          f_quimioterapia.id_municipio_atendimento,
+          f_quimioterapia.id_estabelecimento_saude,
+          f_quimioterapia.id_cid,
+          f_quimioterapia.id_procedimento_apac;
+          
+-- View de Radioterapia para gráfico box splot
+
+CREATE  VIEW tccdw.vw_f_radioterapia_box_splot AS
+ SELECT sum(f.qtd_apac) AS apacs,
+        sum(f.valor_total_apac) AS valor,
+        f.id_municipio_atendimento,
+        f.id_data_atendimento
+ FROM (tccdw.f_radioterapia f JOIN tccdw.d_data dd ON ((dd.id_data = f.id_data_atendimento)))
+ GROUP BY f.id_municipio_atendimento,
+          f.id_data_atendimento;   
+          
+-- View com valores mensais de Radioterapia
+
+CREATE  VIEW tccdw.vw_f_radioterapia_mensal AS
+ SELECT coalesce(sum(f_radioterapia.qtd_apac), 0) AS atendimentos_radio,
+        coalesce(sum(f_radioterapia.qtd_obito), 0) AS obitos_radio,
+        f_radioterapia.id_data_atendimento,
+        f_radioterapia.id_municipio_atendimento,
+        f_radioterapia.id_estabelecimento_saude,
+        f_radioterapia.id_cid,
+        f_radioterapia.id_procedimento_apac
+ FROM tccdw.f_radioterapia
+ GROUP BY f_radioterapia.id_data_atendimento,
+          f_radioterapia.id_municipio_atendimento,
+          f_radioterapia.id_estabelecimento_saude,
+          f_radioterapia.id_cid,
+          f_radioterapia.id_procedimento_apac;  
+          
+-- View com dados do último mês carregado de Quimioterapia
+
+CREATE  VIEW tccdw.vw_f_ultimos_mes_quimioterapia AS
+ SELECT coalesce(sum(f.qtd_apac), 0) AS qtd_atual_apacs,
+        coalesce(sum(f.valor_total_apac), 0::float) AS valor_atual_apacs,
+        coalesce(sum(f.qtd_alta), 0) AS qtd_atual_altas,
+        coalesce(sum(f.qtd_permanencia), 0) AS qtd_atual_permanencia,
+        coalesce(sum(f.qtd_transferencia), 0) AS qtd_atual_transferencias,
+        coalesce(sum(f.qtd_encerramento), 0) AS qtd_atual_encerramento,
+        coalesce(sum(f.qtd_obito), 0) AS qtd_atual_obitos,
+        f.id_sexo,
+        f.id_faixa_etaria,
+        f.id_cid
+ FROM (tccdw.f_quimioterapia f JOIN tccdw.d_data dd ON ((dd.id_data = f.id_data_atendimento)))
+ WHERE (dd.ano_mes = ( SELECT max(dd.ano_mes) AS max
+ FROM (tccdw.f_quimioterapia f JOIN tccdw.d_data dd ON ((dd.id_data = f.id_data_atendimento)))))
+ GROUP BY f.id_sexo,
+          f.id_faixa_etaria,
+          f.id_cid;          
+          
+-- View com dados do último mês carregado de Radioterapia
+
+CREATE  VIEW tccdw.vw_f_ultimos_mes_radioterapia AS
+ SELECT coalesce(sum(f.qtd_apac), 0) AS qtd_atual_apacs,
+        coalesce(sum(f.valor_total_apac), 0::float) AS valor_atual_apacs,
+        coalesce(sum(f.qtd_alta), 0) AS qtd_atual_altas,
+        coalesce(sum(f.qtd_permanencia), 0) AS qtd_atual_permanencia,
+        coalesce(sum(f.qtd_transferencia), 0) AS qtd_atual_transferencias,
+        coalesce(sum(f.qtd_encerramento), 0) AS qtd_atual_encerramento,
+        coalesce(sum(f.qtd_obito), 0) AS qtd_atual_obitos
+ FROM (tccdw.f_radioterapia f JOIN tccdw.d_data dd ON ((dd.id_data = f.id_data_atendimento)))
+ WHERE (dd.ano_mes = ( SELECT max(dd.ano_mes) AS max
+ FROM (tccdw.f_radioterapia f JOIN tccdw.d_data dd ON ((dd.id_data = f.id_data_atendimento)))));
+          
+-- View top 10 de métricas de quimioterapia do último mês carregado
+
+CREATE  VIEW tccdw.vw_quimioterapia_top_10_municipes AS
+ SELECT sum(f.qtd_apac) AS apacs,
+        sum(CASE WHEN (mun.cod_indicador_municipe = 1) THEN f.qtd_apac ELSE 0 END) AS qtd_municipe,
+        round(((sum(CASE WHEN (mun.cod_indicador_municipe = 1) THEN f.qtd_apac ELSE 0 END) / sum(f.qtd_apac)) * 100::numeric(18,0)), 2) AS percent_municipe,
+        sum(CASE WHEN (mun.cod_indicador_municipe = 2) THEN f.qtd_apac ELSE 0 END) AS qtd_n_municipe,
+        round(((sum(CASE WHEN (mun.cod_indicador_municipe = 2) THEN f.qtd_apac ELSE 0 END) / sum(f.qtd_apac)) * 100::numeric(18,0)), 2) AS percent_n_municipe,
+        mu.id_municipio
+ FROM (((tccdw.f_quimioterapia f JOIN tccdw.d_data dd ON ((dd.id_data = f.id_data_atendimento))) JOIN tccdw.d_indicador_municipe mun ON ((mun.id_indicador_municipe = f.id_indicador_municipe))) JOIN tccdw.d_municipio mu ON ((mu.id_municipio = f.id_municipio_atendimento)))
+ WHERE (dd.ano_mes = ( SELECT max(dd.ano_mes) AS max
+ FROM (tccdw.f_quimioterapia f JOIN tccdw.d_data dd ON ((dd.id_data = f.id_data_atendimento)))))
+ GROUP BY mu.id_municipio
+ ORDER BY sum(f.qtd_apac) DESC
+ LIMIT 10;
+          
+-- View de top 5 de quimioterapia por cid com dados do último mês
+
+CREATE  VIEW tccdw.vw_quimioterapia_top_5_obitos_cid AS
+ SELECT sum(f.qtd_obito) AS obitos,
+        f.id_cid
+ FROM (tccdw.f_quimioterapia f JOIN tccdw.d_data dd ON ((dd.id_data = f.id_data_atendimento)))
+ WHERE (dd.ano_mes = ( SELECT max(dd.ano_mes) AS max
+ FROM (tccdw.f_quimioterapia f JOIN tccdw.d_data dd ON ((dd.id_data = f.id_data_atendimento)))))
+ GROUP BY f.id_cid
+ ORDER BY sum(f.qtd_obito) DESC
+ LIMIT 5;          
